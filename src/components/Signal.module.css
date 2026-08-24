@@ -1,0 +1,175 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: radial-gradient(circle at center, #ffffff 0%, #eaf0f8 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 400ms cubic-bezier(0.16, 1, 0.3, 1), visibility 400ms ease;
+}
+
+.overlayDismissed {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem;
+  max-width: 540px;
+  text-align: center;
+  position: relative;
+}
+
+.logoRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1.75rem;
+}
+
+.logoItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(8px) scale(0.95);
+  animation: logoFadeIn 450ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.logoItem:nth-child(1) {
+  animation-delay: 120ms;
+}
+
+.dividerDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  opacity: 0;
+  animation: dotPop 300ms cubic-bezier(0.34, 1.56, 0.64, 1) 320ms forwards;
+}
+
+.logoItem:nth-child(3) {
+  animation-delay: 450ms;
+}
+
+.brandImage {
+  height: auto;
+  object-fit: contain;
+}
+
+/* Branching signal beam */
+.beamContainer {
+  width: 180px;
+  height: 36px;
+  position: relative;
+  margin: 0.5rem 0 1rem;
+}
+
+.beamSvg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.beamLine {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  animation: beamDraw 600ms ease 550ms forwards;
+}
+
+.signalTag {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0;
+  animation: fadeIn 350ms ease 750ms forwards;
+}
+
+.livePulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--color-accent-emerald);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+  animation: pulseGlow 1.2s infinite alternate;
+}
+
+.skipBtn {
+  margin-top: 1.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xs);
+  background: rgba(255, 255, 255, 0.8);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.skipBtn:hover {
+  color: var(--color-text-primary);
+  border-color: var(--color-primary);
+}
+
+@keyframes logoFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes dotPop {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes beamDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulseGlow {
+  from {
+    opacity: 0.5;
+    box-shadow: 0 0 0 1px rgba(16, 185, 129, 0.15);
+  }
+  to {
+    opacity: 1;
+    box-shadow: 0 0 0 5px rgba(16, 185, 129, 0.3);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay {
+    display: none !important;
+  }
+}

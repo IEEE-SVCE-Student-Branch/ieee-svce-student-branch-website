@@ -1,0 +1,105 @@
+.headerSection {
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+  border-bottom: 1px solid var(--color-border);
+  background: 
+    radial-gradient(circle at 80% 20%, rgba(200, 225, 252, 0.4), transparent 60%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(238, 244, 250, 0.9) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.breadcrumbNav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 1.25rem;
+}
+
+.breadcrumbLink {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+}
+
+.breadcrumbLink:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.separator {
+  color: var(--color-text-muted);
+}
+
+.currentBreadcrumb {
+  color: var(--color-primary);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.headingArea {
+  display: flex;
+  flex-direction: column;
+}
+
+.tagline {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.pageTitle {
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  color: var(--color-text-primary);
+}
+
+.pageDescription {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin-top: 0.75rem;
+  max-width: 800px;
+}
+
+.metaRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-border-subtle);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--color-text-secondary);
+}
+
+.provenanceStamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--color-surface);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--color-border);
+  padding: 0.25rem 0.625rem;
+  border-radius: var(--radius-xs);
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.contentSection {
+  padding-top: 3.5rem;
+  padding-bottom: 5.5rem;
+  position: relative;
+  z-index: 1;
+}

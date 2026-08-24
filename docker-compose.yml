@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: ieee-svce-postgres
+    environment:
+      POSTGRES_USER: ieee
+      POSTGRES_PASSWORD: ieee_dev
+      POSTGRES_DB: ieee_svce
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

@@ -1,0 +1,220 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* ==========================================================================
+     IEEE SVCE — THE SIGNAL FIELD (Phase 1.5 Visual Reset Tokens)
+     Atmospheric cool surface system with subtle depth, gradients, and translucency.
+     ========================================================================== */
+
+  /* Brand Accents */
+  --color-primary: #00629b; /* Official IEEE Blue */
+  --color-primary-light: #0284c7;
+  --color-primary-dark: #004d7a;
+  --color-primary-subtle: rgba(0, 98, 155, 0.08);
+  --color-primary-glow: rgba(0, 98, 155, 0.22);
+
+  --color-accent-cyan: #06b6d4;
+  --color-accent-cyan-subtle: rgba(6, 182, 212, 0.12);
+  --color-accent-violet: #6366f1;
+  --color-accent-violet-subtle: rgba(99, 102, 241, 0.12);
+  --color-accent-amber: #f59e0b;
+  --color-accent-amber-subtle: rgba(245, 158, 11, 0.12);
+  --color-accent-emerald: #10b981;
+
+  /* Atmospheric Light/Cool Surface Palette (NOT stark white) */
+  --color-bg-base: #eef2f6;
+  --color-bg-mesh-1: rgba(224, 234, 246, 0.9);
+  --color-bg-mesh-2: rgba(238, 242, 250, 0.7);
+  --color-surface: rgba(255, 255, 255, 0.78);
+  --color-surface-solid: #ffffff;
+  --color-surface-hover: rgba(255, 255, 255, 0.94);
+  --color-surface-muted: rgba(234, 240, 248, 0.65);
+  --color-surface-active: rgba(220, 233, 247, 0.85);
+
+  /* Typography */
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-muted: #64748b;
+  --color-text-on-primary: #ffffff;
+
+  /* Borders & Dividers */
+  --color-border: rgba(203, 213, 225, 0.85);
+  --color-border-subtle: rgba(226, 232, 240, 0.6);
+  --color-border-strong: rgba(148, 163, 184, 0.75);
+  --color-border-accent: rgba(0, 98, 155, 0.4);
+
+  /* Fonts */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+
+  /* Radii */
+  --radius-xs: 2px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Layered Shadows */
+  --shadow-subtle: 0 1px 3px rgba(15, 23, 42, 0.04), 0 1px 2px rgba(15, 23, 42, 0.02);
+  --shadow-card: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+  --shadow-elevated: 0 12px 32px -4px rgba(15, 23, 42, 0.08), 0 4px 12px -2px rgba(15, 23, 42, 0.04);
+  --shadow-glow-blue: 0 0 28px rgba(0, 98, 155, 0.25);
+  --shadow-glow-cyan: 0 0 28px rgba(6, 182, 212, 0.25);
+
+  /* Transitions & Spring Easing */
+  --transition-fast: 140ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 240ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  --max-width-container: 1320px;
+}
+
+html {
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-base);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100dvh;
+  color: var(--color-text-primary);
+  background: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(200, 222, 248, 0.5), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 85% 60%, rgba(215, 230, 252, 0.4), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 15% 90%, rgba(220, 235, 250, 0.4), transparent 60%),
+    var(--color-bg-base);
+  background-attachment: fixed;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Atmospheric Signal Grid Overlay */
+.signal-grid-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-size: 48px 48px;
+  background-image:
+    linear-gradient(to right, rgba(0, 98, 155, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 98, 155, 0.035) 1px, transparent 1px);
+  mask-image: radial-gradient(circle at center, black 60%, transparent 95%);
+  z-index: 0;
+}
+
+/* Typography styles */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  color: var(--color-text-primary);
+}
+
+.mono {
+  font-family: var(--font-mono);
+  letter-spacing: -0.015em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Accessibility: visible focus indicators */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1.5rem;
+  background: var(--color-primary);
+  color: var(--color-text-on-primary);
+  padding: 0.75rem 1.25rem;
+  z-index: 99999;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-elevated);
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: 1.5rem;
+}
+
+/* Layout container */
+.container {
+  width: 100%;
+  max-width: var(--max-width-container);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+/* Translucent Signal Surface Utility */
+.signal-panel {
+  background-color: var(--color-surface);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-card);
+  transition: all var(--transition-normal);
+}
+
+.signal-panel:hover {
+  border-color: var(--color-border-strong);
+  background-color: var(--color-surface-hover);
+  box-shadow: var(--shadow-elevated);
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

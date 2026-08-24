@@ -1,0 +1,82 @@
+.cursorContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 999999;
+  overflow: hidden;
+}
+
+.cursorDot {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 1000001;
+  transition: opacity 150ms ease, transform 100ms ease;
+}
+
+.cursorRing {
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid rgba(0, 98, 155, 0.45);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 1000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 98, 155, 0.03);
+  backdrop-filter: blur(1px);
+  transition: width 200ms cubic-bezier(0.16, 1, 0.3, 1),
+              height 200ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 200ms ease,
+              background-color 200ms ease,
+              opacity 150ms ease;
+}
+
+.cursorLabel {
+  font-family: var(--font-mono);
+  font-size: 0.5625rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 180ms ease, transform 180ms ease;
+  white-space: nowrap;
+}
+
+/* Hovering interactive target */
+.cursorInteractive .cursorRing {
+  width: 58px;
+  height: 58px;
+  border-color: var(--color-primary);
+  background-color: rgba(0, 98, 155, 0.1);
+  box-shadow: 0 0 16px rgba(0, 98, 155, 0.2);
+}
+
+.cursorInteractive .cursorDot {
+  transform: translate(-50%, -50%) scale(0.5);
+  opacity: 0.4;
+}
+
+.cursorInteractive .cursorLabel {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Hide on touch/mobile or reduced motion */
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .cursorContainer {
+    display: none !important;
+  }
+}

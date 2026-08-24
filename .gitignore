@@ -1,6 +1,7 @@
 node_modules/
 dist/
 build/
+.next/
 .astro/
 
 .env
@@ -22,3 +23,5 @@ Thumbs.db
 
 uploads/
 storage/
+
+drizzle/meta/
