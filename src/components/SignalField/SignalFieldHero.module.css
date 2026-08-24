@@ -5,12 +5,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 4rem 1.5rem 5rem;
+  padding: 4.5rem 1.5rem 5.5rem;
   overflow: hidden;
   border-bottom: 1px solid var(--color-border);
   background: 
-    radial-gradient(circle at 50% 30%, rgba(200, 225, 252, 0.45), transparent 70%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(238, 244, 250, 0.9) 100%);
+    radial-gradient(circle at 50% 25%, rgba(195, 222, 252, 0.5), transparent 68%),
+    radial-gradient(circle at 85% 70%, rgba(215, 235, 255, 0.4), transparent 50%),
+    radial-gradient(circle at 15% 70%, rgba(210, 230, 255, 0.35), transparent 50%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(238, 244, 250, 0.95) 100%);
 }
 
 /* Background animated SVG signal lines & nodes */
@@ -30,32 +32,65 @@
 .movingSignal {
   stroke: rgba(0, 98, 155, 0.22);
   stroke-dasharray: 8 16;
-  animation: signalFlow 20s linear infinite;
+  animation: signalFlow 22s linear infinite;
 }
 
 .movingSignalFast {
-  stroke: rgba(6, 182, 212, 0.35);
+  stroke: rgba(6, 182, 212, 0.38);
   stroke-dasharray: 12 24;
-  animation: signalFlow 12s linear infinite;
+  animation: signalFlow 14s linear infinite;
 }
 
 .accelerated .movingSignal,
 .accelerated .movingSignalFast {
-  animation-duration: 2s !important;
-  stroke: rgba(0, 98, 155, 0.6);
+  animation-duration: 1.8s !important;
+  stroke: rgba(0, 98, 155, 0.7);
   stroke-width: 2.5px;
 }
 
 .pulsingNode {
   fill: #00629b;
-  opacity: 0.7;
+  opacity: 0.75;
   animation: nodePulse 3s ease-in-out infinite alternate;
 }
 
 .pulsingNodeCyan {
   fill: #06b6d4;
-  opacity: 0.8;
-  animation: nodePulse 2.4s ease-in-out infinite alternate;
+  opacity: 0.85;
+  animation: nodePulse 2.2s ease-in-out infinite alternate;
+}
+
+/* Floating Institutional Coordinate Watermarks */
+.coordinateTagLeft,
+.coordinateTagRight {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(100, 116, 139, 0.45);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.coordinateTagLeft {
+  top: 18%;
+  left: 3rem;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.coordinateTagRight {
+  bottom: 18%;
+  right: 3rem;
+  writing-mode: vertical-rl;
+}
+
+@media (max-width: 900px) {
+  .coordinateTagLeft,
+  .coordinateTagRight {
+    display: none;
+  }
 }
 
 .heroContent {
@@ -75,7 +110,8 @@
   gap: 0.625rem;
   padding: 0.35rem 0.875rem;
   background-color: var(--color-surface);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-full);
   font-family: var(--font-mono);
@@ -93,7 +129,7 @@
   height: 7px;
   border-radius: 50%;
   background-color: var(--color-primary);
-  animation: radarBlink 1.5s infinite alternate;
+  animation: radarBlink 1.4s infinite alternate;
 }
 
 .mainTitle {
@@ -105,7 +141,7 @@
 }
 
 .gradientText {
-  background: linear-gradient(135deg, #00629b 0%, #0284c7 50%, #4338ca 100%);
+  background: linear-gradient(135deg, #00629b 0%, #0284c7 45%, #4338ca 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -113,9 +149,9 @@
 .subtitle {
   font-size: clamp(1rem, 2.2vw, 1.25rem);
   color: var(--color-text-secondary);
-  margin-top: 1rem;
+  margin-top: 1.125rem;
   max-width: 640px;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 /* Category Filter Chips */
@@ -150,11 +186,12 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 0.45rem 1rem;
+  padding: 0.45rem 1.05rem;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-full);
   background-color: var(--color-surface);
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: var(--color-text-secondary);
   box-shadow: var(--shadow-subtle);
   transition: all var(--transition-fast);
@@ -172,7 +209,7 @@
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   border-color: var(--color-primary-dark);
   color: #ffffff;
-  box-shadow: 0 4px 12px rgba(0, 98, 155, 0.25);
+  box-shadow: 0 4px 14px rgba(0, 98, 155, 0.28);
 }
 
 .chipActive:hover {
@@ -192,7 +229,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.875rem;
-  padding: 1.125rem 2.25rem;
+  padding: 1.125rem 2.35rem;
   background: linear-gradient(135deg, #00629b 0%, #004d7a 100%);
   color: #ffffff;
   font-family: var(--font-mono);
@@ -201,8 +238,8 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   border-radius: var(--radius-full);
-  border: 2px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 8px 28px -4px rgba(0, 98, 155, 0.4), 0 0 0 1px rgba(0, 77, 122, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 8px 30px -4px rgba(0, 98, 155, 0.42), 0 0 0 1px rgba(0, 77, 122, 0.5);
   cursor: pointer;
   transition: box-shadow var(--transition-fast), background var(--transition-fast);
   will-change: transform;
@@ -210,7 +247,7 @@
 
 .rollButton:hover {
   background: linear-gradient(135deg, #0284c7 0%, #00629b 100%);
-  box-shadow: 0 12px 36px -4px rgba(0, 98, 155, 0.55), 0 0 20px rgba(6, 182, 212, 0.4);
+  box-shadow: 0 12px 38px -4px rgba(0, 98, 155, 0.58), 0 0 24px rgba(6, 182, 212, 0.45);
 }
 
 .rollButton:disabled {
@@ -224,16 +261,16 @@
 }
 
 .rolling .rollIcon {
-  animation-duration: 0.5s !important;
+  animation-duration: 0.4s !important;
 }
 
 /* Reveal Result Modal / Card */
 .revealCard {
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
   border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-md);
   padding: 2.5rem 2rem;
@@ -244,7 +281,7 @@
   text-align: center;
   z-index: 10;
   box-shadow: var(--shadow-elevated);
-  animation: cardPopIn 300ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: cardPopIn 320ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .revealStatus {
@@ -268,8 +305,9 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   background: var(--color-primary-subtle);
-  padding: 0.2rem 0.6rem;
+  padding: 0.25rem 0.7rem;
   border-radius: var(--radius-xs);
+  border: 1px solid rgba(0, 98, 155, 0.18);
 }
 
 .revealTitle {
@@ -312,8 +350,8 @@
     opacity: 0.4;
   }
   to {
-    r: 5;
-    opacity: 0.9;
+    r: 5.5;
+    opacity: 0.95;
   }
 }
 
@@ -341,7 +379,7 @@
 @keyframes cardPopIn {
   from {
     opacity: 0;
-    transform: scale(0.94);
+    transform: scale(0.92);
   }
   to {
     opacity: 1;

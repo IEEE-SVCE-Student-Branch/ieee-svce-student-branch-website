@@ -10,6 +10,15 @@ import styles from "./SiteHeader.module.css";
 export function SiteHeader() {
   const [isExploreOpen, setIsExploreOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -24,7 +33,7 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className={styles.header}>
+      <header className={`${styles.header} ${isScrolled ? styles.headerScrolled : ""}`}>
         <div className={`container ${styles.inner}`}>
           {/* Official Brand Lockup */}
           <Link
@@ -37,8 +46,9 @@ export function SiteHeader() {
               <Image
                 src="/brand/svce-emblem.png"
                 alt="SVCE Emblem"
-                width={32}
-                height={32}
+                width={34}
+                height={34}
+                priority
                 className={styles.emblem}
               />
             </div>
@@ -51,7 +61,7 @@ export function SiteHeader() {
           {/* Live Signal Telemetry */}
           <div className={styles.liveTelemetryBadge}>
             <span className={styles.signalDot} aria-hidden="true" />
-            <span>SIGNAL FIELD ACTIVE // 2026/27</span>
+            <span>SIGNAL FIELD ACTIVE // STB 28051</span>
           </div>
 
           {/* Search & Explore Controls */}

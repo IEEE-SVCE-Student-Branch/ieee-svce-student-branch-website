@@ -23,21 +23,39 @@ const CONSTELLATION_WORLDS = [
   },
   {
     code: "WLD-03",
-    world: "Time Machine",
-    title: "ARCHIVE",
-    href: "/archive",
+    world: "Constellation",
+    title: "TEAM",
+    href: "/team",
     description:
-      "Foundational 1994 charter, historical ExeCom ledgers, and three decades of documented student achievements.",
-    cta: "ENTER TIME MACHINE",
+      "Senior IEEE faculty counselors, chapter chairs, student executive committee officers, and domain leads.",
+    cta: "ENTER CONSTELLATION",
   },
   {
     code: "WLD-04",
-    world: "Constellation",
-    title: "PEOPLE",
-    href: "/people",
+    world: "Credential Vault",
+    title: "CERTIFICATES",
+    href: "/certificates",
     description:
-      "Senior IEEE faculty counselors, chapter chairs, student executive committee, and alumni mentors.",
-    cta: "ENTER CONSTELLATION",
+      "Public cryptographic verification portal for authenticated participant credentials and awards.",
+    cta: "VERIFY CREDENTIALS",
+  },
+  {
+    code: "WLD-05",
+    world: "Proof Wall",
+    title: "COMMUNITY",
+    href: "/community",
+    description:
+      "Student laurels, Section recognitions, 30-year Hall of Fame, and active industry advisory connect.",
+    cta: "EXPLORE COMMUNITY",
+  },
+  {
+    code: "WLD-06",
+    world: "Knowledge Field",
+    title: "LEARN",
+    href: "/learn",
+    description:
+      "Workshop slide decks (PPTs), LaTeX templates, interview preparation toolkits, and study guides.",
+    cta: "ACCESS KNOWLEDGE",
   },
 ];
 

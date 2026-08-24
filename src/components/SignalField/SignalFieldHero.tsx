@@ -21,7 +21,7 @@ export function SignalFieldHero() {
   const currentPos = useRef({ x: 0, y: 0 });
   const targetPos = useRef({ x: 0, y: 0 });
 
-  // Spring animation loop for magnetic attraction/repulsion (18px–24px deflection)
+  // Spring animation loop for magnetic deflection (18px–24px deflection)
   useEffect(() => {
     const isTouch = window.matchMedia("(pointer: coarse)").matches;
     const isReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -61,7 +61,7 @@ export function SignalFieldHero() {
     document.addEventListener("mouseleave", handleMouseLeave);
 
     const updatePhysics = () => {
-      const springEase = 0.15;
+      const springEase = 0.16;
       currentPos.current.x += (targetPos.current.x - currentPos.current.x) * springEase;
       currentPos.current.y += (targetPos.current.y - currentPos.current.y) * springEase;
 
@@ -107,6 +107,14 @@ export function SignalFieldHero() {
 
   return (
     <section className={styles.heroSection} aria-label="Interactive Signal Field">
+      {/* Institutional Coordinate Watermarks */}
+      <span className={styles.coordinateTagLeft} aria-hidden="true">
+        STB 28051 // 12.9863° N, 79.9723° E // EST. 1994
+      </span>
+      <span className={styles.coordinateTagRight} aria-hidden="true">
+        IEEE REGION 10 // MADRAS SECTION // DIGITAL INSTITUTION
+      </span>
+
       {/* Background SVG Signal Grid & Beams */}
       <div
         className={`${styles.signalCanvas} ${isRolling ? styles.accelerated : ""}`}

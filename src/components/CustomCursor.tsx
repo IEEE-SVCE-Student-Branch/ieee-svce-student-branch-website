@@ -7,6 +7,7 @@ export function CustomCursor() {
   const [enabled, setEnabled] = useState(false);
   const [label, setLabel] = useState("");
   const [isInteractive, setIsInteractive] = useState(false);
+  const [isPressed, setIsPressed] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
   const dotRef = useRef<HTMLDivElement>(null);
@@ -17,7 +18,6 @@ export function CustomCursor() {
   const rafId = useRef<number | null>(null);
 
   useEffect(() => {
-    // Check if pointer is coarse (touch device) or reduced motion preferred
     const isTouch = window.matchMedia("(pointer: coarse)").matches;
     const isReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -32,7 +32,6 @@ export function CustomCursor() {
       mousePos.current = { x: e.clientX, y: e.clientY };
       if (!isVisible) setIsVisible(true);
 
-      // Check if hovering interactive target
       const target = e.target as HTMLElement | null;
       if (!target) return;
 
@@ -55,16 +54,18 @@ export function CustomCursor() {
       }
     };
 
-    const handleMouseLeave = () => {
-      setIsVisible(false);
-    };
+    const handleMouseDown = () => setIsPressed(true);
+    const handleMouseUp = () => setIsPressed(false);
+    const handleMouseLeave = () => setIsVisible(false);
 
     window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    window.addEventListener("mousedown", handleMouseDown);
+    window.addEventListener("mouseup", handleMouseUp);
     document.addEventListener("mouseleave", handleMouseLeave);
 
     // Smooth spring follow loop
     const updatePosition = () => {
-      const ease = 0.18;
+      const ease = 0.2;
       ringPos.current.x += (mousePos.current.x - ringPos.current.x) * ease;
       ringPos.current.y += (mousePos.current.y - ringPos.current.y) * ease;
 
@@ -82,6 +83,8 @@ export function CustomCursor() {
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mousedown", handleMouseDown);
+      window.removeEventListener("mouseup", handleMouseUp);
       document.removeEventListener("mouseleave", handleMouseLeave);
       if (rafId.current) cancelAnimationFrame(rafId.current);
     };
@@ -91,7 +94,9 @@ export function CustomCursor() {
 
   return (
     <div
-      className={`${styles.cursorContainer} ${isInteractive ? styles.cursorInteractive : ""}`}
+      className={`${styles.cursorContainer} ${isInteractive ? styles.cursorInteractive : ""} ${
+        isPressed ? styles.cursorPressed : ""
+      }`}
       style={{ opacity: isVisible ? 1 : 0 }}
       aria-hidden="true"
     >

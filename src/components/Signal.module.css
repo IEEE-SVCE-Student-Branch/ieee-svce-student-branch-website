@@ -2,19 +2,23 @@
   position: fixed;
   inset: 0;
   z-index: 99999;
-  background: radial-gradient(circle at center, #ffffff 0%, #eaf0f8 100%);
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.98) 0%, rgba(234, 242, 250, 0.98) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   opacity: 1;
   visibility: visible;
-  transition: opacity 400ms cubic-bezier(0.16, 1, 0.3, 1), visibility 400ms ease;
+  transition: opacity 350ms cubic-bezier(0.16, 1, 0.3, 1), visibility 350ms ease, transform 350ms ease;
+  will-change: opacity, transform;
 }
 
 .overlayDismissed {
   opacity: 0;
   visibility: hidden;
+  transform: scale(1.02);
   pointer-events: none;
 }
 
@@ -43,11 +47,11 @@
   justify-content: center;
   opacity: 0;
   transform: translateY(8px) scale(0.95);
-  animation: logoFadeIn 450ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: logoFadeIn 420ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .logoItem:nth-child(1) {
-  animation-delay: 120ms;
+  animation-delay: 100ms;
 }
 
 .dividerDot {
@@ -56,11 +60,11 @@
   border-radius: 50%;
   background-color: var(--color-primary);
   opacity: 0;
-  animation: dotPop 300ms cubic-bezier(0.34, 1.56, 0.64, 1) 320ms forwards;
+  animation: dotPop 280ms cubic-bezier(0.34, 1.56, 0.64, 1) 280ms forwards;
 }
 
 .logoItem:nth-child(3) {
-  animation-delay: 450ms;
+  animation-delay: 380ms;
 }
 
 .brandImage {
@@ -85,7 +89,7 @@
 .beamLine {
   stroke-dasharray: 200;
   stroke-dashoffset: 200;
-  animation: beamDraw 600ms ease 550ms forwards;
+  animation: beamDraw 550ms cubic-bezier(0.16, 1, 0.3, 1) 480ms forwards;
 }
 
 .signalTag {
@@ -99,7 +103,7 @@
   align-items: center;
   gap: 0.5rem;
   opacity: 0;
-  animation: fadeIn 350ms ease 750ms forwards;
+  animation: fadeIn 300ms ease 680ms forwards;
 }
 
 .livePulse {
@@ -121,7 +125,8 @@
   padding: 0.35rem 0.75rem;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-xs);
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
   transition: all var(--transition-fast);
   cursor: pointer;
 }
@@ -129,6 +134,7 @@
 .skipBtn:hover {
   color: var(--color-text-primary);
   border-color: var(--color-primary);
+  background: #ffffff;
 }
 
 @keyframes logoFadeIn {
