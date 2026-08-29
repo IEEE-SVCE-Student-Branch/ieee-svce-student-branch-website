@@ -83,12 +83,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
         <div className={styles.resultsList}>
           {filteredItems.length > 0 ? (
             filteredItems.map((item) => (
-              <Link
-                key={item.id}
-                href={item.route}
-                onClick={onClose}
-                className={styles.resultItem}
-              >
+              <Link key={item.id} href={item.route} onClick={onClose} className={styles.resultItem}>
                 <div className={styles.resultHeader}>
                   <span className={styles.resultCategory}>{item.categoryLabel}</span>
                   <span className={styles.resultProvenance}>{item.provenance}</span>

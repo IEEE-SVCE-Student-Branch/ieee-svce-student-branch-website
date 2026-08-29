@@ -49,10 +49,15 @@ export function CertificateVerifier({ initialCode = "" }: { initialCode?: string
           gap: "1.25rem",
         }}
       >
-        <span className="mono" style={{ fontSize: "0.6875rem", fontWeight: 800, color: "var(--color-primary)" }}>
+        <span
+          className="mono"
+          style={{ fontSize: "0.6875rem", fontWeight: 800, color: "var(--color-primary)" }}
+        >
           {"// PUBLIC CREDENTIAL VERIFICATION ENGINE"}
         </span>
-        <h2 style={{ fontSize: "1.375rem", fontWeight: 800 }}>Enter Certificate ID / Verification Code</h2>
+        <h2 style={{ fontSize: "1.375rem", fontWeight: 800 }}>
+          Enter Certificate ID / Verification Code
+        </h2>
 
         <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
           <input
@@ -93,7 +98,10 @@ export function CertificateVerifier({ initialCode = "" }: { initialCode?: string
 
         {/* Sample Codes */}
         <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "0.5rem" }}>
-          <span className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-text-muted)" }}>
+          <span
+            className="mono"
+            style={{ fontSize: "0.6875rem", color: "var(--color-text-muted)" }}
+          >
             Try Sample IDs:
           </span>
           {VERIFIED_CERTIFICATES_CATALOG.map((c) => (
@@ -135,14 +143,34 @@ export function CertificateVerifier({ initialCode = "" }: { initialCode?: string
                 gap: "1.5rem",
               }}
             >
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1rem" }}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  flexWrap: "wrap",
+                  gap: "1rem",
+                }}
+              >
                 <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                  <span style={{ fontSize: "1.25rem", color: "var(--color-accent-emerald)" }}>✓</span>
-                  <span className="mono" style={{ fontSize: "0.8125rem", fontWeight: 800, color: "var(--color-accent-emerald)" }}>
+                  <span style={{ fontSize: "1.25rem", color: "var(--color-accent-emerald)" }}>
+                    ✓
+                  </span>
+                  <span
+                    className="mono"
+                    style={{
+                      fontSize: "0.8125rem",
+                      fontWeight: 800,
+                      color: "var(--color-accent-emerald)",
+                    }}
+                  >
                     AUTHENTICATED INSTITUTIONAL CREDENTIAL
                   </span>
                 </div>
-                <span className="mono" style={{ fontSize: "0.75rem", color: "var(--color-text-muted)" }}>
+                <span
+                  className="mono"
+                  style={{ fontSize: "0.75rem", color: "var(--color-text-muted)" }}
+                >
                   ID: {result.certificateId}
                 </span>
               </div>
@@ -158,17 +186,23 @@ export function CertificateVerifier({ initialCode = "" }: { initialCode?: string
                   gap: "0.75rem",
                 }}
               >
-                <div className="mono" style={{ fontSize: "0.75rem", color: "var(--color-primary)", fontWeight: 700 }}>
+                <div
+                  className="mono"
+                  style={{ fontSize: "0.75rem", color: "var(--color-primary)", fontWeight: 700 }}
+                >
                   [ {result.role} CREDENTIAL ]
                 </div>
                 <h3 style={{ fontSize: "1.75rem", fontWeight: 900 }}>{result.recipientName}</h3>
                 {result.awardTitle && (
-                  <div style={{ fontSize: "1.125rem", fontWeight: 700, color: "var(--color-primary)" }}>
+                  <div
+                    style={{ fontSize: "1.125rem", fontWeight: 700, color: "var(--color-primary)" }}
+                  >
                     {result.awardTitle}
                   </div>
                 )}
                 <p style={{ fontSize: "0.9375rem", color: "var(--color-text-secondary)" }}>
-                  Conferred for active participation and distinction in <strong>{result.eventTitle}</strong> held on {result.eventDate}.
+                  Conferred for active participation and distinction in{" "}
+                  <strong>{result.eventTitle}</strong> held on {result.eventDate}.
                 </p>
               </div>
 
@@ -183,16 +217,24 @@ export function CertificateVerifier({ initialCode = "" }: { initialCode?: string
                 }}
               >
                 <div>
-                  <div style={{ color: "var(--color-text-muted)", fontSize: "0.625rem" }}>SIGNATORY</div>
+                  <div style={{ color: "var(--color-text-muted)", fontSize: "0.625rem" }}>
+                    SIGNATORY
+                  </div>
                   <div style={{ fontWeight: 700, marginTop: "0.15rem" }}>{result.signatory}</div>
                 </div>
                 <div>
-                  <div style={{ color: "var(--color-text-muted)", fontSize: "0.625rem" }}>ISSUING INSTITUTION</div>
+                  <div style={{ color: "var(--color-text-muted)", fontSize: "0.625rem" }}>
+                    ISSUING INSTITUTION
+                  </div>
                   <div style={{ fontWeight: 700, marginTop: "0.15rem" }}>{result.institution}</div>
                 </div>
                 <div>
-                  <div style={{ color: "var(--color-text-muted)", fontSize: "0.625rem" }}>VERIFICATION CHECKSUM</div>
-                  <div style={{ fontWeight: 700, marginTop: "0.15rem" }}>{result.verificationHash}</div>
+                  <div style={{ color: "var(--color-text-muted)", fontSize: "0.625rem" }}>
+                    VERIFICATION CHECKSUM
+                  </div>
+                  <div style={{ fontWeight: 700, marginTop: "0.15rem" }}>
+                    {result.verificationHash}
+                  </div>
                 </div>
               </div>
             </div>
@@ -208,11 +250,16 @@ export function CertificateVerifier({ initialCode = "" }: { initialCode?: string
                 gap: "0.5rem",
               }}
             >
-              <div className="mono" style={{ fontSize: "0.8125rem", fontWeight: 800, color: "#ef4444" }}>
+              <div
+                className="mono"
+                style={{ fontSize: "0.8125rem", fontWeight: 800, color: "#ef4444" }}
+              >
                 RECORD NOT FOUND // CONTENT PENDING VERIFICATION
               </div>
               <p style={{ fontSize: "0.875rem", color: "var(--color-text-secondary)" }}>
-                The certificate identifier <code>&quot;{searchCode}&quot;</code> is not present in the current published index. If you believe this is an error, please contact the branch desk.
+                The certificate identifier <code>&quot;{searchCode}&quot;</code> is not present in
+                the current published index. If you believe this is an error, please contact the
+                branch desk.
               </p>
             </div>
           )}

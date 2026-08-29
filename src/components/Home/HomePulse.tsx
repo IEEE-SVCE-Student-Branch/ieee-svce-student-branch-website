@@ -21,8 +21,8 @@ export function HomePulse() {
             <div className={styles.sessionBody}>
               <h2 className={styles.sessionTitle}>Institutional Baseline</h2>
               <p className={styles.sessionDesc}>
-                Governed under IEEE Region 10 and IEEE Madras Section. Continuous operation
-                since August 1994, advancing student research and humanitarian technology.
+                Governed under IEEE Region 10 and IEEE Madras Section. Continuous operation since
+                August 1994, advancing student research and humanitarian technology.
               </p>
 
               <div className={styles.telemetryMetrics}>

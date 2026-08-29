@@ -10,9 +10,10 @@ type CategoryFilter = "ALL" | "event" | "project" | "achievement" | "person" | "
 export function HomeDiscovery() {
   const [filter, setFilter] = useState<CategoryFilter>("ALL");
 
-  const filteredItems = filter === "ALL" 
-    ? DISCOVERY_CATALOG.slice(0, 6) 
-    : DISCOVERY_CATALOG.filter((item) => item.category === filter);
+  const filteredItems =
+    filter === "ALL"
+      ? DISCOVERY_CATALOG.slice(0, 6)
+      : DISCOVERY_CATALOG.filter((item) => item.category === filter);
 
   return (
     <section className={styles.section} aria-label="Semantic Discovery Grid">
@@ -24,7 +25,8 @@ export function HomeDiscovery() {
           </div>
           <h2 className={styles.title}>Semantic Signal Explorer</h2>
           <p className={styles.desc}>
-            Navigate interconnected artifacts across research prototypes, conference papers, student laurels, and archival chronicles.
+            Navigate interconnected artifacts across research prototypes, conference papers, student
+            laurels, and archival chronicles.
           </p>
         </div>
 
@@ -54,12 +56,7 @@ export function HomeDiscovery() {
         {/* Discovery Micro-Grid */}
         <div className={styles.grid}>
           {filteredItems.map((item) => (
-            <Link
-              key={item.id}
-              href={item.route}
-              className={styles.card}
-              data-cursor="EXPLORE"
-            >
+            <Link key={item.id} href={item.route} className={styles.card} data-cursor="EXPLORE">
               <div className={styles.cardTop}>
                 <span className={styles.categoryBadge}>[ {item.categoryLabel} ]</span>
                 <span className={styles.provenanceTag}>{item.provenance}</span>
@@ -68,7 +65,9 @@ export function HomeDiscovery() {
               <p className={styles.cardSummary}>{item.summary}</p>
               <div className={styles.cardBottom}>
                 <span className={styles.actionPrompt}>INSPECT ARTIFACT</span>
-                <span className={styles.arrow} aria-hidden="true">→</span>
+                <span className={styles.arrow} aria-hidden="true">
+                  →
+                </span>
               </div>
             </Link>
           ))}

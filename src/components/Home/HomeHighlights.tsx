@@ -1,10 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import {
-  BRANCH_PROJECTS,
-  COMMUNITY_ACHIEVEMENTS,
-  BRANCH_EVENTS,
-} from "@/lib/data/branch-data";
+import { BRANCH_PROJECTS, COMMUNITY_ACHIEVEMENTS, BRANCH_EVENTS } from "@/lib/data/branch-data";
 import styles from "./HomeHighlights.module.css";
 
 export function HomeHighlights() {
@@ -19,8 +15,8 @@ export function HomeHighlights() {
           <span className={styles.tagline}>{"// FIELD SIGNALS & RESEARCH"}</span>
           <h2 className={styles.heading}>Institutional Spotlights</h2>
           <p className={styles.subHeading}>
-            Direct transmissions from the student innovation labs, national competitive tracks,
-            and IEEE Section laurels.
+            Direct transmissions from the student innovation labs, national competitive tracks, and
+            IEEE Section laurels.
           </p>
         </div>
 

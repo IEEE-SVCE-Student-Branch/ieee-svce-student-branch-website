@@ -10,7 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function EventsPage() {
-  const upcomingEvents = BRANCH_EVENTS.filter((e) => e.status === "UPCOMING" || e.status === "ACTIVE");
+  const upcomingEvents = BRANCH_EVENTS.filter(
+    (e) => e.status === "UPCOMING" || e.status === "ACTIVE"
+  );
   const pastEvents = BRANCH_EVENTS.filter((e) => e.status === "PAST");
 
   const renderEventCard = (evt: EventRecord) => (
@@ -34,14 +36,27 @@ export default function EventsPage() {
     >
       <div>
         {/* Top Metadata */}
-        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: "0.75rem", paddingBottom: "1rem", borderBottom: "1px solid var(--color-border-subtle)" }}>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "space-between",
+            alignItems: "center",
+            gap: "0.75rem",
+            paddingBottom: "1rem",
+            borderBottom: "1px solid var(--color-border-subtle)",
+          }}
+        >
           <span
             className="mono"
             style={{
               fontSize: "0.6875rem",
               fontWeight: 800,
               color: evt.status !== "PAST" ? "var(--color-primary)" : "var(--color-text-muted)",
-              background: evt.status !== "PAST" ? "var(--color-primary-subtle)" : "var(--color-surface-muted)",
+              background:
+                evt.status !== "PAST"
+                  ? "var(--color-primary-subtle)"
+                  : "var(--color-surface-muted)",
               padding: "0.2rem 0.55rem",
               borderRadius: "var(--radius-xs)",
             }}
@@ -49,27 +64,49 @@ export default function EventsPage() {
             {evt.status === "ACTIVE"
               ? "● LIVE NOW"
               : evt.status === "UPCOMING"
-              ? "● UPCOMING EVENT"
-              : "CONCLUDED EVENT"}
+                ? "● UPCOMING EVENT"
+                : "CONCLUDED EVENT"}
           </span>
-          <span className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-text-muted)" }}>
+          <span
+            className="mono"
+            style={{ fontSize: "0.6875rem", color: "var(--color-text-muted)" }}
+          >
             {evt.provenance}
           </span>
         </div>
 
         <div style={{ marginTop: "1rem" }}>
-          <span className="mono" style={{ fontSize: "0.75rem", fontWeight: 700, color: "var(--color-primary)" }}>
+          <span
+            className="mono"
+            style={{ fontSize: "0.75rem", fontWeight: 700, color: "var(--color-primary)" }}
+          >
             [ {evt.track} ]
           </span>
-          <h2 style={{ fontSize: "1.5rem", fontWeight: 900, marginTop: "0.35rem", lineHeight: 1.25 }}>
+          <h2
+            style={{ fontSize: "1.5rem", fontWeight: 900, marginTop: "0.35rem", lineHeight: 1.25 }}
+          >
             <Link href={`/events/${evt.slug}`} style={{ color: "inherit" }}>
               {evt.title}
             </Link>
           </h2>
-          <p style={{ fontSize: "0.9375rem", fontWeight: 600, color: "var(--color-text-secondary)", marginTop: "0.25rem" }}>
+          <p
+            style={{
+              fontSize: "0.9375rem",
+              fontWeight: 600,
+              color: "var(--color-text-secondary)",
+              marginTop: "0.25rem",
+            }}
+          >
             {evt.subtitle}
           </p>
-          <p style={{ fontSize: "0.875rem", lineHeight: 1.6, color: "var(--color-text-secondary)", marginTop: "0.75rem" }}>
+          <p
+            style={{
+              fontSize: "0.875rem",
+              lineHeight: 1.6,
+              color: "var(--color-text-secondary)",
+              marginTop: "0.75rem",
+            }}
+          >
             {evt.abstract}
           </p>
         </div>
@@ -88,7 +125,10 @@ export default function EventsPage() {
           }}
         >
           <div>
-            <div className="mono" style={{ fontSize: "0.625rem", fontWeight: 700, color: "var(--color-text-muted)" }}>
+            <div
+              className="mono"
+              style={{ fontSize: "0.625rem", fontWeight: 700, color: "var(--color-text-muted)" }}
+            >
               DATE & TIME
             </div>
             <div style={{ fontSize: "0.8125rem", fontWeight: 600, marginTop: "0.15rem" }}>
@@ -96,7 +136,10 @@ export default function EventsPage() {
             </div>
           </div>
           <div>
-            <div className="mono" style={{ fontSize: "0.625rem", fontWeight: 700, color: "var(--color-text-muted)" }}>
+            <div
+              className="mono"
+              style={{ fontSize: "0.625rem", fontWeight: 700, color: "var(--color-text-muted)" }}
+            >
               VENUE
             </div>
             <div style={{ fontSize: "0.8125rem", fontWeight: 600, marginTop: "0.15rem" }}>
@@ -107,13 +150,34 @@ export default function EventsPage() {
 
         {/* Winners if concluded */}
         {evt.winners && evt.winners.length > 0 && (
-          <div style={{ marginTop: "1.25rem", padding: "1rem", border: "1px dashed var(--color-primary)", borderRadius: "var(--radius-xs)", backgroundColor: "rgba(0,98,155,0.03)" }}>
-            <div className="mono" style={{ fontSize: "0.6875rem", fontWeight: 800, color: "var(--color-primary)" }}>
+          <div
+            style={{
+              marginTop: "1.25rem",
+              padding: "1rem",
+              border: "1px dashed var(--color-primary)",
+              borderRadius: "var(--radius-xs)",
+              backgroundColor: "rgba(0,98,155,0.03)",
+            }}
+          >
+            <div
+              className="mono"
+              style={{ fontSize: "0.6875rem", fontWeight: 800, color: "var(--color-primary)" }}
+            >
               CONTEST WINNERS & RESULTS
             </div>
-            <div style={{ marginTop: "0.5rem", display: "flex", flexDirection: "column", gap: "0.35rem" }}>
+            <div
+              style={{
+                marginTop: "0.5rem",
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.35rem",
+              }}
+            >
               {evt.winners.map((w, idx) => (
-                <div key={idx} style={{ fontSize: "0.8125rem", color: "var(--color-text-secondary)" }}>
+                <div
+                  key={idx}
+                  style={{ fontSize: "0.8125rem", color: "var(--color-text-secondary)" }}
+                >
                   <strong>{w.position}:</strong> {w.team} ({w.institution}) — <em>{w.project}</em>
                 </div>
               ))}
@@ -220,10 +284,15 @@ export default function EventsPage() {
         {/* Section 1: Upcoming Programs */}
         <div>
           <div style={{ marginBottom: "1.75rem" }}>
-            <span className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-primary)", fontWeight: 700 }}>
+            <span
+              className="mono"
+              style={{ fontSize: "0.6875rem", color: "var(--color-primary)", fontWeight: 700 }}
+            >
               {"// ACTIVE SCHEDULE"}
             </span>
-            <h2 style={{ fontSize: "1.75rem", fontWeight: 800, marginTop: "0.25rem" }}>Upcoming Technical Events</h2>
+            <h2 style={{ fontSize: "1.75rem", fontWeight: 800, marginTop: "0.25rem" }}>
+              Upcoming Technical Events
+            </h2>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
             {upcomingEvents.map(renderEventCard)}
@@ -233,10 +302,15 @@ export default function EventsPage() {
         {/* Section 2: Concluded / Historical Events */}
         <div>
           <div style={{ marginBottom: "1.75rem" }}>
-            <span className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-primary)", fontWeight: 700 }}>
+            <span
+              className="mono"
+              style={{ fontSize: "0.6875rem", color: "var(--color-primary)", fontWeight: 700 }}
+            >
               {"// EVENT REPOSITORIES & RESULTS"}
             </span>
-            <h2 style={{ fontSize: "1.75rem", fontWeight: 800, marginTop: "0.25rem" }}>Past Events & Chronicles</h2>
+            <h2 style={{ fontSize: "1.75rem", fontWeight: 800, marginTop: "0.25rem" }}>
+              Past Events & Chronicles
+            </h2>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
             {pastEvents.map(renderEventCard)}

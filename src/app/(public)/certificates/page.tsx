@@ -40,11 +40,18 @@ export default async function CertificatesPage({ searchParams }: CertificatesPag
             gap: "0.5rem",
           }}
         >
-          <span className="mono" style={{ fontSize: "0.6875rem", fontWeight: 800, color: "var(--color-primary)" }}>
+          <span
+            className="mono"
+            style={{ fontSize: "0.6875rem", fontWeight: 800, color: "var(--color-primary)" }}
+          >
             INSTITUTIONAL CREDENTIAL POLICY
           </span>
-          <p style={{ fontSize: "0.875rem", color: "var(--color-text-secondary)", lineHeight: 1.6 }}>
-            All legitimate IEEE SVCE certificates are recorded in the institutional database with cryptographic verification checksums and counter-signed by the Student Branch Counselor. Backend automated ledger synchronization is active under Phase 4 architecture.
+          <p
+            style={{ fontSize: "0.875rem", color: "var(--color-text-secondary)", lineHeight: 1.6 }}
+          >
+            All legitimate IEEE SVCE certificates are recorded in the institutional database with
+            cryptographic verification checksums and counter-signed by the Student Branch Counselor.
+            Backend automated ledger synchronization is active under Phase 4 architecture.
           </p>
         </div>
       </div>

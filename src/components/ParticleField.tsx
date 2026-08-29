@@ -8,7 +8,7 @@ function createPRNG(seed: number) {
   let s = seed >>> 0;
   return () => {
     s = Math.imul(1664525, s) + 1013904223;
-    return ((s >>> 0) / 0xffffffff);
+    return (s >>> 0) / 0xffffffff;
   };
 }
 
@@ -22,10 +22,10 @@ interface Particle {
   baseAlpha: number;
   isAccent: boolean; // IEEE blue accent (~8%)
   // Per-particle variation for de-synchronization
-  phaseA: number;  // phase offset for field A sampling
-  phaseB: number;  // phase offset for field B sampling
-  phaseC: number;  // phase offset for individual drift
-  freqA: number;   // individual frequency variation (0.8–1.2)
+  phaseA: number; // phase offset for field A sampling
+  phaseB: number; // phase offset for field B sampling
+  phaseC: number; // phase offset for individual drift
+  freqA: number; // individual frequency variation (0.8–1.2)
   freqB: number;
   // Layer: 0=FAR, 1=MID, 2=NEAR
   layer: 0 | 1 | 2;
@@ -58,8 +58,8 @@ export function ParticleField({ className = "" }: { className?: string }) {
     const baseMID = 450;
     const baseNEAR = 150;
 
-    const countFAR  = Math.round(baseFAR  * densityMult);
-    const countMID  = Math.round(baseMID  * densityMult);
+    const countFAR = Math.round(baseFAR * densityMult);
+    const countMID = Math.round(baseMID * densityMult);
     const countNEAR = Math.round(baseNEAR * densityMult);
     const totalCount = countFAR + countMID + countNEAR;
 
@@ -74,9 +74,9 @@ export function ParticleField({ className = "" }: { className?: string }) {
 
     // ─── Build particle volume ───────────────────────────────────────────────
     const buildParticles = () => {
-      width  = canvas.width  = window.innerWidth  * devicePixelRatio;
+      width = canvas.width = window.innerWidth * devicePixelRatio;
       height = canvas.height = window.innerHeight * devicePixelRatio;
-      canvas.style.width  = window.innerWidth  + "px";
+      canvas.style.width = window.innerWidth + "px";
       canvas.style.height = window.innerHeight + "px";
 
       const rng = createPRNG(28051994);
@@ -90,8 +90,10 @@ export function ParticleField({ className = "" }: { className?: string }) {
       const addLayer = (
         count: number,
         layer: 0 | 1 | 2,
-        rMin: number, rMax: number,
-        aMin: number, aMax: number,
+        rMin: number,
+        rMax: number,
+        aMin: number,
+        aMax: number,
         accentRatio: number
       ) => {
         for (let i = 0; i < count; i++) {
@@ -110,12 +112,14 @@ export function ParticleField({ className = "" }: { className?: string }) {
           const by = r * sinTheta * Math.sin(phi) * 0.85; // slight Y flatten
           const bz = r * cosTheta * 0.68; // stronger Z flatten for depth feel
 
-          const radius    = rMin + rng() * (rMax - rMin);
+          const radius = rMin + rng() * (rMax - rMin);
           const baseAlpha = aMin + rng() * (aMax - aMin);
-          const isAccent  = rng() < accentRatio;
+          const isAccent = rng() < accentRatio;
 
           particles.push({
-            bx, by, bz,
+            bx,
+            by,
+            bz,
             radius,
             baseAlpha,
             isAccent,
@@ -130,9 +134,9 @@ export function ParticleField({ className = "" }: { className?: string }) {
       };
 
       // FAR particles: tiny, dim, dense background fog
-      addLayer(countFAR,  0, 0.45 * devicePixelRatio, 1.05 * devicePixelRatio, 0.10, 0.26, 0.06);
+      addLayer(countFAR, 0, 0.45 * devicePixelRatio, 1.05 * devicePixelRatio, 0.1, 0.26, 0.06);
       // MID particles: moderate size/opacity — the body of the swarm
-      addLayer(countMID,  1, 0.85 * devicePixelRatio, 1.70 * devicePixelRatio, 0.20, 0.42, 0.08);
+      addLayer(countMID, 1, 0.85 * devicePixelRatio, 1.7 * devicePixelRatio, 0.2, 0.42, 0.08);
       // NEAR particles: more visible, foreground presence
       addLayer(countNEAR, 2, 1.35 * devicePixelRatio, 2.35 * devicePixelRatio, 0.33, 0.62, 0.12);
     };
@@ -144,18 +148,23 @@ export function ParticleField({ className = "" }: { className?: string }) {
 
     const onMouseMove = (e: MouseEvent) => {
       if (isTouch) return;
-      ptr.tx = (e.clientX / window.innerWidth  - 0.5) * 2;
+      ptr.tx = (e.clientX / window.innerWidth - 0.5) * 2;
       ptr.ty = (e.clientY / window.innerHeight - 0.5) * 2;
     };
-    const onMouseLeave = () => { ptr.tx = 0; ptr.ty = 0; };
+    const onMouseLeave = () => {
+      ptr.tx = 0;
+      ptr.ty = 0;
+    };
 
-    window.addEventListener("resize",     onResize,     { passive: true });
-    window.addEventListener("mousemove",  onMouseMove,  { passive: true });
+    window.addEventListener("resize", onResize, { passive: true });
+    window.addEventListener("mousemove", onMouseMove, { passive: true });
     document.addEventListener("mouseleave", onMouseLeave, { passive: true });
 
     // Visibility pause
     let visible = !document.hidden;
-    const onVisChange = () => { visible = !document.hidden; };
+    const onVisChange = () => {
+      visible = !document.hidden;
+    };
     document.addEventListener("visibilitychange", onVisChange);
 
     // ─── Perspective / projection constants ──────────────────────────────────
@@ -166,7 +175,12 @@ export function ParticleField({ className = "" }: { className?: string }) {
     // Each slot: [projX, projY, projRadius, alpha, isAccent, layer]
     type ProjEntry = { x: number; y: number; r: number; a: number; accent: boolean; layer: number };
     const proj: ProjEntry[] = Array.from({ length: totalCount }, () => ({
-      x: 0, y: 0, r: 0, a: 0, accent: false, layer: 0,
+      x: 0,
+      y: 0,
+      r: 0,
+      a: 0,
+      accent: false,
+      layer: 0,
     }));
 
     // ─── Render loop ─────────────────────────────────────────────────────────
@@ -182,21 +196,21 @@ export function ParticleField({ className = "" }: { className?: string }) {
 
       ctx.clearRect(0, 0, width, height);
 
-      const cx = width  / 2;
+      const cx = width / 2;
       const cy = height / 2;
 
       // ── Shared deformation fields ──────────────────────────────────────────
       // Field A: large-scale volume stretch (very slow, period ~40s game time)
       const tA = time * 0.12;
-      const fieldA_x = Math.sin(tA * 0.7)  * 0.28;
-      const fieldA_y = Math.cos(tA * 0.5)  * 0.22;
-      const fieldA_z = Math.sin(tA * 0.9)  * 0.18;
+      const fieldA_x = Math.sin(tA * 0.7) * 0.28;
+      const fieldA_y = Math.cos(tA * 0.5) * 0.22;
+      const fieldA_z = Math.sin(tA * 0.9) * 0.18;
 
       // Field B: medium-scale asymmetric tilt (period ~22s)
       const tB = time * 0.22;
-      const fieldB_x = Math.cos(tB * 1.1)  * 0.18;
-      const fieldB_y = Math.sin(tB * 0.8)  * 0.16;
-      const fieldB_z = Math.cos(tB * 1.3)  * 0.12;
+      const fieldB_x = Math.cos(tB * 1.1) * 0.18;
+      const fieldB_y = Math.sin(tB * 0.8) * 0.16;
+      const fieldB_z = Math.cos(tB * 1.3) * 0.12;
 
       // Field C: fine-scale radial breathing (period ~14s)
       const tC = time * 0.35;
@@ -205,8 +219,10 @@ export function ParticleField({ className = "" }: { className?: string }) {
       // Subtle camera-level rotation from time (very slow — full 360 over ~200s)
       const camRotY = time * 0.018;
       const camRotX = Math.sin(time * 0.011) * 0.09;
-      const cosY = Math.cos(camRotY), sinY = Math.sin(camRotY);
-      const cosX = Math.cos(camRotX), sinX = Math.sin(camRotX);
+      const cosY = Math.cos(camRotY),
+        sinY = Math.sin(camRotY);
+      const cosX = Math.cos(camRotX),
+        sinX = Math.sin(camRotX);
 
       let projCount = 0;
 
@@ -217,8 +233,11 @@ export function ParticleField({ className = "" }: { className?: string }) {
         if (!isReducedMotion) {
           // Shared deformation — ALL particles feel the same field,
           // but their individual phases create local variation.
-          const pA = p.phaseA, pB = p.phaseB, pC = p.phaseC;
-          const fA = p.freqA, fB = p.freqB;
+          const pA = p.phaseA,
+            pB = p.phaseB,
+            pC = p.phaseC;
+          const fA = p.freqA,
+            fB = p.freqB;
 
           // Radial breathing (shared breathe + individual phase offset)
           const breatheScalar = 1.0 + breathe + 0.06 * Math.sin(tC * fA + pC);
@@ -229,9 +248,9 @@ export function ParticleField({ className = "" }: { className?: string }) {
           // Field A contribution: position-correlated large wave
           const wA = Math.sin(tA * fA + pA + bx * 0.002);
           const wAy = Math.cos(tA * fA + pA + by * 0.002);
-          bx += bx * fieldA_x * wA  + 22 * Math.cos(tA * 0.6 + pA);
+          bx += bx * fieldA_x * wA + 22 * Math.cos(tA * 0.6 + pA);
           by += by * fieldA_y * wAy + 20 * Math.sin(tA * 0.5 + pA);
-          bz += bz * fieldA_z * wA  + 16 * Math.cos(tA * 0.8 + pA);
+          bz += bz * fieldA_z * wA + 16 * Math.cos(tA * 0.8 + pA);
 
           // Field B contribution: medium asymmetric tilt
           const wB = Math.sin(tB * fB + pB + bz * 0.003);
@@ -320,8 +339,8 @@ export function ParticleField({ className = "" }: { className?: string }) {
     // ─── Cleanup ─────────────────────────────────────────────────────────────
     return () => {
       cancelAnimationFrame(animationFrameId);
-      window.removeEventListener("resize",      onResize);
-      window.removeEventListener("mousemove",   onMouseMove);
+      window.removeEventListener("resize", onResize);
+      window.removeEventListener("mousemove", onMouseMove);
       document.removeEventListener("mouseleave", onMouseLeave);
       document.removeEventListener("visibilitychange", onVisChange);
     };

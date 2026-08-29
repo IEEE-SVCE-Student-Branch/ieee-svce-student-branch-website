@@ -79,7 +79,14 @@ export interface AchievementItem {
   id: string;
   year: string;
   title: string;
-  category: "STUDENT" | "SB_AWARD" | "PROJECT" | "HACKATHON" | "COMPETITION" | "CERTIFICATION" | "RECOGNITION";
+  category:
+    | "STUDENT"
+    | "SB_AWARD"
+    | "PROJECT"
+    | "HACKATHON"
+    | "COMPETITION"
+    | "CERTIFICATION"
+    | "RECOGNITION";
   awardedBy: string;
   summary: string;
   citation: string;
@@ -105,7 +112,13 @@ export interface IndustryConnectItem {
 export interface MediaCollection {
   id: string;
   title: string;
-  category: "EVENTS" | "WORKSHOPS" | "HACKATHONS" | "GUEST_LECTURES" | "TEAM_ACTIVITIES" | "BEHIND_THE_SCENES";
+  category:
+    | "EVENTS"
+    | "WORKSHOPS"
+    | "HACKATHONS"
+    | "GUEST_LECTURES"
+    | "TEAM_ACTIVITIES"
+    | "BEHIND_THE_SCENES";
   date: string;
   event: string;
   description: string;
@@ -137,7 +150,13 @@ export interface InnovationProject {
 export interface LearnResource {
   id: string;
   title: string;
-  category: "WORKSHOP_SLIDES" | "STUDY_RESOURCE" | "TECHNICAL_ARTICLE" | "PROJECT_DOC" | "INTERVIEW_PREP" | "ENGINEERING_RESOURCE";
+  category:
+    | "WORKSHOP_SLIDES"
+    | "STUDY_RESOURCE"
+    | "TECHNICAL_ARTICLE"
+    | "PROJECT_DOC"
+    | "INTERVIEW_PREP"
+    | "ENGINEERING_RESOURCE";
   domain: string;
   format: "PPT" | "PDF" | "CODE_REPO" | "GUIDE";
   curator: string;
@@ -217,7 +236,8 @@ export const BRANCH_ANNOUNCEMENTS: AnnouncementItem[] = [
     date: "AUGUST 2026",
     title: "Call for Papers: IMPULSE '26 National Technical Symposium",
     category: "CALL_FOR_PAPERS",
-    summary: "Submissions open for student research tracks in Autonomous Edge AI, Smart Grid Protection, and Bio-Signal Processing. Authors of accepted papers will receive IEEE certificate credentials.",
+    summary:
+      "Submissions open for student research tracks in Autonomous Edge AI, Smart Grid Protection, and Bio-Signal Processing. Authors of accepted papers will receive IEEE certificate credentials.",
     link: "/events/impulse-2026",
     priority: "HIGH",
     provenance: "ANN-2026-IMP-CFP",
@@ -227,7 +247,8 @@ export const BRANCH_ANNOUNCEMENTS: AnnouncementItem[] = [
     date: "AUGUST 2026",
     title: "IEEE SVCE Annual Activity Report (2025–26) Published",
     category: "GOVERNANCE",
-    summary: "The 64-page audited institutional dossier documenting 42 technical sessions, financial audits, and vTools compliance has been archived in the repository.",
+    summary:
+      "The 64-page audited institutional dossier documenting 42 technical sessions, financial audits, and vTools compliance has been archived in the repository.",
     link: "/reports",
     priority: "ROUTINE",
     provenance: "ANN-2026-REP-DIGEST",
@@ -237,7 +258,8 @@ export const BRANCH_ANNOUNCEMENTS: AnnouncementItem[] = [
     date: "JULY 2026",
     title: "IEEE Student Membership Drive 2026–27 Now Active",
     category: "MEMBERSHIP",
-    summary: "New engineering student inductees can access IEEE Xplore digital library privileges, society chapter affiliations, and student travel grant eligibility.",
+    summary:
+      "New engineering student inductees can access IEEE Xplore digital library privileges, society chapter affiliations, and student travel grant eligibility.",
     link: "/about#benefits",
     priority: "HIGH",
     provenance: "ANN-2026-MEM-DRIVE",
@@ -368,8 +390,18 @@ export const ABOUT_BRANCH = {
     },
   ],
   milestones: [
-    { year: "1994", title: "Charter Establishment", description: "IEEE Student Branch established at Sri Venkateswara College of Engineering under IEEE Region 10 and Madras Section." },
-    { year: "2026", title: "Current Session", description: "Active student branch continuing the tradition of technical excellence, events, and community engagement." },
+    {
+      year: "1994",
+      title: "Charter Establishment",
+      description:
+        "IEEE Student Branch established at Sri Venkateswara College of Engineering under IEEE Region 10 and Madras Section.",
+    },
+    {
+      year: "2026",
+      title: "Current Session",
+      description:
+        "Active student branch continuing the tradition of technical excellence, events, and community engagement.",
+    },
   ],
 };
 
@@ -849,14 +881,39 @@ export const BRANCH_EVENTS: EventRecord[] = [
     description:
       "IMPULSE '26 represents the apex technical gathering of the IEEE SVCE calendar. Featuring peer-reviewed paper presentations across IEEE Computer Society and Power & Energy Society domains, a competitive 24-hour hardware hackathon, robotics maze solvers, and distinguished keynote lectures by IEEE Fellows.",
     speakers: [
-      { name: "Dr. S. Ramaswamy", designation: "Fellow, IEEE", organization: "IEEE Madras Section" },
-      { name: "Priya Natarajan", designation: "Principal AI Architect", organization: "Robotics Research Labs" },
+      {
+        name: "Dr. S. Ramaswamy",
+        designation: "Fellow, IEEE",
+        organization: "IEEE Madras Section",
+      },
+      {
+        name: "Priya Natarajan",
+        designation: "Principal AI Architect",
+        organization: "Robotics Research Labs",
+      },
     ],
     schedule: [
-      { time: "09:00 - 10:00", session: "Inaugural Ceremony & Presidential Address", venue: "Central Auditorium" },
-      { time: "10:15 - 11:30", session: "Keynote: Edge Intelligence in Cyber-Physical Grids", speaker: "Dr. S. Ramaswamy", venue: "Central Auditorium" },
-      { time: "11:45 - 16:30", session: "Parallel Tracks: AI Paper Presentations & Hardware Arena", venue: "ECE & CSE Labs" },
-      { time: "16:45 - 17:30", session: "Valedictory Ceremony & Award Conferment", venue: "Central Auditorium" },
+      {
+        time: "09:00 - 10:00",
+        session: "Inaugural Ceremony & Presidential Address",
+        venue: "Central Auditorium",
+      },
+      {
+        time: "10:15 - 11:30",
+        session: "Keynote: Edge Intelligence in Cyber-Physical Grids",
+        speaker: "Dr. S. Ramaswamy",
+        venue: "Central Auditorium",
+      },
+      {
+        time: "11:45 - 16:30",
+        session: "Parallel Tracks: AI Paper Presentations & Hardware Arena",
+        venue: "ECE & CSE Labs",
+      },
+      {
+        time: "16:45 - 17:30",
+        session: "Valedictory Ceremony & Award Conferment",
+        venue: "Central Auditorium",
+      },
     ],
     organizers: ["IEEE SVCE Executive Committee", "Computer Society Chapter", "PES Chapter"],
     tags: ["Flagship", "Symposium", "Hackathon", "Robotics", "Clean Energy", "Paper Track"],
@@ -884,11 +941,29 @@ export const BRANCH_EVENTS: EventRecord[] = [
       "A rigorous laboratory workshop covering model quantization, CMSIS-NN kernels, and deployment of real-time gesture & vibration anomaly models on ARM microcontrollers.",
     description:
       "Participants will develop, flash, and benchmark custom TensorFlow Lite Micro models directly onto STM32 32-bit microcontrollers, capturing live IMU sensor data.",
-    speakers: [{ name: "K. Vignesh", designation: "Embedded Systems Architect", organization: "Silicon Embedded Tech" }],
+    speakers: [
+      {
+        name: "K. Vignesh",
+        designation: "Embedded Systems Architect",
+        organization: "Silicon Embedded Tech",
+      },
+    ],
     schedule: [
-      { time: "10:00 - 11:30", session: "TinyML Foundations & Quantization Techniques", venue: "Embedded Lab" },
-      { time: "11:45 - 13:00", session: "Lab: Flashing CMSIS-NN Kernels to STM32 Boards", venue: "Embedded Lab" },
-      { time: "14:00 - 16:00", session: "Real-time Accelerometer Anomaly Detection Demo", venue: "Embedded Lab" },
+      {
+        time: "10:00 - 11:30",
+        session: "TinyML Foundations & Quantization Techniques",
+        venue: "Embedded Lab",
+      },
+      {
+        time: "11:45 - 13:00",
+        session: "Lab: Flashing CMSIS-NN Kernels to STM32 Boards",
+        venue: "Embedded Lab",
+      },
+      {
+        time: "14:00 - 16:00",
+        session: "Real-time Accelerometer Anomaly Detection Demo",
+        venue: "Embedded Lab",
+      },
     ],
     organizers: ["IEEE CS Chapter", "Technical Affairs Wing"],
     tags: ["Embedded ML", "ARM", "Hands-on Lab", "Edge AI"],
@@ -913,12 +988,28 @@ export const BRANCH_EVENTS: EventRecord[] = [
     description:
       "The annual WIE Horizon Summit gathers senior IEEE women researchers and student engineers to discuss breakthroughs in deep tech, patent publication, and graduate research fellowships.",
     speakers: [
-      { name: "Dr. Meenakshi Sundaram", designation: "Professor", organization: "Department of ECE" },
-      { name: "Ananya Deshmukh", designation: "Quantum Research Fellow", organization: "Centre for Quantum Tech" },
+      {
+        name: "Dr. Meenakshi Sundaram",
+        designation: "Professor",
+        organization: "Department of ECE",
+      },
+      {
+        name: "Ananya Deshmukh",
+        designation: "Quantum Research Fellow",
+        organization: "Centre for Quantum Tech",
+      },
     ],
     schedule: [
-      { time: "14:00 - 15:30", session: "Panel: Breaking Frontiers in Deep-Tech Research", venue: "Conference Hall" },
-      { time: "15:45 - 17:30", session: "Research Showcase & Mentorship Breakouts", venue: "Conference Hall" },
+      {
+        time: "14:00 - 15:30",
+        session: "Panel: Breaking Frontiers in Deep-Tech Research",
+        venue: "Conference Hall",
+      },
+      {
+        time: "15:45 - 17:30",
+        session: "Research Showcase & Mentorship Breakouts",
+        venue: "Conference Hall",
+      },
     ],
     organizers: ["IEEE WIE Affinity Group"],
     tags: ["WIE", "Leadership", "Research", "Quantum Tech"],
@@ -942,10 +1033,24 @@ export const BRANCH_EVENTS: EventRecord[] = [
       "Technical deep-dive on grid synchronization algorithms, IEEE 1547 standards compliance, and real-world microgrid telemetry implementations.",
     description:
       "Co-organized with IEEE PES Madras Chapter, this colloquium explores decentralized grid synchronization, phase-locked loop (PLL) architectures, and battery energy storage controls.",
-    speakers: [{ name: "Prof. G. Chandrasekhar", designation: "Distinguished Lecturer", organization: "IEEE PES Madras Chapter" }],
+    speakers: [
+      {
+        name: "Prof. G. Chandrasekhar",
+        designation: "Distinguished Lecturer",
+        organization: "IEEE PES Madras Chapter",
+      },
+    ],
     schedule: [
-      { time: "09:30 - 11:30", session: "IEEE 1547 Standards & Inverter Synchronization", venue: "Seminar Complex" },
-      { time: "12:00 - 15:30", session: "Case Studies in Islanded Microgrid Protection", venue: "Seminar Complex" },
+      {
+        time: "09:30 - 11:30",
+        session: "IEEE 1547 Standards & Inverter Synchronization",
+        venue: "Seminar Complex",
+      },
+      {
+        time: "12:00 - 15:30",
+        session: "Case Studies in Islanded Microgrid Protection",
+        venue: "Seminar Complex",
+      },
     ],
     organizers: ["IEEE PES Chapter"],
     tags: ["Power Grid", "Renewable Energy", "IEEE Standards"],
@@ -965,17 +1070,34 @@ export const BRANCH_EVENTS: EventRecord[] = [
     time: "Concluded",
     venue: "SVCE Campus",
     status: "PAST",
-    abstract: "Over 600 student participants from 48 colleges competed across 12 technical events, paper tracks, and autonomous robotics arenas.",
+    abstract:
+      "Over 600 student participants from 48 colleges competed across 12 technical events, paper tracks, and autonomous robotics arenas.",
     description:
       "The 27th edition was concluded with award conferrals in the autonomous robotics arena and TinyML paper presentations. Full proceedings archived in the institutional dossier.",
-    speakers: [{ name: "Dr. K. Elangovan", designation: "Section Chair", organization: "IEEE Madras Section" }],
+    speakers: [
+      {
+        name: "Dr. K. Elangovan",
+        designation: "Section Chair",
+        organization: "IEEE Madras Section",
+      },
+    ],
     schedule: [],
     organizers: ["IEEE SVCE ExeCom 2024/25"],
     tags: ["Symposium", "Robotics", "Hackathon"],
     registrationOpen: false,
     winners: [
-      { position: "1st Place (Robotics Arena)", team: "Team CyberRover", institution: "College of Engineering Guindy", project: "Autonomous LiDAR Maze Solver" },
-      { position: "1st Place (Paper Track - AI)", team: "NeuralGrid Research", institution: "SVCE", project: "TinyML Substation Telemetry" },
+      {
+        position: "1st Place (Robotics Arena)",
+        team: "Team CyberRover",
+        institution: "College of Engineering Guindy",
+        project: "Autonomous LiDAR Maze Solver",
+      },
+      {
+        position: "1st Place (Paper Track - AI)",
+        team: "NeuralGrid Research",
+        institution: "SVCE",
+        project: "TinyML Substation Telemetry",
+      },
     ],
     reportUrl: "/reports#rep-01",
     certificateEventCode: "IEEE-SVCE-2025-IMP",
@@ -1048,14 +1170,16 @@ export const HALL_OF_FAME: HallOfFameMember[] = [
     tenure: "1994–Present",
     role: "Founding Branch Counselor",
     currentAffiliation: "Professor & Senior Member IEEE, SVCE",
-    citation: "Guiding three decades of student engineers and establishing the institutional charter in 1994.",
+    citation:
+      "Guiding three decades of student engineers and establishing the institutional charter in 1994.",
   },
   {
     name: "Alumni ExeCom Leaders (1994–2025)",
     tenure: "Three Decades of Stewardship",
     role: "Past Branch Chairs & Chapter Officers",
     currentAffiliation: "Distinguished Alumni in Global Tech, R&D, and Academia",
-    citation: "Building the permanent repository of technical events and preserving committee handover continuity.",
+    citation:
+      "Building the permanent repository of technical events and preserving committee handover continuity.",
   },
 ];
 
@@ -1065,21 +1189,24 @@ export const INDUSTRY_CONNECT: IndustryConnectItem[] = [
     type: "TECHNICAL_WEBINAR",
     title: "Industrial Microgrid Integration and IEEE 1547 Compliance",
     year: "2025",
-    description: "Industry architects presented smart inverter telemetry and grid synchronization standards to 140+ students.",
+    description:
+      "Industry architects presented smart inverter telemetry and grid synchronization standards to 140+ students.",
   },
   {
     partner: "Texas Instruments University Program",
     type: "INDUSTRIAL_VISIT",
     title: "Embedded Processing and MSPM0 Microcontroller Hands-on Series",
     year: "2025",
-    description: "Donation of hardware evaluation kits and joint workshop series on low-power ARM architectures.",
+    description:
+      "Donation of hardware evaluation kits and joint workshop series on low-power ARM architectures.",
   },
   {
     partner: "IEEE Madras Section Industry Relations Committee",
     type: "MENTORSHIP",
     title: "Student-to-Professional Career Transition Mentorship",
     year: "2026",
-    description: "Senior IEEE Industry Fellows mentoring final-year students on technical research paper publication and patents.",
+    description:
+      "Senior IEEE Industry Fellows mentoring final-year students on technical research paper publication and patents.",
   },
 ];
 
@@ -1091,7 +1218,8 @@ export const MEDIA_COLLECTIONS: MediaCollection[] = [
     category: "EVENTS",
     date: "OCTOBER 2025",
     event: "IMPULSE '25",
-    description: "48 collegiate teams testing autonomous line-follower and maze-solving rovers on the custom precision arena.",
+    description:
+      "48 collegiate teams testing autonomous line-follower and maze-solving rovers on the custom precision arena.",
     itemsCount: 24,
     mediaType: "PHOTO_SET",
     photographerCredit: "IEEE SVCE Media Wing",
@@ -1103,7 +1231,8 @@ export const MEDIA_COLLECTIONS: MediaCollection[] = [
     category: "WORKSHOPS",
     date: "SEPTEMBER 2025",
     event: "TechSpring Lab",
-    description: "Students flashing compiled neural network weights onto STM32 evaluation boards in the Embedded Systems Laboratory.",
+    description:
+      "Students flashing compiled neural network weights onto STM32 evaluation boards in the Embedded Systems Laboratory.",
     itemsCount: 16,
     mediaType: "PHOTO_SET",
     photographerCredit: "IEEE SVCE Media Wing",
@@ -1115,7 +1244,8 @@ export const MEDIA_COLLECTIONS: MediaCollection[] = [
     category: "HACKATHONS",
     date: "JULY 2025",
     event: "HackSVCE Hardware Edition",
-    description: "Continuous 24-hour sprint prototyping LoRa mesh sensors and emergency telemetry nodes.",
+    description:
+      "Continuous 24-hour sprint prototyping LoRa mesh sensors and emergency telemetry nodes.",
     itemsCount: 32,
     mediaType: "PHOTO_SET",
     photographerCredit: "IEEE SVCE Media Wing",
@@ -1127,7 +1257,8 @@ export const MEDIA_COLLECTIONS: MediaCollection[] = [
     category: "GUEST_LECTURES",
     date: "MARCH 2025",
     event: "Distinguished Colloquium",
-    description: "Invited lecture on nitrogen-vacancy diamond magnetometers delivered to faculty and IEEE student researchers.",
+    description:
+      "Invited lecture on nitrogen-vacancy diamond magnetometers delivered to faculty and IEEE student researchers.",
     itemsCount: 14,
     mediaType: "PHOTO_SET",
     photographerCredit: "IEEE SVCE Media Wing",
@@ -1139,7 +1270,8 @@ export const MEDIA_COLLECTIONS: MediaCollection[] = [
     category: "TEAM_ACTIVITIES",
     date: "DECEMBER 2025",
     event: "Annual General Body Meeting",
-    description: "The formal transfer of institutional seal and vTools administrative stewardship to incoming officers.",
+    description:
+      "The formal transfer of institutional seal and vTools administrative stewardship to incoming officers.",
     itemsCount: 12,
     mediaType: "PHOTO_SET",
     photographerCredit: "IEEE SVCE Media Wing",
@@ -1151,7 +1283,8 @@ export const MEDIA_COLLECTIONS: MediaCollection[] = [
     category: "BEHIND_THE_SCENES",
     date: "OCTOBER 2025",
     event: "Symposium Prep",
-    description: "Student technical heads fabricating arena timing gates, optical tripwires, and power distribution boards.",
+    description:
+      "Student technical heads fabricating arena timing gates, optical tripwires, and power distribution boards.",
     itemsCount: 18,
     mediaType: "PHOTO_SET",
     photographerCredit: "IEEE SVCE Technical Team",
@@ -1174,12 +1307,19 @@ export const BRANCH_PROJECTS: InnovationProject[] = [
     solution:
       "A solar-harvesting edge device combining thermal computer vision inference (TensorFlow Lite Micro on STM32H7) and acoustic vibration analysis with long-range LoRaWAN telemetry.",
     technologies: ["C++", "TensorFlow Lite Micro", "STM32H7", "LoRaWAN", "ChirpStack", "KiCad"],
-    results: "Achieved 96.4% fault localization accuracy in pilot bench tests with < 85mW average active power consumption.",
+    results:
+      "Achieved 96.4% fault localization accuracy in pilot bench tests with < 85mW average active power consumption.",
     githubUrl: "https://github.com/ieee-svce",
     demoUrl: "/innovation#edge-vision-grid",
     media: [
-      { type: "PROTOTYPE", caption: "Custom 4-layer STM32H7 evaluation board with thermal camera module" },
-      { type: "BENCHMARK", caption: "Power draw vs inference latency profile under continuous telemetry" },
+      {
+        type: "PROTOTYPE",
+        caption: "Custom 4-layer STM32H7 evaluation board with thermal camera module",
+      },
+      {
+        type: "BENCHMARK",
+        caption: "Power draw vs inference latency profile under continuous telemetry",
+      },
     ],
     status: "FIELD_TEST",
     provenance: "STB28051-PRJ-2025-08",
@@ -1197,11 +1337,15 @@ export const BRANCH_PROJECTS: InnovationProject[] = [
     solution:
       "Self-healing mesh radio nodes operating on 868 MHz ISM bands, establishing an ad-hoc packet-forwarding backbone over 15km line-of-sight without external network infrastructure.",
     technologies: ["ESP32-S3", "SX1262 LoRa", "Meshtastic Protocol", "Solar Harvester", "C++"],
-    results: "Validated 14.2 km packet relay between SVCE campus and Sriperumbudur emergency coordination center.",
+    results:
+      "Validated 14.2 km packet relay between SVCE campus and Sriperumbudur emergency coordination center.",
     githubUrl: "https://github.com/ieee-svce",
     demoUrl: "/innovation#sub-ghz-mesh",
     media: [
-      { type: "PROTOTYPE", caption: "Weatherproof IP67 solar node enclosure with 868MHz omni antenna" },
+      {
+        type: "PROTOTYPE",
+        caption: "Weatherproof IP67 solar node enclosure with 868MHz omni antenna",
+      },
     ],
     status: "ACTIVE_LAB",
     provenance: "STB28051-PRJ-2025-04",
@@ -1219,11 +1363,15 @@ export const BRANCH_PROJECTS: InnovationProject[] = [
     solution:
       "An ultra-low-noise 4-channel analog front-end shield utilizing Texas Instruments ADS1299 with galvanic isolation, 50Hz notch filters, and active dry electrode support.",
     technologies: ["KiCad", "ADS1299", "Active Electrodes", "Python Brainflow", "STM32"],
-    results: "Successfully captured Alpha and Beta wave rhythms with SNR > 82dB verified against laboratory oscilloscopes.",
+    results:
+      "Successfully captured Alpha and Beta wave rhythms with SNR > 82dB verified against laboratory oscilloscopes.",
     githubUrl: "https://github.com/ieee-svce",
     demoUrl: "/innovation#eeg-signal-shield",
     media: [
-      { type: "SCHEMATIC", caption: "Differential front-end analog filtering with driven-right-leg (DRL) circuit" },
+      {
+        type: "SCHEMATIC",
+        caption: "Differential front-end analog filtering with driven-right-leg (DRL) circuit",
+      },
     ],
     status: "PUBLISHED",
     provenance: "STB28051-PRJ-2024-02",
@@ -1239,7 +1387,8 @@ export const LEARN_RESOURCES: LearnResource[] = [
     domain: "Embedded Hardware",
     format: "PPT",
     curator: "Technical Affairs Wing",
-    description: "Slide deck covering task priority inversion, mutexes, semaphores, and DMA memory transfers on ARM Cortex-M microcontrollers.",
+    description:
+      "Slide deck covering task priority inversion, mutexes, semaphores, and DMA memory transfers on ARM Cortex-M microcontrollers.",
     status: "VERIFIED",
     provenance: "LRN-2026-PPT-01",
   },
@@ -1250,7 +1399,8 @@ export const LEARN_RESOURCES: LearnResource[] = [
     domain: "Artificial Intelligence",
     format: "GUIDE",
     curator: "IEEE Computer Society Chapter",
-    description: "Jupyter notebooks and guide on FFT feature extraction, data windowing, and int8 neural network quantization.",
+    description:
+      "Jupyter notebooks and guide on FFT feature extraction, data windowing, and int8 neural network quantization.",
     status: "VERIFIED",
     provenance: "LRN-2026-GDE-02",
   },
@@ -1261,7 +1411,8 @@ export const LEARN_RESOURCES: LearnResource[] = [
     domain: "Research & Writing",
     format: "PDF",
     curator: "Branch Editorial Board",
-    description: "Comprehensive template and guide on experimental rigor, bibliography management, and IEEE conference formatting.",
+    description:
+      "Comprehensive template and guide on experimental rigor, bibliography management, and IEEE conference formatting.",
     status: "VERIFIED",
     provenance: "LRN-2025-ART-03",
   },
@@ -1272,7 +1423,8 @@ export const LEARN_RESOURCES: LearnResource[] = [
     domain: "Career Preparation",
     format: "GUIDE",
     curator: "IEEE SVCE Alumni Mentors",
-    description: "Curated problem sets on digital logic, Verilog HDL synthesis, PCB routing rules, and semiconductor device physics.",
+    description:
+      "Curated problem sets on digital logic, Verilog HDL synthesis, PCB routing rules, and semiconductor device physics.",
     status: "VERIFIED",
     provenance: "LRN-2026-INT-04",
   },
@@ -1283,7 +1435,8 @@ export const LEARN_RESOURCES: LearnResource[] = [
     domain: "Power & Energy",
     format: "PDF",
     curator: "IEEE PES Chapter",
-    description: "Technical reference summary of grid interconnect standards, islanding detection methods, and inverter power factor curves.",
+    description:
+      "Technical reference summary of grid interconnect standards, islanding detection methods, and inverter power factor curves.",
     status: "VERIFIED",
     provenance: "LRN-2025-ENG-05",
   },
@@ -1295,7 +1448,8 @@ export const BRANCH_PARTNERS: PartnerRecord[] = [
     id: "prt-01",
     name: "IEEE Madras Section",
     type: "IEEE_RELATIONSHIP",
-    engagement: "Parent Section governance, annual student activity grants, awards, and conference endorsements.",
+    engagement:
+      "Parent Section governance, annual student activity grants, awards, and conference endorsements.",
     region: "Region 10 (India)",
     status: "ACTIVE_PARTNERSHIP",
     provenance: "PRT-MAS-SEC-01",
@@ -1304,7 +1458,8 @@ export const BRANCH_PARTNERS: PartnerRecord[] = [
     id: "prt-02",
     name: "IEEE Region 10 (Asia-Pacific)",
     type: "IEEE_RELATIONSHIP",
-    engagement: "Regional student activity congresses, humanitarian project competitions, and leadership summits.",
+    engagement:
+      "Regional student activity congresses, humanitarian project competitions, and leadership summits.",
     region: "Asia-Pacific",
     status: "ACTIVE_PARTNERSHIP",
     provenance: "PRT-R10-ORG-02",
@@ -1313,7 +1468,8 @@ export const BRANCH_PARTNERS: PartnerRecord[] = [
     id: "prt-03",
     name: "IEEE Computer Society (Madras Chapter)",
     type: "COLLABORATOR",
-    engagement: "Joint technical tracks, distinguished lecturer tours, and AI hackathon mentorship.",
+    engagement:
+      "Joint technical tracks, distinguished lecturer tours, and AI hackathon mentorship.",
     region: "Chennai",
     status: "ACTIVE_PARTNERSHIP",
     provenance: "PRT-CS-MAS-03",
@@ -1331,7 +1487,8 @@ export const BRANCH_PARTNERS: PartnerRecord[] = [
     id: "prt-05",
     name: "Technical Industry Sponsors & Hardware Allies",
     type: "SPONSOR",
-    engagement: "Hardware development kit donations, symposium prize sponsorships, and judging panels.",
+    engagement:
+      "Hardware development kit donations, symposium prize sponsorships, and judging panels.",
     region: "National",
     status: "ACTIVE_PARTNERSHIP",
     provenance: "PRT-IND-SPN-05",
@@ -1449,7 +1606,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
     year: "1994",
     category: "FOUNDING CHARTER",
     title: "Official IEEE Section Charter of Student Branch STB 28051",
-    summary: "The formal foundation charter signed by IEEE Region 10 and Madras Section establishing the SVCE Student Branch.",
+    summary:
+      "The formal foundation charter signed by IEEE Region 10 and Madras Section establishing the SVCE Student Branch.",
     provenance: "ARC-1994-CHARTER-001",
   },
   {
@@ -1457,7 +1615,8 @@ export const ARCHIVE_RECORDS: ArchiveRecord[] = [
     year: "1998",
     category: "SYMPOSIUM PROCEEDINGS",
     title: "IMPULSE '98 Inaugural Conference Proceedings",
-    summary: "First edition of the annual national technical symposium proceedings cataloging student paper submissions.",
+    summary:
+      "First edition of the annual national technical symposium proceedings cataloging student paper submissions.",
     provenance: "ARC-1998-IMP-001",
   },
   {

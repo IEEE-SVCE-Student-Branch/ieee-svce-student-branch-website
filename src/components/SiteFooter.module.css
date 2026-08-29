@@ -11,7 +11,12 @@
 
 /* IEEE Global Membership Flagship Callout Banner */
 .membershipBanner {
-  background: linear-gradient(135deg, rgba(0, 98, 155, 0.08) 0%, rgba(2, 132, 199, 0.04) 50%, rgba(99, 102, 241, 0.06) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(0, 98, 155, 0.08) 0%,
+    rgba(2, 132, 199, 0.04) 50%,
+    rgba(99, 102, 241, 0.06) 100%
+  );
   border: 1px solid rgba(0, 98, 155, 0.2);
   border-radius: var(--radius-xl);
   padding: 2.25rem 2.5rem;

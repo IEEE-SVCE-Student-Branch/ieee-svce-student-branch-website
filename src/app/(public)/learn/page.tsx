@@ -19,7 +19,13 @@ export default function LearnPage() {
     >
       <div style={{ display: "flex", flexDirection: "column", gap: "3.5rem" }}>
         {/* Resource Categories Grid */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "2rem" }}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+            gap: "2rem",
+          }}
+        >
           {LEARN_RESOURCES.map((res) => (
             <div
               key={res.id}
@@ -38,8 +44,22 @@ export default function LearnPage() {
               }}
             >
               <div>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.5rem" }}>
-                  <span className="mono" style={{ fontSize: "0.6875rem", fontWeight: 700, color: "var(--color-primary)" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    marginBottom: "0.5rem",
+                  }}
+                >
+                  <span
+                    className="mono"
+                    style={{
+                      fontSize: "0.6875rem",
+                      fontWeight: 700,
+                      color: "var(--color-primary)",
+                    }}
+                  >
                     [ {res.category.replace(/_/g, " ")} ]
                   </span>
                   <span
@@ -58,10 +78,24 @@ export default function LearnPage() {
                 </div>
 
                 <h3 style={{ fontSize: "1.25rem", fontWeight: 800 }}>{res.title}</h3>
-                <div className="mono" style={{ fontSize: "0.75rem", color: "var(--color-text-secondary)", marginTop: "0.25rem" }}>
+                <div
+                  className="mono"
+                  style={{
+                    fontSize: "0.75rem",
+                    color: "var(--color-text-secondary)",
+                    marginTop: "0.25rem",
+                  }}
+                >
                   Domain: {res.domain} • Curator: {res.curator}
                 </div>
-                <p style={{ fontSize: "0.875rem", lineHeight: 1.6, color: "var(--color-text-secondary)", marginTop: "0.75rem" }}>
+                <p
+                  style={{
+                    fontSize: "0.875rem",
+                    lineHeight: 1.6,
+                    color: "var(--color-text-secondary)",
+                    marginTop: "0.75rem",
+                  }}
+                >
                   {res.description}
                 </p>
               </div>
@@ -75,7 +109,10 @@ export default function LearnPage() {
                   borderTop: "1px solid var(--color-border-subtle)",
                 }}
               >
-                <span className="mono" style={{ fontSize: "0.625rem", color: "var(--color-accent-emerald)" }}>
+                <span
+                  className="mono"
+                  style={{ fontSize: "0.625rem", color: "var(--color-accent-emerald)" }}
+                >
                   ● {res.status}
                 </span>
                 <button
@@ -108,11 +145,18 @@ export default function LearnPage() {
             gap: "1rem",
           }}
         >
-          <span className="mono" style={{ fontSize: "0.6875rem", fontWeight: 800, color: "var(--color-primary)" }}>
+          <span
+            className="mono"
+            style={{ fontSize: "0.6875rem", fontWeight: 800, color: "var(--color-primary)" }}
+          >
             IEEE XPLORE DIGITAL REPOSITORY & TECHNICAL STANDARDS
           </span>
-          <p style={{ fontSize: "0.875rem", color: "var(--color-text-secondary)", lineHeight: 1.6 }}>
-            SVCE students and faculty can access full-text IEEE journals, conference proceedings, and IEEE standards through the campus network IP authentication and IEEE student membership portal.
+          <p
+            style={{ fontSize: "0.875rem", color: "var(--color-text-secondary)", lineHeight: 1.6 }}
+          >
+            SVCE students and faculty can access full-text IEEE journals, conference proceedings,
+            and IEEE standards through the campus network IP authentication and IEEE student
+            membership portal.
           </p>
         </div>
       </div>

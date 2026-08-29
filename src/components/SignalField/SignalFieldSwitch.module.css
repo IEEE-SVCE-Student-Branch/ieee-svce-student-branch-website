@@ -7,11 +7,15 @@
 }
 
 .nowMode {
-  background: radial-gradient(ellipse 70% 50% at 50% 20%, rgba(200, 228, 255, 0.4), transparent 70%), var(--color-bg-base);
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 20%, rgba(200, 228, 255, 0.4), transparent 70%),
+    var(--color-bg-base);
 }
 
 .memoryMode {
-  background: radial-gradient(ellipse 70% 50% at 50% 20%, rgba(225, 220, 255, 0.4), transparent 70%), var(--color-bg-base);
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 20%, rgba(225, 220, 255, 0.4), transparent 70%),
+    var(--color-bg-base);
 }
 
 .headerContainer {

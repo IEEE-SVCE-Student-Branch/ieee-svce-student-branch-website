@@ -48,10 +48,15 @@ export default function InnovationPage() {
               }}
             >
               <div>
-                <span className="mono" style={{ fontSize: "0.6875rem", fontWeight: 700, color: "var(--color-primary)" }}>
+                <span
+                  className="mono"
+                  style={{ fontSize: "0.6875rem", fontWeight: 700, color: "var(--color-primary)" }}
+                >
                   [ {proj.domain.toUpperCase()} ] • {proj.track.toUpperCase()} • YEAR {proj.year}
                 </span>
-                <h2 style={{ fontSize: "1.75rem", fontWeight: 900, marginTop: "0.25rem" }}>{proj.title}</h2>
+                <h2 style={{ fontSize: "1.75rem", fontWeight: 900, marginTop: "0.25rem" }}>
+                  {proj.title}
+                </h2>
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
                 <span
@@ -67,53 +72,144 @@ export default function InnovationPage() {
                 >
                   ● {proj.status.replace("_", " ")}
                 </span>
-                <span className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-text-muted)" }}>
+                <span
+                  className="mono"
+                  style={{ fontSize: "0.6875rem", color: "var(--color-text-muted)" }}
+                >
                   {proj.provenance}
                 </span>
               </div>
             </div>
 
             {/* Problem & Solution Architecture */}
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "2rem" }}>
-              <div style={{ backgroundColor: "var(--color-surface-muted)", padding: "1.5rem", borderRadius: "var(--radius-xs)", border: "1px solid var(--color-border-subtle)" }}>
-                <span className="mono" style={{ fontSize: "0.6875rem", fontWeight: 800, color: "var(--color-text-muted)" }}>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+                gap: "2rem",
+              }}
+            >
+              <div
+                style={{
+                  backgroundColor: "var(--color-surface-muted)",
+                  padding: "1.5rem",
+                  borderRadius: "var(--radius-xs)",
+                  border: "1px solid var(--color-border-subtle)",
+                }}
+              >
+                <span
+                  className="mono"
+                  style={{
+                    fontSize: "0.6875rem",
+                    fontWeight: 800,
+                    color: "var(--color-text-muted)",
+                  }}
+                >
                   {"// PROBLEM STATEMENT"}
                 </span>
-                <p style={{ marginTop: "0.5rem", fontSize: "0.9375rem", lineHeight: 1.6, color: "var(--color-text-primary)" }}>
+                <p
+                  style={{
+                    marginTop: "0.5rem",
+                    fontSize: "0.9375rem",
+                    lineHeight: 1.6,
+                    color: "var(--color-text-primary)",
+                  }}
+                >
                   {proj.problem}
                 </p>
               </div>
 
-              <div style={{ backgroundColor: "rgba(0, 98, 155, 0.04)", padding: "1.5rem", borderRadius: "var(--radius-xs)", border: "1px solid var(--color-border-accent)" }}>
-                <span className="mono" style={{ fontSize: "0.6875rem", fontWeight: 800, color: "var(--color-primary)" }}>
+              <div
+                style={{
+                  backgroundColor: "rgba(0, 98, 155, 0.04)",
+                  padding: "1.5rem",
+                  borderRadius: "var(--radius-xs)",
+                  border: "1px solid var(--color-border-accent)",
+                }}
+              >
+                <span
+                  className="mono"
+                  style={{ fontSize: "0.6875rem", fontWeight: 800, color: "var(--color-primary)" }}
+                >
                   {"// SOLUTION ARCHITECTURE"}
                 </span>
-                <p style={{ marginTop: "0.5rem", fontSize: "0.9375rem", lineHeight: 1.6, color: "var(--color-text-primary)" }}>
+                <p
+                  style={{
+                    marginTop: "0.5rem",
+                    fontSize: "0.9375rem",
+                    lineHeight: 1.6,
+                    color: "var(--color-text-primary)",
+                  }}
+                >
                   {proj.solution}
                 </p>
               </div>
             </div>
 
             {/* Field Test Results & Metrics */}
-            <div style={{ padding: "1.25rem 1.5rem", backgroundColor: "var(--color-surface-muted)", borderRadius: "var(--radius-xs)", border: "1px solid var(--color-border-subtle)" }}>
-              <span className="mono" style={{ fontSize: "0.6875rem", fontWeight: 800, color: "var(--color-accent-emerald)" }}>
+            <div
+              style={{
+                padding: "1.25rem 1.5rem",
+                backgroundColor: "var(--color-surface-muted)",
+                borderRadius: "var(--radius-xs)",
+                border: "1px solid var(--color-border-subtle)",
+              }}
+            >
+              <span
+                className="mono"
+                style={{
+                  fontSize: "0.6875rem",
+                  fontWeight: 800,
+                  color: "var(--color-accent-emerald)",
+                }}
+              >
                 VERIFIED EXPERIMENTAL RESULTS
               </span>
-              <p style={{ marginTop: "0.25rem", fontSize: "0.9375rem", fontWeight: 600, color: "var(--color-text-primary)" }}>
+              <p
+                style={{
+                  marginTop: "0.25rem",
+                  fontSize: "0.9375rem",
+                  fontWeight: 600,
+                  color: "var(--color-text-primary)",
+                }}
+              >
                 {proj.results}
               </p>
             </div>
 
             {/* Media Schematics & Prototype Artifacts */}
             {proj.media && proj.media.length > 0 && (
-              <div style={{ padding: "1.25rem 1.5rem", backgroundColor: "var(--color-surface)", borderRadius: "var(--radius-xs)", border: "1px solid var(--color-border)" }}>
-                <span className="mono" style={{ fontSize: "0.6875rem", fontWeight: 800, color: "var(--color-primary)" }}>
+              <div
+                style={{
+                  padding: "1.25rem 1.5rem",
+                  backgroundColor: "var(--color-surface)",
+                  borderRadius: "var(--radius-xs)",
+                  border: "1px solid var(--color-border)",
+                }}
+              >
+                <span
+                  className="mono"
+                  style={{ fontSize: "0.6875rem", fontWeight: 800, color: "var(--color-primary)" }}
+                >
                   TECHNICAL ARTIFACTS & MEDIA CAPTIONS
                 </span>
-                <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem", marginTop: "0.5rem" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "0.5rem",
+                    marginTop: "0.5rem",
+                  }}
+                >
                   {proj.media.map((med, i) => (
-                    <div key={i} style={{ fontSize: "0.8125rem", color: "var(--color-text-secondary)" }}>
-                      <strong className="mono" style={{ color: "var(--color-primary)" }}>[{med.type}]:</strong> {med.caption}
+                    <div
+                      key={i}
+                      style={{ fontSize: "0.8125rem", color: "var(--color-text-secondary)" }}
+                    >
+                      <strong className="mono" style={{ color: "var(--color-primary)" }}>
+                        [{med.type}]:
+                      </strong>{" "}
+                      {med.caption}
                     </div>
                   ))}
                 </div>
@@ -121,9 +217,26 @@ export default function InnovationPage() {
             )}
 
             {/* Team & Technologies */}
-            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: "1.5rem", paddingTop: "1rem", borderTop: "1px solid var(--color-border-subtle)" }}>
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "space-between",
+                alignItems: "center",
+                gap: "1.5rem",
+                paddingTop: "1rem",
+                borderTop: "1px solid var(--color-border-subtle)",
+              }}
+            >
               <div>
-                <span className="mono" style={{ fontSize: "0.625rem", color: "var(--color-text-muted)", fontWeight: 700 }}>
+                <span
+                  className="mono"
+                  style={{
+                    fontSize: "0.625rem",
+                    color: "var(--color-text-muted)",
+                    fontWeight: 700,
+                  }}
+                >
                   STUDENT TEAM / WORKING GROUP
                 </span>
                 <div style={{ fontSize: "0.875rem", fontWeight: 600, marginTop: "0.2rem" }}>

@@ -55,10 +55,10 @@ export function ScrollReveal({
     direction === "left"
       ? styles.fromLeft
       : direction === "right"
-      ? styles.fromRight
-      : direction === "fade"
-      ? styles.fadeOnly
-      : styles.fromBottom;
+        ? styles.fromRight
+        : direction === "fade"
+          ? styles.fadeOnly
+          : styles.fromBottom;
 
   return (
     <div

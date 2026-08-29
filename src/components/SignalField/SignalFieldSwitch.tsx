@@ -2,7 +2,12 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { FEATURED_NOW_EVENT, FEATURED_MEMORY_ITEM, BRANCH_PROJECTS, COMMUNITY_ACHIEVEMENTS } from "@/lib/data/branch-data";
+import {
+  FEATURED_NOW_EVENT,
+  FEATURED_MEMORY_ITEM,
+  BRANCH_PROJECTS,
+  COMMUNITY_ACHIEVEMENTS,
+} from "@/lib/data/branch-data";
 import styles from "./SignalFieldSwitch.module.css";
 
 type ModeState = "NOW" | "MEMORY";
@@ -69,9 +74,7 @@ export function SignalFieldSwitch() {
                       <span aria-hidden="true">●</span>
                       <span>FEATURED NOW // MARQUEE SYMPOSIUM</span>
                     </div>
-                    <span className={styles.provenanceStamp}>
-                      {FEATURED_NOW_EVENT.provenance}
-                    </span>
+                    <span className={styles.provenanceStamp}>{FEATURED_NOW_EVENT.provenance}</span>
                   </div>
 
                   <div className={styles.cardBody} style={{ marginTop: "1.25rem" }}>
@@ -118,11 +121,7 @@ export function SignalFieldSwitch() {
                   </div>
                   <h4 className={styles.itemTitle}>{BRANCH_PROJECTS[0].title}</h4>
                   <p className={styles.itemDescription}>{BRANCH_PROJECTS[0].problem}</p>
-                  <Link
-                    href="/innovation"
-                    className={styles.itemAction}
-                    data-cursor="LABS"
-                  >
+                  <Link href="/innovation" className={styles.itemAction} data-cursor="LABS">
                     <span>VIEW RESEARCH LAB →</span>
                   </Link>
                 </div>
@@ -134,11 +133,7 @@ export function SignalFieldSwitch() {
                   </div>
                   <h4 className={styles.itemTitle}>{BRANCH_PROJECTS[1].title}</h4>
                   <p className={styles.itemDescription}>{BRANCH_PROJECTS[1].problem}</p>
-                  <Link
-                    href="/innovation"
-                    className={styles.itemAction}
-                    data-cursor="LABS"
-                  >
+                  <Link href="/innovation" className={styles.itemAction} data-cursor="LABS">
                     <span>VIEW LAB SCHEMATIC →</span>
                   </Link>
                 </div>
@@ -162,7 +157,9 @@ export function SignalFieldSwitch() {
                   <div className={styles.cardBody} style={{ marginTop: "1.25rem" }}>
                     <span className={styles.cardScope}>[ {FEATURED_MEMORY_ITEM.recordType} ]</span>
                     <h3 className={styles.cardTitle}>{FEATURED_MEMORY_ITEM.title}</h3>
-                    <p className={styles.cardSubtitle}>Historical Record // Year {FEATURED_MEMORY_ITEM.year}</p>
+                    <p className={styles.cardSubtitle}>
+                      Historical Record // Year {FEATURED_MEMORY_ITEM.year}
+                    </p>
                     <p className={styles.cardDescription}>{FEATURED_MEMORY_ITEM.summary}</p>
 
                     <div className={styles.metaInfoBlock}>
@@ -194,14 +191,20 @@ export function SignalFieldSwitch() {
               <div className={styles.secondaryColumn}>
                 <div className={styles.signalItem}>
                   <div className={styles.itemHeader}>
-                    <span className={styles.itemBadge} style={{ color: "#6366f1", background: "rgba(99, 102, 241, 0.1)" }}>
+                    <span
+                      className={styles.itemBadge}
+                      style={{ color: "#6366f1", background: "rgba(99, 102, 241, 0.1)" }}
+                    >
                       ORIGINAL CHARTER
                     </span>
                     <span className={styles.itemDate}>1994</span>
                   </div>
-                  <h4 className={styles.itemTitle}>Charter of IEEE SVCE Student Branch STB 28051</h4>
+                  <h4 className={styles.itemTitle}>
+                    Charter of IEEE SVCE Student Branch STB 28051
+                  </h4>
                   <p className={styles.itemDescription}>
-                    Official IEEE foundation charter establishing the branch under IEEE Region 10 and Madras Section.
+                    Official IEEE foundation charter establishing the branch under IEEE Region 10
+                    and Madras Section.
                   </p>
                   <Link
                     href="/archive"
@@ -215,7 +218,10 @@ export function SignalFieldSwitch() {
 
                 <div className={styles.signalItem}>
                   <div className={styles.itemHeader}>
-                    <span className={styles.itemBadge} style={{ color: "#6366f1", background: "rgba(99, 102, 241, 0.1)" }}>
+                    <span
+                      className={styles.itemBadge}
+                      style={{ color: "#6366f1", background: "rgba(99, 102, 241, 0.1)" }}
+                    >
                       REGION 10 LAUREL
                     </span>
                     <span className={styles.itemDate}>{COMMUNITY_ACHIEVEMENTS[0].year}</span>

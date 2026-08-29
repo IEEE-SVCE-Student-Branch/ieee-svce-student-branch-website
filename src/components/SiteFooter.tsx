@@ -19,8 +19,9 @@ export function SiteFooter() {
               Join IEEE — The World&apos;s Largest Technical Professional Organization
             </h2>
             <p className={styles.membershipText}>
-              Access IEEE Xplore Digital Library, global conference discounts, career certifications,
-              technical society memberships, and networking opportunities across 160+ countries.
+              Access IEEE Xplore Digital Library, global conference discounts, career
+              certifications, technical society memberships, and networking opportunities across
+              160+ countries.
             </p>
           </div>
           <div className={styles.membershipAction}>

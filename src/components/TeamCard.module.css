@@ -44,7 +44,9 @@
 .cardContainer:hover .cardPerspective {
   border-color: rgba(2, 132, 199, 0.45);
   background: var(--color-surface-hover);
-  box-shadow: 0 16px 36px -8px rgba(0, 98, 155, 0.12), 0 4px 12px rgba(15, 23, 42, 0.04);
+  box-shadow:
+    0 16px 36px -8px rgba(0, 98, 155, 0.12),
+    0 4px 12px rgba(15, 23, 42, 0.04);
 }
 
 .cardGlowOverlay {

@@ -19,7 +19,13 @@ export default function ReportsPage() {
     >
       <div style={{ display: "flex", flexDirection: "column", gap: "3.5rem" }}>
         {/* Reports Grid */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "2rem" }}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+            gap: "2rem",
+          }}
+        >
           {INSTITUTIONAL_REPORTS.map((rep) => (
             <div
               key={rep.id}
@@ -38,17 +44,41 @@ export default function ReportsPage() {
               }}
             >
               <div>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.5rem" }}>
-                  <span className="mono" style={{ fontSize: "0.6875rem", fontWeight: 700, color: "var(--color-primary)" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    marginBottom: "0.5rem",
+                  }}
+                >
+                  <span
+                    className="mono"
+                    style={{
+                      fontSize: "0.6875rem",
+                      fontWeight: 700,
+                      color: "var(--color-primary)",
+                    }}
+                  >
                     [ {rep.docType.replace(/_/g, " ")} ]
                   </span>
-                  <span className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-text-muted)" }}>
+                  <span
+                    className="mono"
+                    style={{ fontSize: "0.6875rem", color: "var(--color-text-muted)" }}
+                  >
                     {rep.year}
                   </span>
                 </div>
 
                 <h3 style={{ fontSize: "1.25rem", fontWeight: 800 }}>{rep.title}</h3>
-                <div className="mono" style={{ fontSize: "0.75rem", color: "var(--color-text-secondary)", marginTop: "0.25rem" }}>
+                <div
+                  className="mono"
+                  style={{
+                    fontSize: "0.75rem",
+                    color: "var(--color-text-secondary)",
+                    marginTop: "0.25rem",
+                  }}
+                >
                   Period: {rep.period}
                 </div>
 
@@ -65,7 +95,9 @@ export default function ReportsPage() {
                     color: "var(--color-text-secondary)",
                   }}
                 >
-                  <span>{rep.pagesCount} Pages • {rep.fileSize}</span>
+                  <span>
+                    {rep.pagesCount} Pages • {rep.fileSize}
+                  </span>
                   <span>{rep.checksum}</span>
                 </div>
               </div>
@@ -79,7 +111,10 @@ export default function ReportsPage() {
                   borderTop: "1px solid var(--color-border-subtle)",
                 }}
               >
-                <span className="mono" style={{ fontSize: "0.625rem", color: "var(--color-accent-emerald)" }}>
+                <span
+                  className="mono"
+                  style={{ fontSize: "0.625rem", color: "var(--color-accent-emerald)" }}
+                >
                   ● VERIFIED AUDIT RECORD
                 </span>
                 <button

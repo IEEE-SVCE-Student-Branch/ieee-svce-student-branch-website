@@ -29,8 +29,8 @@ export function ContactForm() {
         <div className={styles.successMessage} role="alert">
           <div className={styles.successTitle}>✓ INQUIRY DISPATCHED</div>
           <p>
-            Your inquiry has been logged in the IEEE SVCE institutional communication dispatch.
-            The respective committee head will respond to your official email.
+            Your inquiry has been logged in the IEEE SVCE institutional communication dispatch. The
+            respective committee head will respond to your official email.
           </p>
         </div>
       )}

@@ -104,7 +104,9 @@ export function TeamCard({ member }: TeamCardProps) {
                   fill
                   sizes="(max-width: 640px) 100px, 120px"
                   className={styles.portraitImage}
-                  onError={() => {/* fallback handled by CSS */}}
+                  onError={() => {
+                    /* fallback handled by CSS */
+                  }}
                 />
               </div>
             ) : (
@@ -149,10 +151,7 @@ export function TeamCard({ member }: TeamCardProps) {
           aria-modal="true"
           aria-label={`Institutional Profile: ${member.name}`}
         >
-          <div
-            className={styles.profileModal}
-            onClick={(e) => e.stopPropagation()}
-          >
+          <div className={styles.profileModal} onClick={(e) => e.stopPropagation()}>
             <button
               type="button"
               className={styles.modalCloseBtn}

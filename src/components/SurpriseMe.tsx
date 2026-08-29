@@ -30,8 +30,8 @@ export function SurpriseMe() {
           <div className={styles.badge}>{"// SIGNATURE INTERACTION"}</div>
           <h2 className={styles.heading}>SURPRISE ME</h2>
           <p className={styles.subHeading}>
-            Discover IEEE SVCE through serendipity — randomly explore an event, innovation
-            lab, institutional achievement, archive relic, or leadership story.
+            Discover IEEE SVCE through serendipity — randomly explore an event, innovation lab,
+            institutional achievement, archive relic, or leadership story.
           </p>
 
           <button

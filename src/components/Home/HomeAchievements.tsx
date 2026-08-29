@@ -14,7 +14,8 @@ export function HomeAchievements() {
           </div>
           <h2 className={styles.title}>Laurels & Institutional Honors</h2>
           <p className={styles.desc}>
-            Verified recognitions conferred by IEEE Region 10, IEEE Madras Section, and national engineering consortiums.
+            Verified recognitions conferred by IEEE Region 10, IEEE Madras Section, and national
+            engineering consortiums.
           </p>
         </div>
 

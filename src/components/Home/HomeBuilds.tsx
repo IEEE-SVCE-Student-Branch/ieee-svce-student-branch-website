@@ -14,7 +14,8 @@ export function HomeBuilds() {
           </div>
           <h2 className={styles.title}>Living Lab Innovation & Prototypes</h2>
           <p className={styles.desc}>
-            Undergraduate engineering working groups developing hardware-accelerated AI, self-healing disaster mesh radios, and open-source biosignal shields.
+            Undergraduate engineering working groups developing hardware-accelerated AI,
+            self-healing disaster mesh radios, and open-source biosignal shields.
           </p>
         </div>
 
@@ -44,7 +45,11 @@ export function HomeBuilds() {
 
               <div className={styles.cardFooter}>
                 <span className={styles.provenanceTag}>{proj.provenance}</span>
-                <Link href={`/innovation#${proj.slug}`} className={styles.linkAction} data-cursor="INSPECT">
+                <Link
+                  href={`/innovation#${proj.slug}`}
+                  className={styles.linkAction}
+                  data-cursor="INSPECT"
+                >
                   <span>FULL ARCHITECTURE</span>
                   <span aria-hidden="true">→</span>
                 </Link>

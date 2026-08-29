@@ -14,7 +14,8 @@ export function HomeContact() {
           </div>
           <h2 className={styles.title}>Institutional Inquiries & Location</h2>
           <p className={styles.desc}>
-            Permanent communication channels for student membership, Section correspondence, industry collaborations, and faculty research.
+            Permanent communication channels for student membership, Section correspondence,
+            industry collaborations, and faculty research.
           </p>
         </div>
 
@@ -24,7 +25,8 @@ export function HomeContact() {
             <span className={styles.cardTag}>OFFICIAL BRANCH DESK</span>
             <h3 className={styles.coordsTitle}>IEEE SVCE Student Branch</h3>
             <p className={styles.coordsSub}>
-              Student Branch Code: {BRANCH_STATS.branchCode} {"//"} Est. {BRANCH_STATS.establishedYear}
+              Student Branch Code: {BRANCH_STATS.branchCode} {"//"} Est.{" "}
+              {BRANCH_STATS.establishedYear}
             </p>
 
             <div className={styles.detailRow}>
@@ -59,19 +61,22 @@ export function HomeContact() {
               <div className={styles.chanItem}>
                 <h4 className={styles.chanTitle}>General & Student Membership</h4>
                 <p className={styles.chanDesc}>
-                  Inquiries regarding IEEE global membership, IEEE SVCE onboarding, and student benefits.
+                  Inquiries regarding IEEE global membership, IEEE SVCE onboarding, and student
+                  benefits.
                 </p>
               </div>
               <div className={styles.chanItem}>
                 <h4 className={styles.chanTitle}>Symposium & Flagship Collaborations</h4>
                 <p className={styles.chanDesc}>
-                  Event sponsorships, keynote speaker invitations, and national hackathon partnerships.
+                  Event sponsorships, keynote speaker invitations, and national hackathon
+                  partnerships.
                 </p>
               </div>
               <div className={styles.chanItem}>
                 <h4 className={styles.chanTitle}>Living Lab & Research Mentorship</h4>
                 <p className={styles.chanDesc}>
-                  Collaborative industry problem statements and equipment grants for student engineering working groups.
+                  Collaborative industry problem statements and equipment grants for student
+                  engineering working groups.
                 </p>
               </div>
             </div>

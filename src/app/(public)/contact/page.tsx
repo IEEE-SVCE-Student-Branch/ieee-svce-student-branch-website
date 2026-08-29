@@ -18,7 +18,13 @@ export default function ContactPage() {
       breadcrumbLabel="CONTACT"
       provenanceCode="STB28051-COMM-DESK"
     >
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "3.5rem" }}>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+          gap: "3.5rem",
+        }}
+      >
         {/* Left Column: Coordinates, Socials & Map */}
         <div style={{ display: "flex", flexDirection: "column", gap: "2.5rem" }}>
           <div
@@ -35,21 +41,37 @@ export default function ContactPage() {
             }}
           >
             <div>
-              <span className="mono" style={{ fontSize: "0.6875rem", fontWeight: 700, color: "var(--color-primary)" }}>
+              <span
+                className="mono"
+                style={{ fontSize: "0.6875rem", fontWeight: 700, color: "var(--color-primary)" }}
+              >
                 OFFICIAL INSTITUTIONAL EMAIL
               </span>
               <div style={{ fontSize: "1.125rem", fontWeight: 700, marginTop: "0.35rem" }}>
-                <a href={`mailto:${BRANCH_STATS.officialEmail}`} style={{ color: "var(--color-primary)" }}>
+                <a
+                  href={`mailto:${BRANCH_STATS.officialEmail}`}
+                  style={{ color: "var(--color-primary)" }}
+                >
                   {BRANCH_STATS.officialEmail}
                 </a>
               </div>
             </div>
 
             <div>
-              <span className="mono" style={{ fontSize: "0.6875rem", fontWeight: 700, color: "var(--color-primary)" }}>
+              <span
+                className="mono"
+                style={{ fontSize: "0.6875rem", fontWeight: 700, color: "var(--color-primary)" }}
+              >
                 CAMPUS LOCATION & POSTAL ADDRESS
               </span>
-              <p style={{ fontSize: "0.9375rem", lineHeight: 1.6, color: "var(--color-text-secondary)", marginTop: "0.35rem" }}>
+              <p
+                style={{
+                  fontSize: "0.9375rem",
+                  lineHeight: 1.6,
+                  color: "var(--color-text-secondary)",
+                  marginTop: "0.35rem",
+                }}
+              >
                 IEEE Student Branch (STB 28051)
                 <br />
                 Sri Venkateswara College of Engineering
@@ -60,17 +82,30 @@ export default function ContactPage() {
                 <br />
                 Sriperumbudur Tk, Tamil Nadu 602117
               </p>
-              <div className="mono" style={{ fontSize: "0.75rem", fontWeight: 700, color: "var(--color-primary)", marginTop: "0.5rem" }}>
+              <div
+                className="mono"
+                style={{
+                  fontSize: "0.75rem",
+                  fontWeight: 700,
+                  color: "var(--color-primary)",
+                  marginTop: "0.5rem",
+                }}
+              >
                 {BRANCH_STATS.coordinates}
               </div>
             </div>
 
             {/* Social Links */}
             <div>
-              <span className="mono" style={{ fontSize: "0.6875rem", fontWeight: 700, color: "var(--color-primary)" }}>
+              <span
+                className="mono"
+                style={{ fontSize: "0.6875rem", fontWeight: 700, color: "var(--color-primary)" }}
+              >
                 OFFICIAL SOCIAL & CODE REPOSITORIES
               </span>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", marginTop: "0.5rem" }}>
+              <div
+                style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", marginTop: "0.5rem" }}
+              >
                 <a
                   href="https://www.linkedin.com/company/ieee-svce/"
                   target="_blank"
@@ -143,7 +178,10 @@ export default function ContactPage() {
               gap: "0.75rem",
             }}
           >
-            <span className="mono" style={{ fontSize: "0.6875rem", fontWeight: 700, color: "var(--color-primary)" }}>
+            <span
+              className="mono"
+              style={{ fontSize: "0.6875rem", fontWeight: 700, color: "var(--color-primary)" }}
+            >
               GEOGRAPHIC COORDINATE POSITION
             </span>
             <div

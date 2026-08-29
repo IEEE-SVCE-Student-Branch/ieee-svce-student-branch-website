@@ -14,7 +14,8 @@ export function HomeMedia() {
           </div>
           <h2 className={styles.title}>Photographic & Field Light Table</h2>
           <p className={styles.desc}>
-            High-resolution visual archives: micro-soldering labs, robotics arenas, international guest colloquiua, and student committee chronicles.
+            High-resolution visual archives: micro-soldering labs, robotics arenas, international
+            guest colloquiua, and student committee chronicles.
           </p>
         </div>
 

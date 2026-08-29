@@ -36,34 +36,78 @@ export default function AboutPage() {
             }}
           >
             <div>
-              <div className="mono" style={{ fontSize: "1.75rem", fontWeight: 800, color: "var(--color-primary)" }}>
+              <div
+                className="mono"
+                style={{ fontSize: "1.75rem", fontWeight: 800, color: "var(--color-primary)" }}
+              >
                 {BRANCH_STATS.establishedYear}
               </div>
-              <div className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-text-secondary)", marginTop: "0.25rem", letterSpacing: "0.06em" }}>
+              <div
+                className="mono"
+                style={{
+                  fontSize: "0.6875rem",
+                  color: "var(--color-text-secondary)",
+                  marginTop: "0.25rem",
+                  letterSpacing: "0.06em",
+                }}
+              >
                 CHARTER FOUNDING YEAR
               </div>
             </div>
             <div>
-              <div className="mono" style={{ fontSize: "1.75rem", fontWeight: 800, color: "var(--color-primary)" }}>
+              <div
+                className="mono"
+                style={{ fontSize: "1.75rem", fontWeight: 800, color: "var(--color-primary)" }}
+              >
                 {BRANCH_STATS.branchCode}
               </div>
-              <div className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-text-secondary)", marginTop: "0.25rem", letterSpacing: "0.06em" }}>
+              <div
+                className="mono"
+                style={{
+                  fontSize: "0.6875rem",
+                  color: "var(--color-text-secondary)",
+                  marginTop: "0.25rem",
+                  letterSpacing: "0.06em",
+                }}
+              >
                 SECTION BRANCH CODE
               </div>
             </div>
             <div>
-              <div className="mono" style={{ fontSize: "1.75rem", fontWeight: 800, color: "var(--color-primary)" }}>
+              <div
+                className="mono"
+                style={{ fontSize: "1.75rem", fontWeight: 800, color: "var(--color-primary)" }}
+              >
                 REGION 10
               </div>
-              <div className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-text-secondary)", marginTop: "0.25rem", letterSpacing: "0.06em" }}>
+              <div
+                className="mono"
+                style={{
+                  fontSize: "0.6875rem",
+                  color: "var(--color-text-secondary)",
+                  marginTop: "0.25rem",
+                  letterSpacing: "0.06em",
+                }}
+              >
                 ASIA-PACIFIC GEOGRAPHIC REGION
               </div>
             </div>
             <div>
-              <div className="mono" style={{ fontSize: "1.75rem", fontWeight: 800, color: "var(--color-primary)" }}>
+              <div
+                className="mono"
+                style={{ fontSize: "1.75rem", fontWeight: 800, color: "var(--color-primary)" }}
+              >
                 MADRAS SECTION
               </div>
-              <div className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-text-secondary)", marginTop: "0.25rem", letterSpacing: "0.06em" }}>
+              <div
+                className="mono"
+                style={{
+                  fontSize: "0.6875rem",
+                  color: "var(--color-text-secondary)",
+                  marginTop: "0.25rem",
+                  letterSpacing: "0.06em",
+                }}
+              >
                 PARENT SECTION GOVERNANCE
               </div>
             </div>
@@ -72,7 +116,13 @@ export default function AboutPage() {
 
         {/* Section 1: About IEEE & About IEEE SVCE */}
         <ScrollReveal>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "2rem" }}>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+              gap: "2rem",
+            }}
+          >
             <div
               style={{
                 backgroundColor: "var(--color-surface)",
@@ -86,11 +136,27 @@ export default function AboutPage() {
                 gap: "0.75rem",
               }}
             >
-              <span className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-primary)", fontWeight: 800, letterSpacing: "0.12em" }}>
+              <span
+                className="mono"
+                style={{
+                  fontSize: "0.6875rem",
+                  color: "var(--color-primary)",
+                  fontWeight: 800,
+                  letterSpacing: "0.12em",
+                }}
+              >
                 {"// GLOBAL TECHNICAL PROFESSIONAL ORGANIZATION"}
               </span>
-              <h2 style={{ fontSize: "1.625rem", fontWeight: 800, letterSpacing: "-0.02em" }}>About IEEE</h2>
-              <p style={{ color: "var(--color-text-secondary)", lineHeight: 1.7, fontSize: "0.9375rem" }}>
+              <h2 style={{ fontSize: "1.625rem", fontWeight: 800, letterSpacing: "-0.02em" }}>
+                About IEEE
+              </h2>
+              <p
+                style={{
+                  color: "var(--color-text-secondary)",
+                  lineHeight: 1.7,
+                  fontSize: "0.9375rem",
+                }}
+              >
                 {ABOUT_BRANCH.aboutIeee}
               </p>
             </div>
@@ -108,11 +174,27 @@ export default function AboutPage() {
                 gap: "0.75rem",
               }}
             >
-              <span className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-primary)", fontWeight: 800, letterSpacing: "0.12em" }}>
+              <span
+                className="mono"
+                style={{
+                  fontSize: "0.6875rem",
+                  color: "var(--color-primary)",
+                  fontWeight: 800,
+                  letterSpacing: "0.12em",
+                }}
+              >
                 {"// CAMPUS TECHNICAL COMMUNITY"}
               </span>
-              <h2 style={{ fontSize: "1.625rem", fontWeight: 800, letterSpacing: "-0.02em" }}>About IEEE SVCE Student Branch</h2>
-              <p style={{ color: "var(--color-text-secondary)", lineHeight: 1.7, fontSize: "0.9375rem" }}>
+              <h2 style={{ fontSize: "1.625rem", fontWeight: 800, letterSpacing: "-0.02em" }}>
+                About IEEE SVCE Student Branch
+              </h2>
+              <p
+                style={{
+                  color: "var(--color-text-secondary)",
+                  lineHeight: 1.7,
+                  fontSize: "0.9375rem",
+                }}
+              >
                 {ABOUT_BRANCH.aboutBranch}
               </p>
             </div>
@@ -121,7 +203,13 @@ export default function AboutPage() {
 
         {/* Section 2: Vision & Mission */}
         <ScrollReveal>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "2rem" }}>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+              gap: "2rem",
+            }}
+          >
             <div
               style={{
                 backgroundColor: "rgba(2, 132, 199, 0.05)",
@@ -131,11 +219,36 @@ export default function AboutPage() {
                 boxShadow: "var(--shadow-subtle)",
               }}
             >
-              <span className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-primary)", fontWeight: 800, letterSpacing: "0.12em" }}>
+              <span
+                className="mono"
+                style={{
+                  fontSize: "0.6875rem",
+                  color: "var(--color-primary)",
+                  fontWeight: 800,
+                  letterSpacing: "0.12em",
+                }}
+              >
                 {"// GLOBAL VISION"}
               </span>
-              <h3 style={{ fontSize: "1.375rem", fontWeight: 800, marginTop: "0.35rem", letterSpacing: "-0.01em" }}>Vision</h3>
-              <p style={{ color: "var(--color-text-primary)", lineHeight: 1.65, marginTop: "0.75rem", fontSize: "0.9375rem", fontWeight: 500 }}>
+              <h3
+                style={{
+                  fontSize: "1.375rem",
+                  fontWeight: 800,
+                  marginTop: "0.35rem",
+                  letterSpacing: "-0.01em",
+                }}
+              >
+                Vision
+              </h3>
+              <p
+                style={{
+                  color: "var(--color-text-primary)",
+                  lineHeight: 1.65,
+                  marginTop: "0.75rem",
+                  fontSize: "0.9375rem",
+                  fontWeight: 500,
+                }}
+              >
                 &ldquo;{ABOUT_BRANCH.vision}&rdquo;
               </p>
             </div>
@@ -149,11 +262,36 @@ export default function AboutPage() {
                 boxShadow: "var(--shadow-subtle)",
               }}
             >
-              <span className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-accent-violet)", fontWeight: 800, letterSpacing: "0.12em" }}>
+              <span
+                className="mono"
+                style={{
+                  fontSize: "0.6875rem",
+                  color: "var(--color-accent-violet)",
+                  fontWeight: 800,
+                  letterSpacing: "0.12em",
+                }}
+              >
                 {"// CORE PURPOSE"}
               </span>
-              <h3 style={{ fontSize: "1.375rem", fontWeight: 800, marginTop: "0.35rem", letterSpacing: "-0.01em" }}>Mission</h3>
-              <p style={{ color: "var(--color-text-primary)", lineHeight: 1.65, marginTop: "0.75rem", fontSize: "0.9375rem", fontWeight: 500 }}>
+              <h3
+                style={{
+                  fontSize: "1.375rem",
+                  fontWeight: 800,
+                  marginTop: "0.35rem",
+                  letterSpacing: "-0.01em",
+                }}
+              >
+                Mission
+              </h3>
+              <p
+                style={{
+                  color: "var(--color-text-primary)",
+                  lineHeight: 1.65,
+                  marginTop: "0.75rem",
+                  fontSize: "0.9375rem",
+                  fontWeight: 500,
+                }}
+              >
                 &ldquo;{ABOUT_BRANCH.mission}&rdquo;
               </p>
             </div>
@@ -164,14 +302,37 @@ export default function AboutPage() {
         <ScrollReveal>
           <div>
             <div style={{ marginBottom: "2rem" }}>
-              <span className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-primary)", fontWeight: 800, letterSpacing: "0.12em" }}>
+              <span
+                className="mono"
+                style={{
+                  fontSize: "0.6875rem",
+                  color: "var(--color-primary)",
+                  fontWeight: 800,
+                  letterSpacing: "0.12em",
+                }}
+              >
                 {"// CONSTITUTIONAL OBJECTIVES"}
               </span>
-              <h2 style={{ fontSize: "1.875rem", fontWeight: 900, marginTop: "0.25rem", letterSpacing: "-0.02em" }}>
+              <h2
+                style={{
+                  fontSize: "1.875rem",
+                  fontWeight: 900,
+                  marginTop: "0.25rem",
+                  letterSpacing: "-0.02em",
+                }}
+              >
                 Institutional Objectives
               </h2>
-              <p style={{ color: "var(--color-text-secondary)", fontSize: "0.9375rem", marginTop: "0.25rem", maxWidth: "700px" }}>
-                Seven guiding pillars established to cultivate technical excellence, engineering innovation, and ethical leadership across the SVCE student body.
+              <p
+                style={{
+                  color: "var(--color-text-secondary)",
+                  fontSize: "0.9375rem",
+                  marginTop: "0.25rem",
+                  maxWidth: "700px",
+                }}
+              >
+                Seven guiding pillars established to cultivate technical excellence, engineering
+                innovation, and ethical leadership across the SVCE student body.
               </p>
             </div>
 
@@ -212,10 +373,24 @@ export default function AboutPage() {
                     {obj.number}
                   </div>
                   <div>
-                    <h3 style={{ fontSize: "1.1875rem", fontWeight: 800, color: "var(--color-text-primary)", letterSpacing: "-0.01em" }}>
+                    <h3
+                      style={{
+                        fontSize: "1.1875rem",
+                        fontWeight: 800,
+                        color: "var(--color-text-primary)",
+                        letterSpacing: "-0.01em",
+                      }}
+                    >
                       {obj.title}
                     </h3>
-                    <p style={{ fontSize: "0.875rem", color: "var(--color-text-secondary)", lineHeight: 1.6, marginTop: "0.35rem" }}>
+                    <p
+                      style={{
+                        fontSize: "0.875rem",
+                        color: "var(--color-text-secondary)",
+                        lineHeight: 1.6,
+                        marginTop: "0.35rem",
+                      }}
+                    >
                       {obj.description}
                     </p>
                   </div>
@@ -229,14 +404,37 @@ export default function AboutPage() {
         <ScrollReveal>
           <div>
             <div style={{ marginBottom: "2rem" }}>
-              <span className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-primary)", fontWeight: 800, letterSpacing: "0.12em" }}>
+              <span
+                className="mono"
+                style={{
+                  fontSize: "0.6875rem",
+                  color: "var(--color-primary)",
+                  fontWeight: 800,
+                  letterSpacing: "0.12em",
+                }}
+              >
                 {"// WHY IEEE? // STUDENT VALUE PROPOSITION"}
               </span>
-              <h2 style={{ fontSize: "1.875rem", fontWeight: 900, marginTop: "0.25rem", letterSpacing: "-0.02em" }}>
+              <h2
+                style={{
+                  fontSize: "1.875rem",
+                  fontWeight: 900,
+                  marginTop: "0.25rem",
+                  letterSpacing: "-0.02em",
+                }}
+              >
                 What Students Gain from IEEE Membership
               </h2>
-              <p style={{ color: "var(--color-text-secondary)", fontSize: "0.9375rem", marginTop: "0.25rem", maxWidth: "720px" }}>
-                Becoming an IEEE member gives students access to a global technical ecosystem that supports learning, innovation, professional growth, and leadership.
+              <p
+                style={{
+                  color: "var(--color-text-secondary)",
+                  fontSize: "0.9375rem",
+                  marginTop: "0.25rem",
+                  maxWidth: "720px",
+                }}
+              >
+                Becoming an IEEE member gives students access to a global technical ecosystem that
+                supports learning, innovation, professional growth, and leadership.
               </p>
             </div>
 
@@ -262,16 +460,49 @@ export default function AboutPage() {
                     gap: "0.625rem",
                   }}
                 >
-                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                    <span className="mono" style={{ fontSize: "0.75rem", fontWeight: 800, color: "var(--color-primary)" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <span
+                      className="mono"
+                      style={{
+                        fontSize: "0.75rem",
+                        fontWeight: 800,
+                        color: "var(--color-primary)",
+                      }}
+                    >
                       [ {String(idx + 1).padStart(2, "0")} ]
                     </span>
-                    <span style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "var(--color-primary)" }} />
+                    <span
+                      style={{
+                        width: "6px",
+                        height: "6px",
+                        borderRadius: "50%",
+                        backgroundColor: "var(--color-primary)",
+                      }}
+                    />
                   </div>
-                  <h3 style={{ fontSize: "1.0625rem", fontWeight: 800, letterSpacing: "-0.01em", marginTop: "0.25rem" }}>
+                  <h3
+                    style={{
+                      fontSize: "1.0625rem",
+                      fontWeight: 800,
+                      letterSpacing: "-0.01em",
+                      marginTop: "0.25rem",
+                    }}
+                  >
                     {benefit.title}
                   </h3>
-                  <p style={{ fontSize: "0.8125rem", color: "var(--color-text-secondary)", lineHeight: 1.6 }}>
+                  <p
+                    style={{
+                      fontSize: "0.8125rem",
+                      color: "var(--color-text-secondary)",
+                      lineHeight: 1.6,
+                    }}
+                  >
                     {benefit.description}
                   </p>
                 </div>
@@ -311,11 +542,27 @@ export default function AboutPage() {
             >
               JOIN THE WORLD&apos;S LARGEST TECHNICAL ECOSYSTEM
             </span>
-            <h2 style={{ fontSize: "2.25rem", fontWeight: 900, letterSpacing: "-0.025em", maxWidth: "680px", color: "#ffffff" }}>
+            <h2
+              style={{
+                fontSize: "2.25rem",
+                fontWeight: 900,
+                letterSpacing: "-0.025em",
+                maxWidth: "680px",
+                color: "#ffffff",
+              }}
+            >
               Ready to Expand Your Engineering Journey with IEEE?
             </h2>
-            <p style={{ fontSize: "1rem", color: "rgba(240, 249, 255, 0.9)", maxWidth: "600px", lineHeight: 1.6 }}>
-              Unlock research papers, global student travel grants, specialized society chapters, and direct networking with industry leaders worldwide.
+            <p
+              style={{
+                fontSize: "1rem",
+                color: "rgba(240, 249, 255, 0.9)",
+                maxWidth: "600px",
+                lineHeight: 1.6,
+              }}
+            >
+              Unlock research papers, global student travel grants, specialized society chapters,
+              and direct networking with industry leaders worldwide.
             </p>
             <a
               href="https://www.ieee.org/membership/join/"

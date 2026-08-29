@@ -19,7 +19,9 @@
   pointer-events: none;
   transform: translate(-50%, -50%);
   z-index: 1000001;
-  transition: transform 120ms cubic-bezier(0.16, 1, 0.3, 1), opacity 150ms ease;
+  transition:
+    transform 120ms cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 150ms ease;
   box-shadow: 0 0 6px rgba(0, 98, 155, 0.4);
 }
 
@@ -38,11 +40,12 @@
   background-color: rgba(0, 98, 155, 0.03);
   backdrop-filter: blur(1px);
   -webkit-backdrop-filter: blur(1px);
-  transition: width 220ms cubic-bezier(0.16, 1, 0.3, 1),
-              height 220ms cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 180ms ease,
-              background-color 180ms ease,
-              box-shadow 200ms ease;
+  transition:
+    width 220ms cubic-bezier(0.16, 1, 0.3, 1),
+    height 220ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 180ms ease,
+    background-color 180ms ease,
+    box-shadow 200ms ease;
 }
 
 .cursorLabel {
@@ -54,7 +57,9 @@
   text-transform: uppercase;
   opacity: 0;
   transform: scale(0.6);
-  transition: opacity 160ms ease, transform 160ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition:
+    opacity 160ms ease,
+    transform 160ms cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
 }
 
@@ -64,7 +69,9 @@
   height: 62px;
   border-color: var(--color-primary);
   background-color: rgba(0, 98, 155, 0.08);
-  box-shadow: 0 0 20px rgba(0, 98, 155, 0.25), inset 0 0 10px rgba(6, 182, 212, 0.15);
+  box-shadow:
+    0 0 20px rgba(0, 98, 155, 0.25),
+    inset 0 0 10px rgba(6, 182, 212, 0.15);
 }
 
 .cursorInteractive .cursorDot {

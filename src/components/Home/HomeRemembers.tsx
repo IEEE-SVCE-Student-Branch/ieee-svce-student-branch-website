@@ -14,7 +14,8 @@ export function HomeRemembers() {
           </div>
           <h2 className={styles.title}>Institutional Archives & Memory</h2>
           <p className={styles.desc}>
-            Three decades of permanent IEEE charter records, inaugural conference proceedings, and Section award citations since August 1994.
+            Three decades of permanent IEEE charter records, inaugural conference proceedings, and
+            Section award citations since August 1994.
           </p>
         </div>
 

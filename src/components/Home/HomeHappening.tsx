@@ -16,7 +16,8 @@ export function HomeHappening() {
           </div>
           <h2 className={styles.title}>Active Calendar & Symposia</h2>
           <p className={styles.desc}>
-            Flagship technical assemblies, 24-hour hardware hackathons, and laboratory workshop series.
+            Flagship technical assemblies, 24-hour hardware hackathons, and laboratory workshop
+            series.
           </p>
         </div>
 
@@ -56,7 +57,9 @@ export function HomeHappening() {
             <div className={styles.cardFooter}>
               <div className={styles.tags}>
                 {FEATURED_NOW_EVENT.tags.slice(0, 4).map((t) => (
-                  <span key={t} className={styles.tag}>#{t}</span>
+                  <span key={t} className={styles.tag}>
+                    #{t}
+                  </span>
                 ))}
               </div>
               <div className={styles.actions}>

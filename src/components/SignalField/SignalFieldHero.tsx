@@ -89,10 +89,14 @@ export function SignalFieldHero() {
     // Filter discovery pool based on selected category
     let pool = DISCOVERY_CATALOG;
     if (activeFilter === "PEOPLE") pool = DISCOVERY_CATALOG.filter((i) => i.category === "person");
-    else if (activeFilter === "EVENTS") pool = DISCOVERY_CATALOG.filter((i) => i.category === "event");
-    else if (activeFilter === "BUILD") pool = DISCOVERY_CATALOG.filter((i) => i.category === "project");
-    else if (activeFilter === "HISTORY") pool = DISCOVERY_CATALOG.filter((i) => i.category === "media" || i.category === "article");
-    else if (activeFilter === "ACHIEVEMENTS") pool = DISCOVERY_CATALOG.filter((i) => i.category === "achievement");
+    else if (activeFilter === "EVENTS")
+      pool = DISCOVERY_CATALOG.filter((i) => i.category === "event");
+    else if (activeFilter === "BUILD")
+      pool = DISCOVERY_CATALOG.filter((i) => i.category === "project");
+    else if (activeFilter === "HISTORY")
+      pool = DISCOVERY_CATALOG.filter((i) => i.category === "media" || i.category === "article");
+    else if (activeFilter === "ACHIEVEMENTS")
+      pool = DISCOVERY_CATALOG.filter((i) => i.category === "achievement");
 
     if (pool.length === 0) pool = DISCOVERY_CATALOG;
 
@@ -123,7 +127,8 @@ export function SignalFieldHero() {
         </h1>
 
         <p className={styles.subtitle}>
-          The student-driven technical community connecting Sri Venkateswara College of Engineering with the global IEEE network.
+          The student-driven technical community connecting Sri Venkateswara College of Engineering
+          with the global IEEE network.
         </p>
 
         {/* Discovery Category Filters */}

@@ -69,7 +69,10 @@ export default function ArchivePage() {
                   >
                     {record.provenance}
                   </td>
-                  <td className="mono" style={{ padding: "1.25rem", whiteSpace: "nowrap", fontWeight: 700 }}>
+                  <td
+                    className="mono"
+                    style={{ padding: "1.25rem", whiteSpace: "nowrap", fontWeight: 700 }}
+                  >
                     {record.year}
                   </td>
                   <td style={{ padding: "1.25rem", minWidth: "280px" }}>

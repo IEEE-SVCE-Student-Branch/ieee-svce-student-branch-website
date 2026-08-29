@@ -14,7 +14,8 @@ export function HomeNetwork() {
           </div>
           <h2 className={styles.title}>IEEE Institutional Ecosystem</h2>
           <p className={styles.desc}>
-            Operating under IEEE Region 10 and IEEE Madras Section governance alongside academic and industry collaborators.
+            Operating under IEEE Region 10 and IEEE Madras Section governance alongside academic and
+            industry collaborators.
           </p>
         </div>
 
@@ -39,7 +40,8 @@ export function HomeNetwork() {
           <div className={styles.inquiryContent}>
             <h4 className={styles.inquiryTitle}>Sponsor, Mentor or Collaborate with IEEE SVCE</h4>
             <p className={styles.inquiryDesc}>
-              Connect with our student executive committee for symposium partnerships, hackathon problem statements, and laboratory sponsorship.
+              Connect with our student executive committee for symposium partnerships, hackathon
+              problem statements, and laboratory sponsorship.
             </p>
           </div>
           <Link href="/partners" className={styles.inquiryBtn} data-cursor="CONNECT">

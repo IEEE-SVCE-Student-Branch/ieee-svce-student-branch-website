@@ -49,7 +49,13 @@ export default function MediaPage() {
         </div>
 
         {/* Media Collections Grid */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "2rem" }}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+            gap: "2rem",
+          }}
+        >
           {MEDIA_COLLECTIONS.map((col) => (
             <div
               key={col.id}
@@ -73,7 +79,8 @@ export default function MediaPage() {
                   style={{
                     height: "180px",
                     borderRadius: "var(--radius-xs)",
-                    background: "radial-gradient(circle at center, rgba(0,98,155,0.15) 0%, rgba(240,244,249,0.9) 100%)",
+                    background:
+                      "radial-gradient(circle at center, rgba(0,98,155,0.15) 0%, rgba(240,244,249,0.9) 100%)",
                     border: "1px solid var(--color-border-subtle)",
                     display: "flex",
                     flexDirection: "column",
@@ -83,25 +90,56 @@ export default function MediaPage() {
                     marginBottom: "1.25rem",
                   }}
                 >
-                  <div className="mono" style={{ fontSize: "0.75rem", fontWeight: 800, color: "var(--color-primary)" }}>
+                  <div
+                    className="mono"
+                    style={{ fontSize: "0.75rem", fontWeight: 800, color: "var(--color-primary)" }}
+                  >
                     [ {col.category.replace(/_/g, " ")} ]
                   </div>
-                  <div className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-text-muted)", marginTop: "0.25rem" }}>
+                  <div
+                    className="mono"
+                    style={{
+                      fontSize: "0.6875rem",
+                      color: "var(--color-text-muted)",
+                      marginTop: "0.25rem",
+                    }}
+                  >
                     {col.itemsCount} CURATED CAPTURES
                   </div>
                 </div>
 
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                  <span className="mono" style={{ fontSize: "0.6875rem", fontWeight: 700, color: "var(--color-primary)" }}>
+                <div
+                  style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}
+                >
+                  <span
+                    className="mono"
+                    style={{
+                      fontSize: "0.6875rem",
+                      fontWeight: 700,
+                      color: "var(--color-primary)",
+                    }}
+                  >
                     {col.event}
                   </span>
-                  <span className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-text-muted)" }}>
+                  <span
+                    className="mono"
+                    style={{ fontSize: "0.6875rem", color: "var(--color-text-muted)" }}
+                  >
                     {col.date}
                   </span>
                 </div>
 
-                <h3 style={{ fontSize: "1.25rem", fontWeight: 800, marginTop: "0.5rem" }}>{col.title}</h3>
-                <p style={{ fontSize: "0.875rem", color: "var(--color-text-secondary)", marginTop: "0.5rem", lineHeight: 1.6 }}>
+                <h3 style={{ fontSize: "1.25rem", fontWeight: 800, marginTop: "0.5rem" }}>
+                  {col.title}
+                </h3>
+                <p
+                  style={{
+                    fontSize: "0.875rem",
+                    color: "var(--color-text-secondary)",
+                    marginTop: "0.5rem",
+                    lineHeight: 1.6,
+                  }}
+                >
                   {col.description}
                 </p>
               </div>

@@ -147,21 +147,48 @@ function NavIconSvg({ type }: { type: ExploreNavItem["icon"] }) {
   switch (type) {
     case "home":
       return (
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg
+          width="17"
+          height="17"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
           <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
           <polyline points="9 22 9 12 15 12 15 22" />
         </svg>
       );
     case "book":
       return (
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg
+          width="17"
+          height="17"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
           <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
           <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
         </svg>
       );
     case "people":
       return (
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg
+          width="17"
+          height="17"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
           <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
           <circle cx="9" cy="7" r="4" />
           <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
@@ -170,7 +197,16 @@ function NavIconSvg({ type }: { type: ExploreNavItem["icon"] }) {
       );
     case "calendar":
       return (
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg
+          width="17"
+          height="17"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
           <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
           <line x1="16" y1="2" x2="16" y2="6" />
           <line x1="8" y1="2" x2="8" y2="6" />
@@ -179,7 +215,16 @@ function NavIconSvg({ type }: { type: ExploreNavItem["icon"] }) {
       );
     case "cube":
       return (
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg
+          width="17"
+          height="17"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
           <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
           <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
           <line x1="12" y1="22.08" x2="12" y2="12" />
@@ -187,21 +232,48 @@ function NavIconSvg({ type }: { type: ExploreNavItem["icon"] }) {
       );
     case "grad":
       return (
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg
+          width="17"
+          height="17"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
           <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
           <path d="M6 12v5c3 3 9 3 12 0v-5" />
         </svg>
       );
     case "laurel":
       return (
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg
+          width="17"
+          height="17"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
           <circle cx="12" cy="8" r="7" />
           <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
         </svg>
       );
     case "camera":
       return (
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg
+          width="17"
+          height="17"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
           <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
           <circle cx="8.5" cy="8.5" r="1.5" />
           <polyline points="21 15 16 10 5 21" />
@@ -209,7 +281,16 @@ function NavIconSvg({ type }: { type: ExploreNavItem["icon"] }) {
       );
     case "handshake":
       return (
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg
+          width="17"
+          height="17"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
           <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
           <circle cx="9" cy="7" r="4" />
           <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
@@ -218,7 +299,16 @@ function NavIconSvg({ type }: { type: ExploreNavItem["icon"] }) {
       );
     case "doc":
       return (
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg
+          width="17"
+          height="17"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
           <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
           <polyline points="14 2 14 8 20 8" />
           <line x1="16" y1="13" x2="8" y2="13" />
@@ -227,14 +317,32 @@ function NavIconSvg({ type }: { type: ExploreNavItem["icon"] }) {
       );
     case "shield":
       return (
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg
+          width="17"
+          height="17"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
           <polyline points="9 12 11 14 15 10" />
         </svg>
       );
     case "pin":
       return (
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg
+          width="17"
+          height="17"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
           <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
           <circle cx="12" cy="10" r="3" />
         </svg>
@@ -253,10 +361,40 @@ function EmbeddedSpatialHoverPreview({ navId }: { navId: string }) {
     case "nav-about":
       return (
         <svg className={styles.spatialHoverSvg} viewBox="0 0 600 400" fill="none">
-          <rect x="80" y="40" width="440" height="320" rx="8" stroke="rgba(99, 102, 241, 0.14)" strokeWidth="1" strokeDasharray="4 6" />
-          <line x1="120" y1="120" x2="480" y2="120" stroke="rgba(99, 102, 241, 0.18)" strokeWidth="1.2" />
-          <line x1="120" y1="200" x2="400" y2="200" stroke="rgba(99, 102, 241, 0.14)" strokeWidth="1" />
-          <line x1="120" y1="280" x2="320" y2="280" stroke="rgba(99, 102, 241, 0.14)" strokeWidth="1" />
+          <rect
+            x="80"
+            y="40"
+            width="440"
+            height="320"
+            rx="8"
+            stroke="rgba(99, 102, 241, 0.14)"
+            strokeWidth="1"
+            strokeDasharray="4 6"
+          />
+          <line
+            x1="120"
+            y1="120"
+            x2="480"
+            y2="120"
+            stroke="rgba(99, 102, 241, 0.18)"
+            strokeWidth="1.2"
+          />
+          <line
+            x1="120"
+            y1="200"
+            x2="400"
+            y2="200"
+            stroke="rgba(99, 102, 241, 0.14)"
+            strokeWidth="1"
+          />
+          <line
+            x1="120"
+            y1="280"
+            x2="320"
+            y2="280"
+            stroke="rgba(99, 102, 241, 0.14)"
+            strokeWidth="1"
+          />
           <circle cx="460" cy="280" r="16" stroke="rgba(99, 102, 241, 0.22)" strokeWidth="1.5" />
         </svg>
       );
@@ -266,34 +404,94 @@ function EmbeddedSpatialHoverPreview({ navId }: { navId: string }) {
           <circle cx="200" cy="160" r="18" stroke="rgba(6, 182, 212, 0.22)" strokeWidth="1.5" />
           <circle cx="400" cy="160" r="18" stroke="rgba(6, 182, 212, 0.22)" strokeWidth="1.5" />
           <circle cx="300" cy="280" r="24" stroke="rgba(2, 132, 199, 0.28)" strokeWidth="2" />
-          <line x1="200" y1="160" x2="300" y2="280" stroke="rgba(6, 182, 212, 0.18)" strokeWidth="1.2" strokeDasharray="3 3" />
-          <line x1="400" y1="160" x2="300" y2="280" stroke="rgba(6, 182, 212, 0.18)" strokeWidth="1.2" strokeDasharray="3 3" />
-          <line x1="200" y1="160" x2="400" y2="160" stroke="rgba(6, 182, 212, 0.14)" strokeWidth="1" strokeDasharray="3 3" />
+          <line
+            x1="200"
+            y1="160"
+            x2="300"
+            y2="280"
+            stroke="rgba(6, 182, 212, 0.18)"
+            strokeWidth="1.2"
+            strokeDasharray="3 3"
+          />
+          <line
+            x1="400"
+            y1="160"
+            x2="300"
+            y2="280"
+            stroke="rgba(6, 182, 212, 0.18)"
+            strokeWidth="1.2"
+            strokeDasharray="3 3"
+          />
+          <line
+            x1="200"
+            y1="160"
+            x2="400"
+            y2="160"
+            stroke="rgba(6, 182, 212, 0.14)"
+            strokeWidth="1"
+            strokeDasharray="3 3"
+          />
         </svg>
       );
     case "nav-events":
       return (
         <svg className={styles.spatialHoverSvg} viewBox="0 0 600 400" fill="none">
-          <line x1="80" y1="200" x2="520" y2="200" stroke="rgba(2, 132, 199, 0.2)" strokeWidth="1.5" />
+          <line
+            x1="80"
+            y1="200"
+            x2="520"
+            y2="200"
+            stroke="rgba(2, 132, 199, 0.2)"
+            strokeWidth="1.5"
+          />
           <circle cx="160" cy="200" r="10" fill="rgba(2, 132, 199, 0.25)" />
           <circle cx="300" cy="200" r="14" fill="rgba(6, 182, 212, 0.35)" />
           <circle cx="440" cy="200" r="10" fill="rgba(2, 132, 199, 0.25)" />
-          <path d="M160 170 V120 M300 160 V90 M440 170 V120" stroke="rgba(6, 182, 212, 0.2)" strokeWidth="1.2" />
+          <path
+            d="M160 170 V120 M300 160 V90 M440 170 V120"
+            stroke="rgba(6, 182, 212, 0.2)"
+            strokeWidth="1.2"
+          />
         </svg>
       );
     case "nav-innovation":
       return (
         <svg className={styles.spatialHoverSvg} viewBox="0 0 600 400" fill="none">
-          <polygon points="300,80 440,160 440,300 300,380 160,300 160,160" stroke="rgba(6, 182, 212, 0.18)" strokeWidth="1.5" />
-          <line x1="300" y1="80" x2="300" y2="380" stroke="rgba(6, 182, 212, 0.14)" strokeWidth="1.2" />
-          <line x1="160" y1="160" x2="440" y2="300" stroke="rgba(6, 182, 212, 0.12)" strokeWidth="1" />
+          <polygon
+            points="300,80 440,160 440,300 300,380 160,300 160,160"
+            stroke="rgba(6, 182, 212, 0.18)"
+            strokeWidth="1.5"
+          />
+          <line
+            x1="300"
+            y1="80"
+            x2="300"
+            y2="380"
+            stroke="rgba(6, 182, 212, 0.14)"
+            strokeWidth="1.2"
+          />
+          <line
+            x1="160"
+            y1="160"
+            x2="440"
+            y2="300"
+            stroke="rgba(6, 182, 212, 0.12)"
+            strokeWidth="1"
+          />
           <circle cx="300" cy="230" r="12" fill="rgba(6, 182, 212, 0.2)" />
         </svg>
       );
     case "nav-learn":
       return (
         <svg className={styles.spatialHoverSvg} viewBox="0 0 600 400" fill="none">
-          <circle cx="300" cy="200" r="120" stroke="rgba(16, 185, 129, 0.14)" strokeWidth="1.2" strokeDasharray="6 4" />
+          <circle
+            cx="300"
+            cy="200"
+            r="120"
+            stroke="rgba(16, 185, 129, 0.14)"
+            strokeWidth="1.2"
+            strokeDasharray="6 4"
+          />
           <circle cx="300" cy="200" r="70" stroke="rgba(16, 185, 129, 0.2)" strokeWidth="1.5" />
           <circle cx="300" cy="200" r="20" fill="rgba(16, 185, 129, 0.22)" />
         </svg>
@@ -301,16 +499,39 @@ function EmbeddedSpatialHoverPreview({ navId }: { navId: string }) {
     case "nav-community":
       return (
         <svg className={styles.spatialHoverSvg} viewBox="0 0 600 400" fill="none">
-          <circle cx="300" cy="200" r="90" stroke="rgba(245, 158, 11, 0.16)" strokeWidth="1.5" strokeDasharray="4 4" />
-          <polygon points="300,140 318,180 360,184 328,212 338,254 300,230 262,254 272,212 240,184 282,180" stroke="rgba(245, 158, 11, 0.25)" strokeWidth="1.5" />
+          <circle
+            cx="300"
+            cy="200"
+            r="90"
+            stroke="rgba(245, 158, 11, 0.16)"
+            strokeWidth="1.5"
+            strokeDasharray="4 4"
+          />
+          <polygon
+            points="300,140 318,180 360,184 328,212 338,254 300,230 262,254 272,212 240,184 282,180"
+            stroke="rgba(245, 158, 11, 0.25)"
+            strokeWidth="1.5"
+          />
         </svg>
       );
     case "nav-media":
       return (
         <svg className={styles.spatialHoverSvg} viewBox="0 0 600 400" fill="none">
-          <rect x="120" y="80" width="360" height="240" rx="8" stroke="rgba(6, 182, 212, 0.18)" strokeWidth="1.5" />
+          <rect
+            x="120"
+            y="80"
+            width="360"
+            height="240"
+            rx="8"
+            stroke="rgba(6, 182, 212, 0.18)"
+            strokeWidth="1.5"
+          />
           <circle cx="210" cy="150" r="22" stroke="rgba(6, 182, 212, 0.22)" strokeWidth="1.5" />
-          <path d="M140 280 L260 190 L340 240 L400 195 L460 280" stroke="rgba(6, 182, 212, 0.2)" strokeWidth="1.5" />
+          <path
+            d="M140 280 L260 190 L340 240 L400 195 L460 280"
+            stroke="rgba(6, 182, 212, 0.2)"
+            strokeWidth="1.5"
+          />
         </svg>
       );
     case "nav-partners":
@@ -318,38 +539,110 @@ function EmbeddedSpatialHoverPreview({ navId }: { navId: string }) {
         <svg className={styles.spatialHoverSvg} viewBox="0 0 600 400" fill="none">
           <circle cx="200" cy="200" r="60" stroke="rgba(16, 185, 129, 0.18)" strokeWidth="1.5" />
           <circle cx="400" cy="200" r="60" stroke="rgba(16, 185, 129, 0.18)" strokeWidth="1.5" />
-          <path d="M250 170 C 300 140, 300 260, 350 230" stroke="rgba(16, 185, 129, 0.25)" strokeWidth="2" />
+          <path
+            d="M250 170 C 300 140, 300 260, 350 230"
+            stroke="rgba(16, 185, 129, 0.25)"
+            strokeWidth="2"
+          />
         </svg>
       );
     case "nav-reports":
       return (
         <svg className={styles.spatialHoverSvg} viewBox="0 0 600 400" fill="none">
-          <rect x="180" y="60" width="240" height="280" rx="6" stroke="rgba(245, 158, 11, 0.18)" strokeWidth="1.5" />
-          <line x1="220" y1="120" x2="380" y2="120" stroke="rgba(245, 158, 11, 0.2)" strokeWidth="1.5" />
-          <line x1="220" y1="170" x2="380" y2="170" stroke="rgba(245, 158, 11, 0.2)" strokeWidth="1.5" />
-          <line x1="220" y1="220" x2="320" y2="220" stroke="rgba(245, 158, 11, 0.15)" strokeWidth="1.2" />
+          <rect
+            x="180"
+            y="60"
+            width="240"
+            height="280"
+            rx="6"
+            stroke="rgba(245, 158, 11, 0.18)"
+            strokeWidth="1.5"
+          />
+          <line
+            x1="220"
+            y1="120"
+            x2="380"
+            y2="120"
+            stroke="rgba(245, 158, 11, 0.2)"
+            strokeWidth="1.5"
+          />
+          <line
+            x1="220"
+            y1="170"
+            x2="380"
+            y2="170"
+            stroke="rgba(245, 158, 11, 0.2)"
+            strokeWidth="1.5"
+          />
+          <line
+            x1="220"
+            y1="220"
+            x2="320"
+            y2="220"
+            stroke="rgba(245, 158, 11, 0.15)"
+            strokeWidth="1.2"
+          />
         </svg>
       );
     case "nav-certificates":
       return (
         <svg className={styles.spatialHoverSvg} viewBox="0 0 600 400" fill="none">
-          <path d="M300 80 L420 140 V240 C420 310, 300 360, 300 360 C300 360, 180 310, 180 240 V140 Z" stroke="rgba(2, 132, 199, 0.2)" strokeWidth="1.8" fill="rgba(2, 132, 199, 0.03)" />
-          <path d="M260 210 L288 238 L344 182" stroke="rgba(6, 182, 212, 0.3)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path
+            d="M300 80 L420 140 V240 C420 310, 300 360, 300 360 C300 360, 180 310, 180 240 V140 Z"
+            stroke="rgba(2, 132, 199, 0.2)"
+            strokeWidth="1.8"
+            fill="rgba(2, 132, 199, 0.03)"
+          />
+          <path
+            d="M260 210 L288 238 L344 182"
+            stroke="rgba(6, 182, 212, 0.3)"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
         </svg>
       );
     case "nav-contact":
       return (
         <svg className={styles.spatialHoverSvg} viewBox="0 0 600 400" fill="none">
-          <circle cx="300" cy="200" r="100" stroke="rgba(99, 102, 241, 0.15)" strokeWidth="1.2" strokeDasharray="4 4" />
-          <line x1="300" y1="60" x2="300" y2="340" stroke="rgba(99, 102, 241, 0.14)" strokeWidth="1" />
-          <line x1="160" y1="200" x2="440" y2="200" stroke="rgba(99, 102, 241, 0.14)" strokeWidth="1" />
+          <circle
+            cx="300"
+            cy="200"
+            r="100"
+            stroke="rgba(99, 102, 241, 0.15)"
+            strokeWidth="1.2"
+            strokeDasharray="4 4"
+          />
+          <line
+            x1="300"
+            y1="60"
+            x2="300"
+            y2="340"
+            stroke="rgba(99, 102, 241, 0.14)"
+            strokeWidth="1"
+          />
+          <line
+            x1="160"
+            y1="200"
+            x2="440"
+            y2="200"
+            stroke="rgba(99, 102, 241, 0.14)"
+            strokeWidth="1"
+          />
           <circle cx="300" cy="200" r="12" fill="rgba(99, 102, 241, 0.25)" />
         </svg>
       );
     default:
       return (
         <svg className={styles.spatialHoverSvg} viewBox="0 0 600 400" fill="none">
-          <circle cx="300" cy="200" r="80" stroke="rgba(2, 132, 199, 0.15)" strokeWidth="1.5" strokeDasharray="4 4" />
+          <circle
+            cx="300"
+            cy="200"
+            r="80"
+            stroke="rgba(2, 132, 199, 0.15)"
+            strokeWidth="1.5"
+            strokeDasharray="4 4"
+          />
         </svg>
       );
   }
@@ -482,7 +775,9 @@ export function ExploreMenu({ isOpen, onClose }: ExploreMenuProps) {
           >
             <span className={styles.closeArrow}>✕</span>
             <span>CLOSE</span>
-            <span className={styles.escBadge} aria-hidden="true">ESC</span>
+            <span className={styles.escBadge} aria-hidden="true">
+              ESC
+            </span>
           </button>
         </header>
 
@@ -531,7 +826,9 @@ export function ExploreMenu({ isOpen, onClose }: ExploreMenuProps) {
                   </span>
                   <span className={styles.capsuleName}>{item.name}</span>
                   <span className={styles.categoryTag}>{item.category}</span>
-                  <span className={styles.openArrow} aria-hidden="true">→</span>
+                  <span className={styles.openArrow} aria-hidden="true">
+                    →
+                  </span>
                 </button>
               );
             })}

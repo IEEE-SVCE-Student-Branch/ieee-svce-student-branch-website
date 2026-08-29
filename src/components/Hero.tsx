@@ -43,8 +43,7 @@ export function Hero() {
 
             <p className={styles.manifestoText}>
               A permanent digital institution for applied engineering, peer-reviewed research,
-              technical symposia, and student leadership at Sri Venkateswara College of
-              Engineering.
+              technical symposia, and student leadership at Sri Venkateswara College of Engineering.
             </p>
 
             <div className={styles.statsRow}>

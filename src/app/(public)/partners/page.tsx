@@ -20,7 +20,13 @@ export default function PartnersPage() {
     >
       <div style={{ display: "flex", flexDirection: "column", gap: "3.5rem" }}>
         {/* Partner Grid */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "1.75rem" }}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+            gap: "1.75rem",
+          }}
+        >
           {BRANCH_PARTNERS.map((p) => (
             <div
               key={p.id}
@@ -39,16 +45,40 @@ export default function PartnersPage() {
               }}
             >
               <div>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.5rem" }}>
-                  <span className="mono" style={{ fontSize: "0.6875rem", fontWeight: 700, color: "var(--color-primary)" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    marginBottom: "0.5rem",
+                  }}
+                >
+                  <span
+                    className="mono"
+                    style={{
+                      fontSize: "0.6875rem",
+                      fontWeight: 700,
+                      color: "var(--color-primary)",
+                    }}
+                  >
                     [ {p.type.replace(/_/g, " ")} ]
                   </span>
-                  <span className="mono" style={{ fontSize: "0.625rem", color: "var(--color-text-muted)" }}>
+                  <span
+                    className="mono"
+                    style={{ fontSize: "0.625rem", color: "var(--color-text-muted)" }}
+                  >
                     {p.region}
                   </span>
                 </div>
                 <h3 style={{ fontSize: "1.25rem", fontWeight: 800 }}>{p.name}</h3>
-                <p style={{ fontSize: "0.875rem", lineHeight: 1.6, color: "var(--color-text-secondary)", marginTop: "0.75rem" }}>
+                <p
+                  style={{
+                    fontSize: "0.875rem",
+                    lineHeight: 1.6,
+                    color: "var(--color-text-secondary)",
+                    marginTop: "0.75rem",
+                  }}
+                >
                   {p.engagement}
                 </p>
               </div>
@@ -62,7 +92,10 @@ export default function PartnersPage() {
                   borderTop: "1px solid var(--color-border-subtle)",
                 }}
               >
-                <span className="mono" style={{ fontSize: "0.625rem", color: "var(--color-accent-emerald)" }}>
+                <span
+                  className="mono"
+                  style={{ fontSize: "0.625rem", color: "var(--color-accent-emerald)" }}
+                >
                   ● {p.status.replace(/_/g, " ")}
                 </span>
                 <Link
@@ -97,12 +130,25 @@ export default function PartnersPage() {
             gap: "1rem",
           }}
         >
-          <span className="mono" style={{ fontSize: "0.6875rem", fontWeight: 800, color: "var(--color-primary)" }}>
+          <span
+            className="mono"
+            style={{ fontSize: "0.6875rem", fontWeight: 800, color: "var(--color-primary)" }}
+          >
             {"// BECOME AN INSTITUTIONAL PARTNER"}
           </span>
-          <h2 style={{ fontSize: "1.5rem", fontWeight: 800 }}>Partner with IEEE SVCE for Symposia & R&D</h2>
-          <p style={{ maxWidth: "600px", fontSize: "0.9375rem", color: "var(--color-text-secondary)", lineHeight: 1.6 }}>
-            Collaborate with top undergraduate engineering researchers, sponsor national hardware hackathons, and recruit top technical talent.
+          <h2 style={{ fontSize: "1.5rem", fontWeight: 800 }}>
+            Partner with IEEE SVCE for Symposia & R&D
+          </h2>
+          <p
+            style={{
+              maxWidth: "600px",
+              fontSize: "0.9375rem",
+              color: "var(--color-text-secondary)",
+              lineHeight: 1.6,
+            }}
+          >
+            Collaborate with top undergraduate engineering researchers, sponsor national hardware
+            hackathons, and recruit top technical talent.
           </p>
           <Link
             href="/contact?type=sponsorship"

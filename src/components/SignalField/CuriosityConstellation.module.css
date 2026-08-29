@@ -77,7 +77,9 @@
   text-decoration: none;
   border-color: var(--color-primary);
   background-color: var(--color-surface-hover);
-  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.09), 0 0 0 1px rgba(0, 98, 155, 0.2);
+  box-shadow:
+    0 12px 32px rgba(15, 23, 42, 0.09),
+    0 0 0 1px rgba(0, 98, 155, 0.2);
   transform: translateY(-3px);
 }
 

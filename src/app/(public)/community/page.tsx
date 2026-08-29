@@ -1,10 +1,6 @@
 import type { Metadata } from "next";
 import { PageShell } from "@/components/PageShell";
-import {
-  COMMUNITY_ACHIEVEMENTS,
-  HALL_OF_FAME,
-  INDUSTRY_CONNECT,
-} from "@/lib/data/branch-data";
+import { COMMUNITY_ACHIEVEMENTS, HALL_OF_FAME, INDUSTRY_CONNECT } from "@/lib/data/branch-data";
 
 export const metadata: Metadata = {
   title: "Community & Laurels",
@@ -29,14 +25,23 @@ export default function CommunityPage() {
         {/* Section 1: IEEE Section & SB Awards */}
         <div>
           <div style={{ marginBottom: "1.75rem" }}>
-            <span className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-primary)", fontWeight: 700 }}>
+            <span
+              className="mono"
+              style={{ fontSize: "0.6875rem", color: "var(--color-primary)", fontWeight: 700 }}
+            >
               {"// SECTION & MGA HONORS"}
             </span>
             <h2 style={{ fontSize: "1.75rem", fontWeight: 800, marginTop: "0.25rem" }}>
               IEEE & Student Branch Awards
             </h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "1.5rem" }}>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+              gap: "1.5rem",
+            }}
+          >
             {branchAwards.map((item) => (
               <div
                 key={item.id}
@@ -54,24 +59,64 @@ export default function CommunityPage() {
                 }}
               >
                 <div>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.5rem" }}>
-                    <span className="mono" style={{ fontSize: "0.875rem", fontWeight: 800, color: "var(--color-primary)" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      marginBottom: "0.5rem",
+                    }}
+                  >
+                    <span
+                      className="mono"
+                      style={{
+                        fontSize: "0.875rem",
+                        fontWeight: 800,
+                        color: "var(--color-primary)",
+                      }}
+                    >
                       {item.year}
                     </span>
-                    <span className="mono" style={{ fontSize: "0.625rem", color: "var(--color-text-muted)" }}>
+                    <span
+                      className="mono"
+                      style={{ fontSize: "0.625rem", color: "var(--color-text-muted)" }}
+                    >
                       {item.provenance}
                     </span>
                   </div>
                   <h3 style={{ fontSize: "1.25rem", fontWeight: 800 }}>{item.title}</h3>
-                  <div className="mono" style={{ fontSize: "0.75rem", color: "var(--color-primary)", fontWeight: 600, marginTop: "0.25rem" }}>
+                  <div
+                    className="mono"
+                    style={{
+                      fontSize: "0.75rem",
+                      color: "var(--color-primary)",
+                      fontWeight: 600,
+                      marginTop: "0.25rem",
+                    }}
+                  >
                     Conferred by: {item.awardedBy}
                   </div>
-                  <p style={{ fontSize: "0.875rem", lineHeight: 1.6, color: "var(--color-text-secondary)", marginTop: "0.75rem" }}>
+                  <p
+                    style={{
+                      fontSize: "0.875rem",
+                      lineHeight: 1.6,
+                      color: "var(--color-text-secondary)",
+                      marginTop: "0.75rem",
+                    }}
+                  >
                     {item.summary}
                   </p>
                 </div>
-                <div style={{ paddingTop: "0.875rem", borderTop: "1px solid var(--color-border-subtle)" }}>
-                  <span className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-text-muted)" }}>
+                <div
+                  style={{
+                    paddingTop: "0.875rem",
+                    borderTop: "1px solid var(--color-border-subtle)",
+                  }}
+                >
+                  <span
+                    className="mono"
+                    style={{ fontSize: "0.6875rem", color: "var(--color-text-muted)" }}
+                  >
                     Citation: {item.citation}
                   </span>
                 </div>
@@ -83,14 +128,23 @@ export default function CommunityPage() {
         {/* Section 2: Student Achievements & Hackathon Championships */}
         <div>
           <div style={{ marginBottom: "1.75rem" }}>
-            <span className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-primary)", fontWeight: 700 }}>
+            <span
+              className="mono"
+              style={{ fontSize: "0.6875rem", color: "var(--color-primary)", fontWeight: 700 }}
+            >
               {"// STUDENT RESEARCH & HACKATHONS"}
             </span>
             <h2 style={{ fontSize: "1.75rem", fontWeight: 800, marginTop: "0.25rem" }}>
               Student Achievements & Competitions
             </h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "1.5rem" }}>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+              gap: "1.5rem",
+            }}
+          >
             {[...studentAwards, ...hackathons].map((item) => (
               <div
                 key={item.id}
@@ -108,8 +162,22 @@ export default function CommunityPage() {
                 }}
               >
                 <div>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.5rem" }}>
-                    <span className="mono" style={{ fontSize: "0.875rem", fontWeight: 800, color: "var(--color-primary)" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      marginBottom: "0.5rem",
+                    }}
+                  >
+                    <span
+                      className="mono"
+                      style={{
+                        fontSize: "0.875rem",
+                        fontWeight: 800,
+                        color: "var(--color-primary)",
+                      }}
+                    >
                       {item.year}
                     </span>
                     <span
@@ -127,15 +195,38 @@ export default function CommunityPage() {
                     </span>
                   </div>
                   <h3 style={{ fontSize: "1.25rem", fontWeight: 800 }}>{item.title}</h3>
-                  <div className="mono" style={{ fontSize: "0.75rem", color: "var(--color-primary)", fontWeight: 600, marginTop: "0.25rem" }}>
+                  <div
+                    className="mono"
+                    style={{
+                      fontSize: "0.75rem",
+                      color: "var(--color-primary)",
+                      fontWeight: 600,
+                      marginTop: "0.25rem",
+                    }}
+                  >
                     Awarded by: {item.awardedBy}
                   </div>
-                  <p style={{ fontSize: "0.875rem", lineHeight: 1.6, color: "var(--color-text-secondary)", marginTop: "0.75rem" }}>
+                  <p
+                    style={{
+                      fontSize: "0.875rem",
+                      lineHeight: 1.6,
+                      color: "var(--color-text-secondary)",
+                      marginTop: "0.75rem",
+                    }}
+                  >
                     {item.summary}
                   </p>
                 </div>
-                <div style={{ paddingTop: "0.875rem", borderTop: "1px solid var(--color-border-subtle)" }}>
-                  <span className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-text-muted)" }}>
+                <div
+                  style={{
+                    paddingTop: "0.875rem",
+                    borderTop: "1px solid var(--color-border-subtle)",
+                  }}
+                >
+                  <span
+                    className="mono"
+                    style={{ fontSize: "0.6875rem", color: "var(--color-text-muted)" }}
+                  >
                     Citation: {item.citation}
                   </span>
                 </div>
@@ -147,12 +238,23 @@ export default function CommunityPage() {
         {/* Section 3: Hall of Fame */}
         <div>
           <div style={{ marginBottom: "1.75rem" }}>
-            <span className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-primary)", fontWeight: 700 }}>
+            <span
+              className="mono"
+              style={{ fontSize: "0.6875rem", color: "var(--color-primary)", fontWeight: 700 }}
+            >
               {"// PERMANENT RECOGNITION"}
             </span>
-            <h2 style={{ fontSize: "1.75rem", fontWeight: 800, marginTop: "0.25rem" }}>Hall of Fame</h2>
+            <h2 style={{ fontSize: "1.75rem", fontWeight: 800, marginTop: "0.25rem" }}>
+              Hall of Fame
+            </h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "1.5rem" }}>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+              gap: "1.5rem",
+            }}
+          >
             {HALL_OF_FAME.map((hof, idx) => (
               <div
                 key={idx}
@@ -165,14 +267,32 @@ export default function CommunityPage() {
                   boxShadow: "var(--shadow-card)",
                 }}
               >
-                <div className="mono" style={{ fontSize: "0.75rem", color: "var(--color-primary)", fontWeight: 700 }}>
+                <div
+                  className="mono"
+                  style={{ fontSize: "0.75rem", color: "var(--color-primary)", fontWeight: 700 }}
+                >
                   {hof.tenure} • {hof.role}
                 </div>
-                <h3 style={{ fontSize: "1.375rem", fontWeight: 800, marginTop: "0.35rem" }}>{hof.name}</h3>
-                <p style={{ fontSize: "0.875rem", color: "var(--color-text-secondary)", marginTop: "0.5rem" }}>
+                <h3 style={{ fontSize: "1.375rem", fontWeight: 800, marginTop: "0.35rem" }}>
+                  {hof.name}
+                </h3>
+                <p
+                  style={{
+                    fontSize: "0.875rem",
+                    color: "var(--color-text-secondary)",
+                    marginTop: "0.5rem",
+                  }}
+                >
                   <strong>Affiliation:</strong> {hof.currentAffiliation}
                 </p>
-                <p style={{ fontSize: "0.875rem", lineHeight: 1.6, color: "var(--color-text-secondary)", marginTop: "0.75rem" }}>
+                <p
+                  style={{
+                    fontSize: "0.875rem",
+                    lineHeight: 1.6,
+                    color: "var(--color-text-secondary)",
+                    marginTop: "0.75rem",
+                  }}
+                >
                   {hof.citation}
                 </p>
               </div>
@@ -183,12 +303,23 @@ export default function CommunityPage() {
         {/* Section 4: Industry Connect */}
         <div>
           <div style={{ marginBottom: "1.75rem" }}>
-            <span className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-primary)", fontWeight: 700 }}>
+            <span
+              className="mono"
+              style={{ fontSize: "0.6875rem", color: "var(--color-primary)", fontWeight: 700 }}
+            >
               {"// INDUSTRIAL RELATIONS"}
             </span>
-            <h2 style={{ fontSize: "1.75rem", fontWeight: 800, marginTop: "0.25rem" }}>Industry Connect</h2>
+            <h2 style={{ fontSize: "1.75rem", fontWeight: 800, marginTop: "0.25rem" }}>
+              Industry Connect
+            </h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1.5rem" }}>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+              gap: "1.5rem",
+            }}
+          >
             {INDUSTRY_CONNECT.map((ic, idx) => (
               <div
                 key={idx}
@@ -201,19 +332,47 @@ export default function CommunityPage() {
                   boxShadow: "var(--shadow-subtle)",
                 }}
               >
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                  <span className="mono" style={{ fontSize: "0.6875rem", fontWeight: 700, color: "var(--color-primary)" }}>
+                <div
+                  style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}
+                >
+                  <span
+                    className="mono"
+                    style={{
+                      fontSize: "0.6875rem",
+                      fontWeight: 700,
+                      color: "var(--color-primary)",
+                    }}
+                  >
                     {ic.type.replace("_", " ")}
                   </span>
-                  <span className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-text-muted)" }}>
+                  <span
+                    className="mono"
+                    style={{ fontSize: "0.6875rem", color: "var(--color-text-muted)" }}
+                  >
                     {ic.year}
                   </span>
                 </div>
-                <h3 style={{ fontSize: "1.125rem", fontWeight: 800, marginTop: "0.5rem" }}>{ic.title}</h3>
-                <div className="mono" style={{ fontSize: "0.75rem", color: "var(--color-text-secondary)", marginTop: "0.25rem" }}>
+                <h3 style={{ fontSize: "1.125rem", fontWeight: 800, marginTop: "0.5rem" }}>
+                  {ic.title}
+                </h3>
+                <div
+                  className="mono"
+                  style={{
+                    fontSize: "0.75rem",
+                    color: "var(--color-text-secondary)",
+                    marginTop: "0.25rem",
+                  }}
+                >
                   Partner: {ic.partner}
                 </div>
-                <p style={{ fontSize: "0.875rem", color: "var(--color-text-secondary)", marginTop: "0.5rem", lineHeight: 1.5 }}>
+                <p
+                  style={{
+                    fontSize: "0.875rem",
+                    color: "var(--color-text-secondary)",
+                    marginTop: "0.5rem",
+                    lineHeight: 1.5,
+                  }}
+                >
                   {ic.description}
                 </p>
               </div>
