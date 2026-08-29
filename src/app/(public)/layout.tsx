@@ -6,11 +6,11 @@ import { CustomCursor } from "@/components/CustomCursor";
 
 export const metadata: Metadata = {
   title: {
-    default: "IEEE SVCE | The Signal Field",
+    default: "IEEE SVCE | Student Branch",
     template: "%s | IEEE SVCE",
   },
   description:
-    "Official portal for IEEE Student Branch, Sri Venkateswara College of Engineering (STB 28051, Region 10). A living digital institution of engineering precision, technical events, research labs, and institutional archive.",
+    "Official portal for IEEE Student Branch, Sri Venkateswara College of Engineering (STB 28051, Region 10). Technical events, research labs, student leadership, and institutional archive.",
 };
 
 /**

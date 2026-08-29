@@ -1,221 +1,271 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageShell } from "@/components/PageShell";
-import { TEAM_MEMBERS, TeamMember } from "@/lib/data/branch-data";
+import { TeamCard } from "@/components/TeamCard";
+import { ScrollReveal } from "@/components/ScrollReveal";
+import { TEAM_MEMBERS } from "@/lib/data/branch-data";
 
 export const metadata: Metadata = {
   title: "Team & Executive Committee",
   description:
-    "Executive leadership, Branch Counselors, Core Committee officers, Chapter Chairs, and Domain Heads of IEEE SVCE Student Branch.",
+    "Official organizational directory of IEEE SVCE Student Branch: Core Executive Committee, Treasury, Technical, Design, Content, Social Media, Outreach, Photography, and Executive Members.",
 };
 
 export default function TeamPage() {
-  const counselors = TEAM_MEMBERS.filter((m) => m.tier === "COUNSELOR");
-  const coreOfficers = TEAM_MEMBERS.filter((m) => m.tier === "CORE_OFFICER");
-  const domainHeads = TEAM_MEMBERS.filter((m) => m.tier === "DOMAIN_HEAD");
-  const chapterChairs = TEAM_MEMBERS.filter((m) => m.tier === "CHAPTER_CHAIR");
-
-  const renderMemberCard = (member: TeamMember) => (
-    <div
-      key={member.id}
-      id={member.id}
-      style={{
-        backgroundColor: "var(--color-surface)",
-        backdropFilter: "blur(12px)",
-        WebkitBackdropFilter: "blur(12px)",
-        border: "1px solid var(--color-border)",
-        borderRadius: "var(--radius-sm)",
-        padding: "1.75rem",
-        boxShadow: "var(--shadow-card)",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        gap: "1.25rem",
-        transition: "all var(--transition-fast)",
-      }}
-    >
-      <div>
-        {/* Top bar with photo avatar placeholder & status badge */}
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "1rem" }}>
-          <div
-            style={{
-              width: "48px",
-              height: "48px",
-              borderRadius: "50%",
-              backgroundColor: "rgba(0, 98, 155, 0.12)",
-              border: "1.5px solid var(--color-primary)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontFamily: "var(--font-mono)",
-              fontSize: "1rem",
-              fontWeight: 800,
-              color: "var(--color-primary)",
-            }}
-          >
-            {member.name.charAt(0)}
-          </div>
-          <span
-            className="mono"
-            style={{
-              fontSize: "0.625rem",
-              fontWeight: 700,
-              color: member.status === "VERIFIED" ? "var(--color-accent-emerald)" : "var(--color-accent-amber)",
-              background: member.status === "VERIFIED" ? "rgba(16, 185, 129, 0.1)" : "rgba(245, 158, 11, 0.1)",
-              padding: "0.2rem 0.5rem",
-              borderRadius: "var(--radius-xs)",
-            }}
-          >
-            {member.status}
-          </span>
-        </div>
-
-        <span className="mono" style={{ fontSize: "0.75rem", fontWeight: 700, color: "var(--color-primary)" }}>
-          {member.position}
-        </span>
-        <h3 style={{ fontSize: "1.25rem", fontWeight: 800, marginTop: "0.25rem" }}>{member.name}</h3>
-
-        <p style={{ fontSize: "0.8125rem", color: "var(--color-text-secondary)", marginTop: "0.5rem", lineHeight: 1.4 }}>
-          {member.department}
-        </p>
-      </div>
-
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          paddingTop: "0.875rem",
-          borderTop: "1px solid var(--color-border-subtle)",
-        }}
-      >
-        <span className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-text-muted)" }}>
-          {member.year}
-        </span>
-        <a
-          href={member.linkedinUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            fontFamily: "var(--font-mono)",
-            fontSize: "0.6875rem",
-            fontWeight: 700,
-            color: "var(--color-primary)",
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "0.25rem",
-          }}
-          data-cursor="LINKEDIN"
-        >
-          <span>LINKEDIN</span>
-          <span aria-hidden="true">↗</span>
-        </a>
-      </div>
-    </div>
-  );
+  // Group members strictly according to the verified roster
+  const coreCommittee = TEAM_MEMBERS.filter((m) => m.team === "Core Executive Committee");
+  const treasuryTeam = TEAM_MEMBERS.filter((m) => m.team === "Treasury");
+  const technicalTeam = TEAM_MEMBERS.filter((m) => m.team === "Technical Team");
+  const designTeam = TEAM_MEMBERS.filter((m) => m.team === "Design Team");
+  const contentTeam = TEAM_MEMBERS.filter((m) => m.team === "Content Team");
+  const socialMediaTeam = TEAM_MEMBERS.filter((m) => m.team === "Social Media");
+  const outreachTeam = TEAM_MEMBERS.filter((m) => m.team === "Outreach");
+  const photographyTeam = TEAM_MEMBERS.filter((m) => m.team === "Photography");
+  const executiveMembers = TEAM_MEMBERS.filter((m) => m.team === "Executive Members");
+  const facultyCounselors = TEAM_MEMBERS.filter((m) => m.tier === "COUNSELOR");
 
   return (
     <PageShell
-      title="Team & Executive Committee (Constellation)"
+      title="Organizational Directory & Executive Committee"
       categoryTag="// INSTITUTIONAL STEWARDSHIP"
-      description="The elected student officers, domain heads, and faculty branch counselors who maintain administrative continuity, technical excellence, and institutional governance."
+      description="The elected student officers, domain heads, and executive teams maintaining operational continuity, technical excellence, and institutional governance at IEEE SVCE."
       breadcrumbLabel="TEAM"
-      provenanceCode="STB28051-EXECOM-2026"
+      provenanceCode="STB28051-ROSTER-2026"
     >
-      <div style={{ display: "flex", flexDirection: "column", gap: "3.5rem" }}>
-        {/* Tier 1: Faculty Branch Counselors */}
-        <div>
-          <div style={{ marginBottom: "1.5rem" }}>
-            <span className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-primary)", fontWeight: 700 }}>
-              {"// FACULTY STEWARDSHIP"}
-            </span>
-            <h2 style={{ fontSize: "1.75rem", fontWeight: 800, marginTop: "0.25rem" }}>Branch Counselors</h2>
-          </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1.5rem" }}>
-            {counselors.map(renderMemberCard)}
-          </div>
-        </div>
-
-        {/* Tier 2: Core Committee Officers */}
-        <div>
-          <div style={{ marginBottom: "1.5rem" }}>
-            <span className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-primary)", fontWeight: 700 }}>
-              {"// EXECUTIVE OFFICERS"}
-            </span>
-            <h2 style={{ fontSize: "1.75rem", fontWeight: 800, marginTop: "0.25rem" }}>
-              Core Committee (Chair, Vice-Chair, Secretaries & Treasurers)
-            </h2>
-          </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
-            {coreOfficers.map(renderMemberCard)}
-          </div>
-        </div>
-
-        {/* Tier 3: Chapter Chairs */}
-        <div>
-          <div style={{ marginBottom: "1.5rem" }}>
-            <span className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-primary)", fontWeight: 700 }}>
-              {"// SOCIETY LEADERSHIP"}
-            </span>
-            <h2 style={{ fontSize: "1.75rem", fontWeight: 800, marginTop: "0.25rem" }}>
-              Technical Society & Affinity Group Chairs
-            </h2>
-          </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
-            {chapterChairs.map(renderMemberCard)}
-          </div>
-        </div>
-
-        {/* Tier 4: Technical, Design & Content Domain Heads */}
-        <div>
-          <div style={{ marginBottom: "1.5rem" }}>
-            <span className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-primary)", fontWeight: 700 }}>
-              {"// OPERATIONAL DOMAINS"}
-            </span>
-            <h2 style={{ fontSize: "1.75rem", fontWeight: 800, marginTop: "0.25rem" }}>
-              Technical, Editorial & Creative Domain Heads
-            </h2>
-          </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
-            {domainHeads.map(renderMemberCard)}
-          </div>
-        </div>
-
-        {/* Governance & Handover Note */}
-        <div
-          style={{
-            padding: "1.5rem",
-            backgroundColor: "rgba(0, 98, 155, 0.05)",
-            border: "1px solid var(--color-border)",
-            borderRadius: "var(--radius-sm)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            flexWrap: "wrap",
-            gap: "1rem",
-          }}
-        >
+      <div style={{ display: "flex", flexDirection: "column", gap: "4.5rem" }}>
+        {/* GROUP 01: Core Executive Committee */}
+        <ScrollReveal>
           <div>
-            <div className="mono" style={{ fontSize: "0.75rem", fontWeight: 700, color: "var(--color-primary)" }}>
-              GOVERNANCE CONTINUITY // CONSTITUTIONAL MANDATE
+            <div style={{ marginBottom: "1.75rem" }}>
+              <span className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-primary)", fontWeight: 800, letterSpacing: "0.12em" }}>
+                {"// GROUP 01"}
+              </span>
+              <h2 style={{ fontSize: "1.75rem", fontWeight: 800, marginTop: "0.25rem" }}>
+                Core Executive Committee
+              </h2>
+              <p style={{ fontSize: "0.875rem", color: "var(--color-text-secondary)", marginTop: "0.25rem" }}>
+                Branch Chairperson, Secretaries, Vice Chairperson, Joint Secretaries, and Event Head.
+              </p>
             </div>
-            <p style={{ fontSize: "0.8125rem", color: "var(--color-text-secondary)", marginTop: "0.25rem" }}>
-              Annual elections and handover protocols are audited under IEEE Madras Section vTools compliance rules.
-            </p>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
+              {coreCommittee.map((member) => (
+                <TeamCard key={member.id} member={member} />
+              ))}
+            </div>
           </div>
-          <Link
-            href="/reports"
+        </ScrollReveal>
+
+        {/* GROUP 02: Treasury */}
+        <ScrollReveal>
+          <div>
+            <div style={{ marginBottom: "1.75rem" }}>
+              <span className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-primary)", fontWeight: 800, letterSpacing: "0.12em" }}>
+                {"// GROUP 02"}
+              </span>
+              <h2 style={{ fontSize: "1.75rem", fontWeight: 800, marginTop: "0.25rem" }}>
+                Treasury
+              </h2>
+              <p style={{ fontSize: "0.875rem", color: "var(--color-text-secondary)", marginTop: "0.25rem" }}>
+                Treasurer, Joint Treasurer, and Treasury Executive managing branch accounts and institutional auditing.
+              </p>
+            </div>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
+              {treasuryTeam.map((member) => (
+                <TeamCard key={member.id} member={member} />
+              ))}
+            </div>
+          </div>
+        </ScrollReveal>
+
+        {/* GROUP 03: Technical Team */}
+        <ScrollReveal>
+          <div>
+            <div style={{ marginBottom: "1.75rem" }}>
+              <span className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-primary)", fontWeight: 800, letterSpacing: "0.12em" }}>
+                {"// GROUP 03"}
+              </span>
+              <h2 style={{ fontSize: "1.75rem", fontWeight: 800, marginTop: "0.25rem" }}>
+                Technical Team
+              </h2>
+              <p style={{ fontSize: "0.875rem", color: "var(--color-text-secondary)", marginTop: "0.25rem" }}>
+                Technical Team Head and Technical Executives leading engineering workshops, coding events, and lab R&D.
+              </p>
+            </div>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
+              {technicalTeam.map((member) => (
+                <TeamCard key={member.id} member={member} />
+              ))}
+            </div>
+          </div>
+        </ScrollReveal>
+
+        {/* GROUP 04: Design Team */}
+        <ScrollReveal>
+          <div>
+            <div style={{ marginBottom: "1.75rem" }}>
+              <span className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-primary)", fontWeight: 800, letterSpacing: "0.12em" }}>
+                {"// GROUP 04"}
+              </span>
+              <h2 style={{ fontSize: "1.75rem", fontWeight: 800, marginTop: "0.25rem" }}>
+                Design Team
+              </h2>
+              <p style={{ fontSize: "0.875rem", color: "var(--color-text-secondary)", marginTop: "0.25rem" }}>
+                Design Team Head and Design Executives crafting institutional visual identity, symposium media, and UI design.
+              </p>
+            </div>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
+              {designTeam.map((member) => (
+                <TeamCard key={member.id} member={member} />
+              ))}
+            </div>
+          </div>
+        </ScrollReveal>
+
+        {/* GROUP 05: Content Team */}
+        <ScrollReveal>
+          <div>
+            <div style={{ marginBottom: "1.75rem" }}>
+              <span className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-primary)", fontWeight: 800, letterSpacing: "0.12em" }}>
+                {"// GROUP 05"}
+              </span>
+              <h2 style={{ fontSize: "1.75rem", fontWeight: 800, marginTop: "0.25rem" }}>
+                Content Team
+              </h2>
+              <p style={{ fontSize: "0.875rem", color: "var(--color-text-secondary)", marginTop: "0.25rem" }}>
+                Content Team Head and Content Executives authoring technical digests, event chronicles, and editorial communication.
+              </p>
+            </div>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
+              {contentTeam.map((member) => (
+                <TeamCard key={member.id} member={member} />
+              ))}
+            </div>
+          </div>
+        </ScrollReveal>
+
+        {/* GROUP 06 & 07: Social Media & Outreach */}
+        <ScrollReveal>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "2.5rem" }}>
+            <div>
+              <div style={{ marginBottom: "1.5rem" }}>
+                <span className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-primary)", fontWeight: 800, letterSpacing: "0.12em" }}>
+                  {"// GROUP 06"}
+                </span>
+                <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginTop: "0.25rem" }}>Social Media</h2>
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+                {socialMediaTeam.map((member) => (
+                  <TeamCard key={member.id} member={member} />
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <div style={{ marginBottom: "1.5rem" }}>
+                <span className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-primary)", fontWeight: 800, letterSpacing: "0.12em" }}>
+                  {"// GROUP 07"}
+                </span>
+                <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginTop: "0.25rem" }}>Outreach</h2>
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+                {outreachTeam.map((member) => (
+                  <TeamCard key={member.id} member={member} />
+                ))}
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
+
+        {/* GROUP 08 & 09: Photography & Executive Members */}
+        <ScrollReveal>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "2.5rem" }}>
+            <div>
+              <div style={{ marginBottom: "1.5rem" }}>
+                <span className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-primary)", fontWeight: 800, letterSpacing: "0.12em" }}>
+                  {"// GROUP 08"}
+                </span>
+                <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginTop: "0.25rem" }}>Photography</h2>
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+                {photographyTeam.map((member) => (
+                  <TeamCard key={member.id} member={member} />
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <div style={{ marginBottom: "1.5rem" }}>
+                <span className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-primary)", fontWeight: 800, letterSpacing: "0.12em" }}>
+                  {"// GROUP 09"}
+                </span>
+                <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginTop: "0.25rem" }}>Executive Members</h2>
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+                {executiveMembers.map((member) => (
+                  <TeamCard key={member.id} member={member} />
+                ))}
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
+
+        {/* Faculty Stewardship — Verified Placeholder */}
+        <ScrollReveal>
+          <div>
+            <div style={{ marginBottom: "1.5rem" }}>
+              <span className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-text-muted)", fontWeight: 700 }}>
+                {"// FACULTY ADVISORY"}
+              </span>
+              <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginTop: "0.25rem" }}>
+                Faculty Branch Counselors
+              </h2>
+            </div>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
+              {facultyCounselors.map((member) => (
+                <TeamCard key={member.id} member={member} />
+              ))}
+            </div>
+          </div>
+        </ScrollReveal>
+
+        {/* Institutional Handover & vTools Compliance Banner */}
+        <ScrollReveal>
+          <div
             style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: "0.75rem",
-              fontWeight: 800,
-              color: "var(--color-primary)",
-              textDecoration: "underline",
+              padding: "2rem",
+              backgroundColor: "rgba(0, 98, 155, 0.05)",
+              border: "1px solid var(--color-border)",
+              borderRadius: "20px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              flexWrap: "wrap",
+              gap: "1.25rem",
             }}
           >
-            INSPECT AUDIT DOSSIERS →
-          </Link>
-        </div>
+            <div>
+              <div className="mono" style={{ fontSize: "0.75rem", fontWeight: 800, color: "var(--color-primary)" }}>
+                GOVERNANCE & HANDOVER CONTINUITY
+              </div>
+              <p style={{ fontSize: "0.875rem", color: "var(--color-text-secondary)", marginTop: "0.35rem", maxWidth: "680px" }}>
+                Elections and annual officer reporting are conducted in strict compliance with IEEE Madras Section and IEEE vTools officer reporting guidelines.
+              </p>
+            </div>
+            <Link
+              href="/about"
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: "0.75rem",
+                fontWeight: 800,
+                color: "var(--color-primary)",
+                textDecoration: "underline",
+              }}
+              data-cursor="ABOUT"
+            >
+              INSPECT BRANCH CONSTITUTION →
+            </Link>
+          </div>
+        </ScrollReveal>
       </div>
     </PageShell>
   );

@@ -35,36 +35,41 @@ export function SiteHeader() {
     <>
       <header className={`${styles.header} ${isScrolled ? styles.headerScrolled : ""}`}>
         <div className={`container ${styles.inner}`}>
-          {/* Official Brand Lockup */}
+          {/* Left: Prominent & Transparent IEEE + SVCE Brand Identity Lockup */}
           <Link
             href="/"
             className={styles.brandLockup}
-            aria-label="IEEE SVCE Digital Institution Homepage"
-            data-cursor="SIGNAL"
+            aria-label="IEEE SVCE Student Branch Homepage"
+            data-cursor="HOME"
           >
-            <div className={styles.brandLogoGroup}>
+            <div className={styles.ieeeMarkWrapper}>
               <Image
-                src="/brand/svce-emblem.png"
-                alt="SVCE Emblem"
-                width={34}
-                height={34}
+                src="/ieee.svg"
+                alt="IEEE Official Mark"
+                width={60}
+                height={60}
                 priority
-                className={styles.emblem}
+                className={styles.ieeeLogo}
               />
             </div>
-            <div className={styles.brandTitles}>
-              <span className={styles.brandMain}>IEEE SVCE</span>
-              <span className={styles.brandTagline}>THE LIVING INSTITUTION // STB 28051</span>
+            <div className={styles.brandDivider} aria-hidden="true" />
+            <div className={styles.svceMarkWrapper}>
+              <Image
+                src="/svce.svg"
+                alt="SVCE Official Mark"
+                width={110}
+                height={54}
+                priority
+                className={styles.svceLogo}
+              />
+            </div>
+            <div className={styles.brandMetaBlock}>
+              <span className={styles.brandTitle}>IEEE SVCE</span>
+              <span className={styles.brandSubtitle}>STUDENT BRANCH</span>
             </div>
           </Link>
 
-          {/* Live Signal Telemetry */}
-          <div className={styles.liveTelemetryBadge}>
-            <span className={styles.signalDot} aria-hidden="true" />
-            <span>SIGNAL FIELD ACTIVE // STB 28051</span>
-          </div>
-
-          {/* Search & Explore Controls */}
+          {/* Right: Search & Explore Controls */}
           <div className={styles.actions}>
             <button
               type="button"
@@ -79,7 +84,7 @@ export function SiteHeader() {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="2"
+                strokeWidth="2.2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 aria-hidden="true"
@@ -87,7 +92,7 @@ export function SiteHeader() {
                 <circle cx="11" cy="11" r="8" />
                 <line x1="21" y1="21" x2="16.65" y2="16.65" />
               </svg>
-              <span>SEARCH</span>
+              <span className={styles.searchLabel}>SEARCH</span>
               <span className={styles.kbd}>⌘K</span>
             </button>
 
@@ -99,13 +104,30 @@ export function SiteHeader() {
               aria-expanded={isExploreOpen}
               data-cursor="EXPLORE"
             >
-              <div className={styles.exploreIcon} aria-hidden="true">
-                <span className={styles.exploreBar} />
-                <span className={styles.exploreBar} />
-                <span className={styles.exploreBar} />
+              <div className={styles.exploreMatrix} aria-hidden="true">
+                <span className={styles.matrixDot} />
+                <span className={styles.matrixDot} />
+                <span className={styles.matrixDot} />
+                <span className={styles.matrixDot} />
+                <span className={styles.matrixDot} />
+                <span className={styles.matrixDot} />
+                <span className={styles.matrixDot} />
+                <span className={styles.matrixDot} />
+                <span className={styles.matrixDot} />
               </div>
-              <span>EXPLORE</span>
+              <span className={styles.exploreText}>EXPLORE</span>
             </button>
+
+            {/* Emblem Institutional Token */}
+            <div className={styles.emblemBadge} title="SVCE Autonomous Institution Seal">
+              <Image
+                src="/brand/svce-emblem.png"
+                alt="SVCE Seal"
+                width={24}
+                height={24}
+                className={styles.emblemImg}
+              />
+            </div>
           </div>
         </div>
       </header>

@@ -8,6 +8,36 @@ export function SiteFooter() {
   return (
     <footer className={styles.footer} role="contentinfo" aria-label="Institutional Footer">
       <div className="container">
+        {/* Flagship IEEE Global Membership Call-to-Action Panel */}
+        <div className={styles.membershipBanner}>
+          <div className={styles.membershipContent}>
+            <div className={styles.membershipBadge}>
+              <span className={styles.membershipDot} />
+              <span>GLOBAL PROFESSIONAL AFFILIATION</span>
+            </div>
+            <h2 className={styles.membershipHeading}>
+              Join IEEE — The World&apos;s Largest Technical Professional Organization
+            </h2>
+            <p className={styles.membershipText}>
+              Access IEEE Xplore Digital Library, global conference discounts, career certifications,
+              technical society memberships, and networking opportunities across 160+ countries.
+            </p>
+          </div>
+          <div className={styles.membershipAction}>
+            <a
+              href="https://www.ieee.org/membership/join/index.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.joinIeeeBtn}
+              data-cursor="JOIN IEEE"
+            >
+              <span>JOIN IEEE OFFICIAL</span>
+              <span className={styles.externalIcon}>↗</span>
+            </a>
+            <span className={styles.officialNotice}>Official IEEE Global Destination</span>
+          </div>
+        </div>
+
         <div className={styles.mainGrid}>
           {/* Brand Identity & Official Logos */}
           <div className={styles.brandColumn}>
@@ -22,7 +52,7 @@ export function SiteFooter() {
             </div>
             <div className={styles.logoTitle}>IEEE SVCE</div>
             <div className={styles.branchMeta}>
-              THE LIVING INSTITUTION // STB 28051 // EST. {BRANCH_STATS.establishedYear}
+              IEEE STUDENT BRANCH // EST. {BRANCH_STATS.establishedYear}
             </div>
             <p className={styles.brandDescription}>
               A permanent digital institution for engineering precision, technical dissemination,

@@ -1,226 +1,321 @@
+/* ==========================================================================
+   IEEE SVCE Spatial Exploration Directory — Floating Capsule Stream & Hover Geometry
+   ========================================================================== */
+
 .backdrop {
   position: fixed;
   inset: 0;
-  z-index: 2000;
-  background-color: rgba(15, 23, 42, 0.45);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  z-index: 1200;
+  background-color: rgba(10, 18, 30, 0.45);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   opacity: 0;
-  visibility: hidden;
-  transition: opacity var(--transition-normal), visibility var(--transition-normal);
+  pointer-events: none;
+  transition: opacity 350ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .backdropOpen {
   opacity: 1;
-  visibility: visible;
+  pointer-events: auto;
 }
 
 .overlay {
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  max-width: 740px;
-  background: rgba(246, 250, 254, 0.96);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  z-index: 2001;
-  box-shadow: -16px 0 48px rgba(15, 23, 42, 0.16);
+  inset: 0;
+  z-index: 1250;
   display: flex;
   flex-direction: column;
-  transform: translateX(100%);
-  transition: transform 340ms cubic-bezier(0.16, 1, 0.3, 1);
-  overflow-y: auto;
-  border-left: 1px solid var(--color-border);
-}
-
-.overlayOpen {
-  transform: translateX(0);
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.5rem 2.25rem;
-  border-bottom: 1px solid var(--color-border);
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-.brandHeaderGroup {
-  display: flex;
-  align-items: center;
-  gap: 0.875rem;
-}
-
-.titleArea {
-  display: flex;
-  flex-direction: column;
-}
-
-.label {
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--color-primary);
-  font-weight: 700;
-}
-
-.heading {
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: var(--color-text-primary);
-  margin-top: 0.125rem;
-}
-
-.closeButton {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--color-text-primary);
-  padding: 0.5rem 0.875rem;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  background: var(--color-surface);
-  box-shadow: var(--shadow-subtle);
-  transition: all var(--transition-fast);
-}
-
-.closeButton:hover {
-  border-color: var(--color-primary);
-  background: var(--color-surface-hover);
-  color: var(--color-primary);
-}
-
-.content {
-  padding: 2.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-}
-
-.categoryGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 0.875rem;
-}
-
-.categoryTitle {
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--color-primary);
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--color-border-subtle);
-}
-
-.navGrid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.75rem;
-}
-
-@media (min-width: 560px) {
-  .navGrid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-.navLink {
-  display: flex;
-  flex-direction: column;
-  padding: 1.125rem 1.25rem;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  background-color: var(--color-surface);
-  box-shadow: var(--shadow-subtle);
-  transition: all var(--transition-fast);
-  text-decoration: none;
-  position: relative;
+  color: #f8fafc;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.985) translateY(6px);
+  transition: opacity 350ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 350ms cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 350ms ease;
+  pointer-events: none;
   overflow: hidden;
 }
 
-.navLink:hover {
-  text-decoration: none;
-  background-color: var(--color-surface-hover);
-  border-color: var(--color-primary);
-  box-shadow: 0 6px 18px rgba(0, 98, 155, 0.14);
-  transform: translateY(-2px);
+.overlayOpen {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1) translateY(0);
+  pointer-events: auto;
 }
 
-.navLinkActive {
-  background-color: rgba(0, 98, 155, 0.08);
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 1px var(--color-primary);
-}
-
-.linkHeader {
+/* --------------------------------------------------------------------------
+   Top Floating Control Bar
+   -------------------------------------------------------------------------- */
+.topControlBar {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 1.25rem 2.5rem;
+  z-index: 20;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
-.linkName {
+/* Explore Brand Lockup (dual logo) */
+.exploreBrandLockup {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.exploreBrandIeee {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.exploreBrandSvce {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.exploreBrandDivider {
+  width: 1px;
+  height: 30px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 20%,
+    rgba(255, 255, 255, 0.3) 80%,
+    transparent 100%
+  );
+}
+
+.exploreBrandTextBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  margin-left: 0.25rem;
+}
+
+.exploreBrandTitle {
   font-family: var(--font-sans);
-  font-size: 1.0625rem;
+  font-size: 0.875rem;
   font-weight: 800;
   letter-spacing: -0.01em;
-  color: var(--color-text-primary);
+  color: #ffffff;
 }
 
-.worldTag {
+.exploreBrandLabel {
   font-family: var(--font-mono);
-  font-size: 0.625rem;
+  font-size: 0.5625rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
-  color: var(--color-primary);
-  background: var(--color-primary-subtle);
-  padding: 0.2rem 0.5rem;
-  border-radius: var(--radius-xs);
-  border: 1px solid rgba(0, 98, 155, 0.15);
+  letter-spacing: 0.16em;
+  color: rgba(148, 163, 184, 0.9);
+  text-transform: uppercase;
 }
 
-.linkDesc {
-  font-size: 0.8125rem;
-  color: var(--color-text-secondary);
-  margin-top: 0.4rem;
-  line-height: 1.45;
-}
-
-.footerInfo {
-  margin-top: auto;
-  padding: 1.5rem 2.25rem;
-  background: rgba(234, 240, 248, 0.85);
-  border-top: 1px solid var(--color-border);
-  display: flex;
-  justify-content: space-between;
+.closeControl {
+  display: inline-flex;
   align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 1rem;
   font-family: var(--font-mono);
   font-size: 0.6875rem;
-  color: var(--color-text-secondary);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #f1f5f9;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.closeControl:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.closeArrow {
+  font-size: 0.75rem;
+}
+
+.escBadge {
+  font-size: 0.5625rem;
+  font-weight: 700;
+  color: #94a3b8;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* --------------------------------------------------------------------------
+   Embedded Spatial Hover Stage (Background Layer)
+   -------------------------------------------------------------------------- */
+.spatialHoverStage {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.spatialHoverSvg {
+  width: 90%;
+  max-width: 700px;
+  height: auto;
+  max-height: 500px;
+  opacity: 0.85;
+  transition: opacity 300ms ease;
+  animation: fadeIn 300ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* --------------------------------------------------------------------------
+   Floating Capsule Stream (Foreground Navigation Stream)
+   -------------------------------------------------------------------------- */
+.capsuleStreamContainer {
+  position: relative;
+  z-index: 10;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+  overflow-y: auto;
+}
+
+.capsuleStream {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  width: 100%;
+  max-width: 640px;
+}
+
+.navCapsule {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1.1rem 2rem;
+  border-radius: var(--radius-full);
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #f8fafc;
+  text-decoration: none;
+  transition: all 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  will-change: transform, opacity, box-shadow;
+}
+
+.capsuleIconWrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #38bdf8;
+  margin-right: 0.85rem;
+  transition: color 200ms ease;
+}
+
+.capsuleName {
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  flex: 1;
+  text-align: left;
+}
+
+.categoryTag {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
+  margin-right: 0.85rem;
+  text-transform: uppercase;
+  transition: color 200ms ease;
+}
+
+.openArrow {
+  font-size: 0.9375rem;
+  color: #64748b;
+  transition: all 200ms ease;
+}
+
+/* Hover States (Rule 19) */
+.capsuleHovered {
+  background: rgba(255, 255, 255, 0.95) !important;
+  color: #0f172a !important;
+  border-color: #38bdf8 !important;
+  transform: scale(1.05) translateY(-2px) !important;
+  box-shadow: 0 12px 32px rgba(0, 98, 155, 0.3) !important;
+  z-index: 15;
+}
+
+.capsuleHovered .capsuleName {
+  color: #0f172a !important;
+}
+
+.capsuleHovered .capsuleIconWrapper {
+  color: #0284c7 !important;
+}
+
+.capsuleHovered .categoryTag {
+  color: #0284c7 !important;
+}
+
+.capsuleHovered .openArrow {
+  color: #0284c7 !important;
+  transform: translateX(4px);
+}
+
+.capsuleDimmed {
+  opacity: 0.45;
+  transform: scale(0.98);
+}
+
+.capsuleCurrent {
+  border-color: rgba(56, 189, 248, 0.45);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 0.85;
+    transform: scale(1);
+  }
 }
 
 @media (max-width: 640px) {
-  .overlay {
-    max-width: 100%;
+  .topControlBar {
+    padding: 1rem 1.25rem;
   }
-  .content {
-    padding: 1.5rem;
+
+  .capsuleStreamContainer {
+    padding: 1.25rem 1rem;
+  }
+
+  .navCapsule {
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .categoryTag {
+    display: none;
   }
 }

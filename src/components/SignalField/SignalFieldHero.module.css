@@ -1,27 +1,63 @@
 .heroSection {
   position: relative;
-  min-height: 88vh;
+  min-height: 85vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding: 4.5rem 1.5rem 5.5rem;
+  justify-content: center;
+  padding: 6rem 1.5rem 5rem;
   overflow: hidden;
-  border-bottom: 1px solid var(--color-border);
-  background: 
-    radial-gradient(circle at 50% 25%, rgba(195, 222, 252, 0.5), transparent 68%),
-    radial-gradient(circle at 85% 70%, rgba(215, 235, 255, 0.4), transparent 50%),
-    radial-gradient(circle at 15% 70%, rgba(210, 230, 255, 0.35), transparent 50%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(238, 244, 250, 0.95) 100%);
+  background:
+    radial-gradient(ellipse 65% 55% at 50% 30%, rgba(210, 230, 252, 0.65) 0%, rgba(238, 242, 248, 0.4) 60%, transparent 85%),
+    radial-gradient(circle at 18% 75%, rgba(6, 182, 212, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 82% 40%, rgba(99, 102, 241, 0.12) 0%, transparent 45%),
+    var(--color-bg-base);
+  border-bottom: 1px solid rgba(210, 222, 236, 0.7);
 }
 
-/* Background animated SVG signal lines & nodes */
+/* Institutional Coordinate Watermarks */
+.coordinateTagLeft {
+  position: absolute;
+  top: 1.5rem;
+  left: 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--color-text-muted);
+  opacity: 0.55;
+  pointer-events: none;
+  display: none;
+}
+
+.coordinateTagRight {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--color-text-muted);
+  opacity: 0.55;
+  pointer-events: none;
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .coordinateTagLeft,
+  .coordinateTagRight {
+    display: block;
+  }
+}
+
+/* SVG Signal Canvas */
 .signalCanvas {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
+  z-index: 1;
+  opacity: 0.85;
+  transition: opacity 300ms ease;
 }
 
 .signalSvg {
@@ -29,360 +65,332 @@
   height: 100%;
 }
 
-.movingSignal {
+.guideTrack {
+  stroke: rgba(0, 98, 155, 0.08);
+  stroke-dasharray: 4 6;
+}
+
+.guideTrackCenter {
+  stroke: rgba(0, 98, 155, 0.12);
+  stroke-dasharray: 6 8;
+}
+
+.organicSignal {
   stroke: rgba(0, 98, 155, 0.22);
-  stroke-dasharray: 8 16;
-  animation: signalFlow 22s linear infinite;
+  stroke-dasharray: 300;
+  stroke-dashoffset: 600;
+  animation: traceSignal 18s linear infinite;
 }
 
-.movingSignalFast {
-  stroke: rgba(6, 182, 212, 0.38);
-  stroke-dasharray: 12 24;
-  animation: signalFlow 14s linear infinite;
+.organicSignalFast {
+  stroke: rgba(2, 132, 199, 0.35);
+  stroke-dasharray: 200;
+  stroke-dashoffset: 400;
+  animation: traceSignal 10s linear infinite;
 }
 
-.accelerated .movingSignal,
-.accelerated .movingSignalFast {
-  animation-duration: 1.8s !important;
-  stroke: rgba(0, 98, 155, 0.7);
-  stroke-width: 2.5px;
+.organicSignalCyan {
+  stroke: rgba(6, 182, 212, 0.3);
+  stroke-dasharray: 250;
+  stroke-dashoffset: 500;
+  animation: traceSignal 14s linear infinite reverse;
+}
+
+.accelerated .organicSignalFast {
+  animation-duration: 2s;
+  stroke: rgba(2, 132, 199, 0.85);
+  stroke-width: 2.5;
 }
 
 .pulsingNode {
   fill: #00629b;
-  opacity: 0.75;
-  animation: nodePulse 3s ease-in-out infinite alternate;
+  opacity: 0.7;
+  animation: pulseNode 3s infinite alternate ease-in-out;
 }
 
 .pulsingNodeCyan {
   fill: #06b6d4;
   opacity: 0.85;
-  animation: nodePulse 2.2s ease-in-out infinite alternate;
+  animation: pulseNode 2.4s infinite alternate ease-in-out;
 }
 
-/* Floating Institutional Coordinate Watermarks */
-.coordinateTagLeft,
-.coordinateTagRight {
-  position: absolute;
-  font-family: var(--font-mono);
-  font-size: 0.625rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(100, 116, 139, 0.45);
-  pointer-events: none;
-  z-index: 1;
-}
-
-.coordinateTagLeft {
-  top: 18%;
-  left: 3rem;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-}
-
-.coordinateTagRight {
-  bottom: 18%;
-  right: 3rem;
-  writing-mode: vertical-rl;
-}
-
-@media (max-width: 900px) {
-  .coordinateTagLeft,
-  .coordinateTagRight {
-    display: none;
-  }
-}
-
+/* Content */
 .heroContent {
   position: relative;
   z-index: 2;
-  max-width: 860px;
-  width: 100%;
+  max-width: 840px;
+  margin: 0 auto;
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
+  gap: 1.5rem;
 }
 
 .topPill {
   display: inline-flex;
   align-items: center;
-  gap: 0.625rem;
-  padding: 0.35rem 0.875rem;
-  background-color: var(--color-surface);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-full);
+  gap: 0.5rem;
   font-family: var(--font-mono);
   font-size: 0.6875rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--color-primary);
-  box-shadow: var(--shadow-subtle);
-  margin-bottom: 1.5rem;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(200, 215, 232, 0.8);
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
 }
 
 .radarDot {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background-color: var(--color-primary);
+  background-color: var(--color-accent-cyan);
+  box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.3);
   animation: radarBlink 1.4s infinite alternate;
 }
 
 .mainTitle {
   font-size: clamp(2.5rem, 6vw, 4.25rem);
   font-weight: 900;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.035em;
   line-height: 1.05;
-  color: var(--color-text-primary);
+  color: #0f172a;
+  text-transform: uppercase;
 }
 
 .gradientText {
-  background: linear-gradient(135deg, #00629b 0%, #0284c7 45%, #4338ca 100%);
+  background: linear-gradient(135deg, #00629b 0%, #0284c7 60%, #06b6d4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .subtitle {
-  font-size: clamp(1rem, 2.2vw, 1.25rem);
-  color: var(--color-text-secondary);
-  margin-top: 1.125rem;
-  max-width: 640px;
-  line-height: 1.55;
+  font-size: clamp(1rem, 2vw, 1.1875rem);
+  line-height: 1.6;
+  color: #475569;
+  max-width: 660px;
+  margin-top: -0.25rem;
 }
 
-/* Category Filter Chips */
+/* Discovery Filters */
 .discoveryFilters {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
-  margin-top: 2.25rem;
-  width: 100%;
-}
-
-.filtersPrompt {
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--color-text-muted);
+  gap: 0.5rem;
+  margin-top: 0.75rem;
 }
 
 .chipsRow {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
   gap: 0.5rem;
 }
 
 .chip {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 0.45rem 1.05rem;
-  border: 1px solid var(--color-border);
+  color: #475569;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(200, 215, 232, 0.8);
+  padding: 0.4rem 0.95rem;
   border-radius: var(--radius-full);
-  background-color: var(--color-surface);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  color: var(--color-text-secondary);
-  box-shadow: var(--shadow-subtle);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
   transition: all var(--transition-fast);
-  cursor: pointer;
 }
 
 .chip:hover {
-  border-color: var(--color-primary);
-  color: var(--color-primary);
-  background-color: var(--color-surface-hover);
+  background: #ffffff;
+  color: #00629b;
+  border-color: #0284c7;
   transform: translateY(-1px);
 }
 
 .chipActive {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-  border-color: var(--color-primary-dark);
+  background: linear-gradient(135deg, #0284c7 0%, #00629b 100%);
   color: #ffffff;
-  box-shadow: 0 4px 14px rgba(0, 98, 155, 0.28);
+  border-color: #004d7a;
+  box-shadow: 0 2px 10px rgba(0, 98, 155, 0.25);
 }
 
-.chipActive:hover {
-  background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
-  color: #ffffff;
-}
-
-/* Magnetic Roll Button Container */
+/* Magnetic Container & Button */
 .magneticContainer {
-  margin-top: 2.5rem;
+  margin-top: 1rem;
   position: relative;
-  display: inline-block;
-  perspective: 600px;
+  z-index: 10;
 }
 
 .rollButton {
   display: inline-flex;
   align-items: center;
-  gap: 0.875rem;
-  padding: 1.125rem 2.35rem;
-  background: linear-gradient(135deg, #00629b 0%, #004d7a 100%);
-  color: #ffffff;
+  gap: 0.75rem;
+  padding: 0.9rem 2.25rem;
   font-family: var(--font-mono);
   font-size: 0.875rem;
   font-weight: 800;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
+  color: #ffffff;
+  background: linear-gradient(135deg, #0284c7 0%, #00629b 60%, #004d7a 100%);
   border-radius: var(--radius-full);
-  border: 2px solid rgba(255, 255, 255, 0.45);
-  box-shadow: 0 8px 30px -4px rgba(0, 98, 155, 0.42), 0 0 0 1px rgba(0, 77, 122, 0.5);
-  cursor: pointer;
-  transition: box-shadow var(--transition-fast), background var(--transition-fast);
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  box-shadow:
+    0 8px 24px -4px rgba(0, 98, 155, 0.38),
+    0 0 24px rgba(6, 182, 212, 0.25),
+    inset 0 1px 2px rgba(255, 255, 255, 0.7);
+  transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
   will-change: transform;
 }
 
 .rollButton:hover {
-  background: linear-gradient(135deg, #0284c7 0%, #00629b 100%);
-  box-shadow: 0 12px 38px -4px rgba(0, 98, 155, 0.58), 0 0 24px rgba(6, 182, 212, 0.45);
-}
-
-.rollButton:disabled {
-  opacity: 0.85;
-  cursor: wait;
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow:
+    0 12px 32px -4px rgba(0, 98, 155, 0.48),
+    0 0 32px rgba(6, 182, 212, 0.4),
+    inset 0 1px 2px rgba(255, 255, 255, 0.9);
 }
 
 .rollIcon {
-  font-size: 1.125rem;
-  animation: rollSpin 8s linear infinite;
+  font-size: 1.05rem;
+  color: #38bdf8;
+  animation: pulseDot 1.6s infinite alternate ease-in-out;
 }
 
-.rolling .rollIcon {
-  animation-duration: 0.4s !important;
+.rollArrow {
+  font-size: 0.9375rem;
+  transition: transform var(--transition-fast);
 }
 
-/* Reveal Result Modal / Card */
+.rollButton:hover .rollArrow {
+  transform: translateX(4px);
+}
+
+.rolling {
+  opacity: 0.85;
+  background: linear-gradient(135deg, #06b6d4 0%, #0284c7 100%);
+}
+
+/* Discovery Reveal Card */
 .revealCard {
   position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid var(--color-border-strong);
+  top: calc(100% + 1.5rem);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 440px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid #0284c7;
   border-radius: var(--radius-md);
-  padding: 2.5rem 2rem;
+  padding: 1.5rem 1.75rem;
+  box-shadow: 0 14px 40px -6px rgba(0, 98, 155, 0.25);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  z-index: 10;
-  box-shadow: var(--shadow-elevated);
-  animation: cardPopIn 320ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  gap: 0.35rem;
+  animation: slideUpFade 350ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  z-index: 20;
 }
 
 .revealStatus {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.35rem;
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
   font-weight: 800;
-  letter-spacing: 0.16em;
   color: var(--color-accent-emerald);
-  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 .revealCategory {
   font-family: var(--font-mono);
-  font-size: 0.8125rem;
+  font-size: 0.6875rem;
   font-weight: 700;
-  color: var(--color-primary);
-  margin-top: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  background: var(--color-primary-subtle);
-  padding: 0.25rem 0.7rem;
-  border-radius: var(--radius-xs);
-  border: 1px solid rgba(0, 98, 155, 0.18);
+  color: #00629b;
 }
 
 .revealTitle {
-  font-size: clamp(1.25rem, 3.2vw, 1.875rem);
+  font-size: 1.0625rem;
   font-weight: 800;
-  color: var(--color-text-primary);
-  margin-top: 0.625rem;
-  max-width: 620px;
-  line-height: 1.25;
+  color: #0f172a;
+  line-height: 1.3;
 }
 
 .navNotice {
-  margin-top: 1.25rem;
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  color: var(--color-text-muted);
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(226, 232, 240, 0.8);
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  color: #64748b;
 }
 
 .navSpinner {
-  width: 12px;
-  height: 12px;
-  border: 2px solid var(--color-border);
-  border-top-color: var(--color-primary);
+  width: 10px;
+  height: 10px;
+  border: 2px solid #cbd5e1;
+  border-top-color: #0284c7;
   border-radius: 50%;
   animation: spin 0.6s linear infinite;
 }
 
-@keyframes signalFlow {
+@keyframes traceSignal {
   to {
-    stroke-dashoffset: -1000;
+    stroke-dashoffset: 0;
   }
 }
 
-@keyframes nodePulse {
+@keyframes pulseNode {
   from {
-    r: 2.5;
-    opacity: 0.4;
+    transform: scale(0.9);
+    opacity: 0.5;
   }
   to {
-    r: 5.5;
-    opacity: 0.95;
+    transform: scale(1.3);
+    opacity: 1;
   }
 }
 
 @keyframes radarBlink {
   from {
-    opacity: 0.3;
+    opacity: 0.4;
   }
   to {
     opacity: 1;
+    box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.4);
   }
 }
 
-@keyframes rollSpin {
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 10px);
+  }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translate(-50%, 0);
   }
 }
 
 @keyframes spin {
   to {
     transform: rotate(360deg);
-  }
-}
-
-@keyframes cardPopIn {
-  from {
-    opacity: 0;
-    transform: scale(0.92);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
   }
 }

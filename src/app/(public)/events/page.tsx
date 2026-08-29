@@ -10,8 +10,8 @@ export const metadata: Metadata = {
 };
 
 export default function EventsPage() {
-  const upcomingEvents = BRANCH_EVENTS.filter((e) => e.status === "UPCOMING" || e.status === "LIVE");
-  const pastEvents = BRANCH_EVENTS.filter((e) => e.status === "CONCLUDED");
+  const upcomingEvents = BRANCH_EVENTS.filter((e) => e.status === "UPCOMING" || e.status === "ACTIVE");
+  const pastEvents = BRANCH_EVENTS.filter((e) => e.status === "PAST");
 
   const renderEventCard = (evt: EventRecord) => (
     <div
@@ -40,13 +40,17 @@ export default function EventsPage() {
             style={{
               fontSize: "0.6875rem",
               fontWeight: 800,
-              color: evt.status === "UPCOMING" ? "var(--color-primary)" : "var(--color-text-muted)",
-              background: evt.status === "UPCOMING" ? "var(--color-primary-subtle)" : "var(--color-surface-muted)",
+              color: evt.status !== "PAST" ? "var(--color-primary)" : "var(--color-text-muted)",
+              background: evt.status !== "PAST" ? "var(--color-primary-subtle)" : "var(--color-surface-muted)",
               padding: "0.2rem 0.55rem",
               borderRadius: "var(--radius-xs)",
             }}
           >
-            {evt.status === "UPCOMING" ? "● UPCOMING EVENT" : "CONCLUDED EVENT"}
+            {evt.status === "ACTIVE"
+              ? "● LIVE NOW"
+              : evt.status === "UPCOMING"
+              ? "● UPCOMING EVENT"
+              : "CONCLUDED EVENT"}
           </span>
           <span className="mono" style={{ fontSize: "0.6875rem", color: "var(--color-text-muted)" }}>
             {evt.provenance}

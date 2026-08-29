@@ -1,0 +1,42 @@
+/* ==========================================================================
+   SCROLL REVEAL UTILITY (NATIVE INTERSECTION OBSERVER)
+   Smooth settlement choreography: translateY(24px) -> translateY(0) + opacity
+   ========================================================================== */
+
+.revealWrapper {
+  opacity: 0;
+  transition-property: opacity, transform;
+  transition-duration: 650ms;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.fromBottom {
+  transform: translate3d(0, 24px, 0);
+}
+
+.fromLeft {
+  transform: translate3d(-24px, 0, 0);
+}
+
+.fromRight {
+  transform: translate3d(24px, 0, 0);
+}
+
+.fadeOnly {
+  transform: none;
+}
+
+.revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  will-change: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .revealWrapper {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

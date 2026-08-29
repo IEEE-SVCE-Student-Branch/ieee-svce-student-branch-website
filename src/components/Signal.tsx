@@ -9,9 +9,11 @@ interface SignalProps {
 }
 
 /**
- * IEEE SVCE Signal Reveal (0.9s - 1.2s):
- * IEEE logo -> SVCE logo -> Signal beam -> Branching field -> Home Signal Field.
- * Uses official brand assets without modification or recoloring.
+ * IEEE SVCE Signal Entrance:
+ * IEEE -> SVCE -> connection -> signal field -> homepage.
+ * First visit: 900–1300ms (1100ms)
+ * Returning visit: 250–400ms (300ms)
+ * Reduced motion: bypassed.
  */
 export function Signal({ forceShow = false }: SignalProps) {
   const [visible, setVisible] = useState(false);
@@ -24,15 +26,15 @@ export function Signal({ forceShow = false }: SignalProps) {
     }
 
     const hasSeen = sessionStorage.getItem("ieee_svce_signal_field_seen");
-    if (!hasSeen || forceShow) {
-      setVisible(true);
-      const timer = setTimeout(() => {
-        setVisible(false);
-        sessionStorage.setItem("ieee_svce_signal_field_seen", "true");
-      }, 1250);
+    const duration = hasSeen && !forceShow ? 320 : 1150;
 
-      return () => clearTimeout(timer);
-    }
+    setVisible(true);
+    const timer = setTimeout(() => {
+      setVisible(false);
+      sessionStorage.setItem("ieee_svce_signal_field_seen", "true");
+    }, duration);
+
+    return () => clearTimeout(timer);
   }, [forceShow]);
 
   const handleDismiss = () => {
@@ -46,67 +48,58 @@ export function Signal({ forceShow = false }: SignalProps) {
     <div
       className={`${styles.overlay} ${!visible ? styles.overlayDismissed : ""}`}
       role="status"
-      aria-label="IEEE SVCE Signal Field Initialization"
+      aria-label="IEEE SVCE Digital Institution Entrance"
       aria-live="polite"
       onClick={handleDismiss}
     >
       <div className={styles.container} onClick={(e) => e.stopPropagation()}>
-        {/* Brand Logos Row */}
+        {/* Brand Lockup Entrance Sequence */}
         <div className={styles.logoRow}>
-          <div className={styles.logoItem}>
+          <div className={styles.logoItemIeee}>
             <Image
-              src="/brand/ieee-logo.png"
-              alt="IEEE Official Logo"
-              width={140}
-              height={45}
+              src="/ieee.svg"
+              alt="IEEE Official Mark"
+              width={44}
+              height={44}
               priority
               className={styles.brandImage}
             />
           </div>
 
-          <div className={styles.dividerDot} aria-hidden="true" />
+          <div className={styles.dividerMark} aria-hidden="true" />
 
-          <div className={styles.logoItem}>
+          <div className={styles.logoItemSvce}>
             <Image
-              src="/brand/svce-logo.png"
-              alt="SVCE Official Logo"
-              width={150}
-              height={48}
+              src="/svce.svg"
+              alt="SVCE Official Mark"
+              width={86}
+              height={44}
               priority
               className={styles.brandImage}
             />
           </div>
         </div>
 
-        {/* Branching Signal Beam SVG */}
+        {/* Dynamic Optical Connection Beam */}
         <div className={styles.beamContainer} aria-hidden="true">
-          <svg className={styles.beamSvg} viewBox="0 0 180 36" fill="none">
+          <svg className={styles.beamSvg} viewBox="0 0 200 36" fill="none">
             <path
               className={styles.beamLine}
-              d="M10 18 H90 M90 18 L130 6 M90 18 L130 30 M130 6 H170 M130 30 H170"
+              d="M10 18 H95 M95 18 L140 6 M95 18 L140 30 M140 6 H190 M140 30 H190"
               stroke="#00629B"
-              strokeWidth="2"
+              strokeWidth="2.2"
               strokeLinecap="round"
             />
-            <circle cx="90" cy="18" r="3" fill="#00629B" />
-            <circle cx="170" cy="6" r="2.5" fill="#06B6D4" />
-            <circle cx="170" cy="30" r="2.5" fill="#6366F1" />
+            <circle cx="95" cy="18" r="3.5" fill="#00629B" />
+            <circle cx="190" cy="6" r="3" fill="#06B6D4" />
+            <circle cx="190" cy="30" r="3" fill="#6366F1" />
           </svg>
         </div>
 
         <div className={styles.signalTag}>
           <span className={styles.livePulse} aria-hidden="true" />
-          <span>SIGNAL FIELD SYNCHRONIZED // 2026/27</span>
+          <span>IEEE SVCE STUDENT BRANCH</span>
         </div>
-
-        <button
-          type="button"
-          onClick={handleDismiss}
-          className={styles.skipBtn}
-          aria-label="Skip signal intro"
-        >
-          ENTER FIELD [ESC]
-        </button>
       </div>
     </div>
   );

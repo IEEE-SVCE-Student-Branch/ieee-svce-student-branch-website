@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { DISCOVERY_CATALOG, DiscoveryItem } from "@/lib/data/discovery";
+import { ParticleField } from "../ParticleField";
 import styles from "./SignalFieldHero.module.css";
 
 type FilterType = "ALL" | "PEOPLE" | "EVENTS" | "BUILD" | "HISTORY" | "ACHIEVEMENTS";
@@ -43,7 +44,7 @@ export function SignalFieldHero() {
         const maxDeflect = 22;
         const force = (1 - distance / attractionRadius) * maxDeflect;
         const angle = Math.atan2(distY, distX);
-        // Move slightly away from the pointer
+        // Move slightly away from pointer
         targetPos.current = {
           x: -Math.cos(angle) * force,
           y: -Math.sin(angle) * force,
@@ -106,60 +107,15 @@ export function SignalFieldHero() {
   };
 
   return (
-    <section className={styles.heroSection} aria-label="Interactive Signal Field">
-      {/* Institutional Coordinate Watermarks */}
-      <span className={styles.coordinateTagLeft} aria-hidden="true">
-        STB 28051 // 12.9863° N, 79.9723° E // EST. 1994
-      </span>
-      <span className={styles.coordinateTagRight} aria-hidden="true">
-        IEEE REGION 10 // MADRAS SECTION // DIGITAL INSTITUTION
-      </span>
-
-      {/* Background SVG Signal Grid & Beams */}
-      <div
-        className={`${styles.signalCanvas} ${isRolling ? styles.accelerated : ""}`}
-        aria-hidden="true"
-      >
-        <svg className={styles.signalSvg} xmlns="http://www.w3.org/2000/svg">
-          {/* Signal grid lines */}
-          <line x1="10%" y1="0" x2="10%" y2="100%" className={styles.movingSignal} strokeWidth="1" />
-          <line x1="30%" y1="0" x2="30%" y2="100%" className={styles.movingSignal} strokeWidth="1" />
-          <line x1="50%" y1="0" x2="50%" y2="100%" className={styles.movingSignalFast} strokeWidth="1.5" />
-          <line x1="70%" y1="0" x2="70%" y2="100%" className={styles.movingSignal} strokeWidth="1" />
-          <line x1="90%" y1="0" x2="90%" y2="100%" className={styles.movingSignal} strokeWidth="1" />
-
-          <line x1="0" y1="25%" x2="100%" y2="25%" className={styles.movingSignal} strokeWidth="1" />
-          <line x1="0" y1="50%" x2="100%" y2="50%" className={styles.movingSignalFast} strokeWidth="1.5" />
-          <line x1="0" y1="75%" x2="100%" y2="75%" className={styles.movingSignal} strokeWidth="1" />
-
-          {/* Connected diagonal beams */}
-          <path
-            d="M 100 120 Q 400 300 800 200 T 1400 450"
-            fill="none"
-            className={styles.movingSignalFast}
-            strokeWidth="1.5"
-          />
-          <path
-            d="M 200 600 Q 600 400 1100 500 T 1600 200"
-            fill="none"
-            className={styles.movingSignal}
-            strokeWidth="1"
-          />
-
-          {/* Signal nodes */}
-          <circle cx="30%" cy="25%" r="3.5" className={styles.pulsingNode} />
-          <circle cx="50%" cy="50%" r="4" className={styles.pulsingNodeCyan} />
-          <circle cx="70%" cy="25%" r="3.5" className={styles.pulsingNode} />
-          <circle cx="30%" cy="75%" r="3.5" className={styles.pulsingNodeCyan} />
-          <circle cx="70%" cy="75%" r="4" className={styles.pulsingNode} />
-        </svg>
-      </div>
+    <section className={styles.heroSection} aria-label="IEEE SVCE Discovery Hero">
+      {/* Performant Living Volumetric Spatial Field */}
+      <ParticleField />
 
       {/* Primary Interactive Interface */}
       <div className={styles.heroContent}>
         <div className={styles.topPill}>
           <span className={styles.radarDot} aria-hidden="true" />
-          <span>IEEE SVCE // THE LIVING INSTITUTION // STB 28051</span>
+          <span>IEEE SVCE STUDENT BRANCH</span>
         </div>
 
         <h1 className={styles.mainTitle}>
@@ -167,13 +123,11 @@ export function SignalFieldHero() {
         </h1>
 
         <p className={styles.subtitle}>
-          The institutional signal field connects people, research labs, technical symposiums,
-          and three decades of engineering memory.
+          The student-driven technical community connecting Sri Venkateswara College of Engineering with the global IEEE network.
         </p>
 
-        {/* Category Filters */}
+        {/* Discovery Category Filters */}
         <div className={styles.discoveryFilters}>
-          <span className={styles.filtersPrompt}>{"// WHAT DO YOU WANT TO DISCOVER?"}</span>
           <div className={styles.chipsRow} role="radiogroup" aria-label="Discovery Category Filter">
             {(["ALL", "PEOPLE", "EVENTS", "BUILD", "HISTORY", "ACHIEVEMENTS"] as FilterType[]).map(
               (category) => (
@@ -193,7 +147,7 @@ export function SignalFieldHero() {
           </div>
         </div>
 
-        {/* Central Magnetic ROLL THE SIGNAL Button */}
+        {/* Central Magnetic DISCOVER Button */}
         <div ref={containerRef} className={styles.magneticContainer}>
           <button
             ref={buttonRef}
@@ -201,17 +155,20 @@ export function SignalFieldHero() {
             className={`${styles.rollButton} ${isRolling ? styles.rolling : ""}`}
             onClick={handleRollSignal}
             disabled={isRolling}
-            aria-label="Roll the signal to discover an institutional artifact"
-            data-cursor="ROLL"
+            aria-label="Discover an IEEE SVCE institutional artifact"
+            data-cursor="DISCOVER"
           >
             <span className={styles.rollIcon} aria-hidden="true">
               ✦
             </span>
-            <span>{isRolling ? "CONVERGING SIGNALS..." : "ROLL THE SIGNAL"}</span>
+            <span>{isRolling ? "DISCOVERING..." : "DISCOVER IEEE SVCE"}</span>
+            <span className={styles.rollArrow} aria-hidden="true">
+              →
+            </span>
           </button>
         </div>
 
-        {/* Discovery Reveal Card */}
+        {/* Discovery Reveal Modal Card */}
         {discoveredItem && isRolling && (
           <div
             className={styles.revealCard}
@@ -227,7 +184,7 @@ export function SignalFieldHero() {
             <div className={styles.revealTitle}>{discoveredItem.title}</div>
             <div className={styles.navNotice}>
               <div className={styles.navSpinner} aria-hidden="true" />
-              <span>SYNCHRONIZING REPOSITORY RECORD...</span>
+              <span>Opening institutional record...</span>
             </div>
           </div>
         )}

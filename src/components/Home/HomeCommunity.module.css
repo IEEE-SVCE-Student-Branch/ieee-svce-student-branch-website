@@ -1,0 +1,173 @@
+.section {
+  padding: 5rem 0;
+  background: var(--color-bg-base);
+  border-bottom: 1px solid rgba(210, 222, 236, 0.7);
+  position: relative;
+}
+
+.sectionHeading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.tagline {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #a855f7;
+  margin-bottom: 0.4rem;
+}
+
+.marker {
+  color: #6366f1;
+}
+
+.title {
+  font-size: clamp(1.875rem, 3.5vw, 2.625rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: var(--color-text-primary);
+}
+
+.desc {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  max-width: 660px;
+  margin-top: 0.35rem;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 900px) {
+  .metricsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.metricCard {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(200, 215, 232, 0.85);
+  border-radius: var(--radius-md);
+  padding: 1.75rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.35rem;
+  box-shadow: var(--shadow-card);
+}
+
+.valPrimary {
+  font-family: var(--font-mono);
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.valAccent {
+  font-family: var(--font-mono);
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: #0284c7;
+  line-height: 1;
+}
+
+.mLabel {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+}
+
+.mSub {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+.pillarsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .pillarsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.pillarCard {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(200, 215, 232, 0.85);
+  border-radius: var(--radius-md);
+  padding: 2.25rem;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+  transition: all var(--transition-fast);
+}
+
+.pillarCard:hover {
+  border-color: #a855f7;
+  box-shadow: var(--shadow-elevated);
+  transform: translateY(-2px);
+}
+
+.pillarIcon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(168, 85, 247, 0.1);
+  color: #9333ea;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.pillarTitle {
+  font-size: 1.375rem;
+  font-weight: 800;
+  color: var(--color-text-primary);
+}
+
+.pillarDesc {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.pillarLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #7e22ce;
+  text-transform: uppercase;
+}
+
+.pillarLink:hover {
+  color: #9333ea;
+}

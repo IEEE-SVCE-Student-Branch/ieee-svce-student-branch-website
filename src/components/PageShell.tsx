@@ -41,9 +41,9 @@ export function PageShell({
           <div className={styles.metaRow}>
             <div className={styles.provenanceStamp}>
               <span aria-hidden="true">◈</span>
-              <span>VERIFIED INSTITUTIONAL SHELL: {provenanceCode}</span>
+              <span>INSTITUTIONAL RECORD: {provenanceCode}</span>
             </div>
-            <div>STATUS: PUBLIC DIGITAL EXPERIENCE // SESSION 2026/27</div>
+            <div>SESSION 2026–2027</div>
           </div>
         </div>
       </section>

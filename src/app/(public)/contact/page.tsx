@@ -90,7 +90,7 @@ export default function ContactPage() {
                   LINKEDIN ↗
                 </a>
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/ieee__svce/"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{

@@ -36,10 +36,20 @@ export default function InnovationPage() {
             }}
           >
             {/* Header / Project Identity */}
-            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: "1rem", paddingBottom: "1.25rem", borderBottom: "1px solid var(--color-border-subtle)" }}>
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "space-between",
+                alignItems: "center",
+                gap: "1rem",
+                paddingBottom: "1.25rem",
+                borderBottom: "1px solid var(--color-border-subtle)",
+              }}
+            >
               <div>
                 <span className="mono" style={{ fontSize: "0.6875rem", fontWeight: 700, color: "var(--color-primary)" }}>
-                  [ {proj.track.toUpperCase()} ] • YEAR {proj.year}
+                  [ {proj.domain.toUpperCase()} ] • {proj.track.toUpperCase()} • YEAR {proj.year}
                 </span>
                 <h2 style={{ fontSize: "1.75rem", fontWeight: 900, marginTop: "0.25rem" }}>{proj.title}</h2>
               </div>
@@ -93,6 +103,22 @@ export default function InnovationPage() {
                 {proj.results}
               </p>
             </div>
+
+            {/* Media Schematics & Prototype Artifacts */}
+            {proj.media && proj.media.length > 0 && (
+              <div style={{ padding: "1.25rem 1.5rem", backgroundColor: "var(--color-surface)", borderRadius: "var(--radius-xs)", border: "1px solid var(--color-border)" }}>
+                <span className="mono" style={{ fontSize: "0.6875rem", fontWeight: 800, color: "var(--color-primary)" }}>
+                  TECHNICAL ARTIFACTS & MEDIA CAPTIONS
+                </span>
+                <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem", marginTop: "0.5rem" }}>
+                  {proj.media.map((med, i) => (
+                    <div key={i} style={{ fontSize: "0.8125rem", color: "var(--color-text-secondary)" }}>
+                      <strong className="mono" style={{ color: "var(--color-primary)" }}>[{med.type}]:</strong> {med.caption}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Team & Technologies */}
             <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: "1.5rem", paddingTop: "1rem", borderTop: "1px solid var(--color-border-subtle)" }}>

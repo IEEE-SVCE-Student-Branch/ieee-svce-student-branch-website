@@ -1,0 +1,436 @@
+/* ==========================================================================
+   TEAM CARD — 3D PERSPECTIVE HOVER & PROFILE OVERLAY
+   ========================================================================== */
+
+.cardContainer {
+  cursor: pointer;
+  outline: none;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  display: block;
+  width: 100%;
+}
+
+.cardContainer:focus-visible .cardPerspective {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.cardPerspective {
+  position: relative;
+  background: var(--color-surface);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 1.75rem;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+  min-height: 280px;
+  transition:
+    transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    background-color 220ms ease;
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
+.cardContainer:hover .cardPerspective {
+  border-color: rgba(2, 132, 199, 0.45);
+  background: var(--color-surface-hover);
+  box-shadow: 0 16px 36px -8px rgba(0, 98, 155, 0.12), 0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+.cardGlowOverlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 20px;
+  transition: background 150ms ease;
+  z-index: 1;
+}
+
+/* Portrait Monogram Frame */
+.portraitFrame {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+
+/* Photo portrait wrapper (when member.photo is set) */
+.photoWrapper {
+  position: relative;
+  width: 64px;
+  height: 72px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1.5px solid rgba(2, 132, 199, 0.3);
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.12);
+  flex-shrink: 0;
+}
+
+.portraitImage {
+  object-fit: cover;
+  object-position: center top;
+}
+
+.monogramDisc {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.12) 0%, rgba(0, 98, 155, 0.2) 100%);
+  border: 1.5px solid rgba(2, 132, 199, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.6);
+  transition: transform 220ms ease;
+}
+
+.cardContainer:hover .monogramDisc {
+  transform: scale(1.05);
+}
+
+.monogramText {
+  font-family: var(--font-mono);
+  font-size: 1.0625rem;
+  font-weight: 900;
+  color: var(--color-primary);
+  letter-spacing: -0.02em;
+}
+
+.badgeRow {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.35rem;
+}
+
+.statusBadge {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 800;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-xs);
+  letter-spacing: 0.06em;
+}
+
+.statusVerified {
+  color: #059669;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.statusPending {
+  color: #d97706;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.yearTag {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  color: var(--color-text-muted);
+}
+
+/* Metadata */
+.metaContent {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.teamTag {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  display: inline-block;
+  margin-bottom: 0.15rem;
+}
+
+.memberName {
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.memberRole {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-top: 0.1rem;
+}
+
+.memberDept {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+  margin-top: 0.35rem;
+}
+
+/* Card Footer */
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.875rem;
+  border-top: 1px solid var(--color-border-subtle);
+  position: relative;
+  z-index: 2;
+}
+
+.viewPrompt {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  transition: transform var(--transition-fast);
+}
+
+.cardContainer:hover .viewPrompt {
+  transform: translateX(3px);
+}
+
+.sessionLabel {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  color: var(--color-text-muted);
+}
+
+/* Profile Detail Modal Backdrop */
+.profileBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  animation: fadeIn 200ms ease forwards;
+}
+
+.profileModal {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid rgba(200, 215, 232, 0.9);
+  border-radius: 28px;
+  padding: 2.25rem;
+  max-width: 520px;
+  width: 100%;
+  box-shadow: 0 24px 60px -12px rgba(15, 23, 42, 0.25);
+  animation: popModal 250ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.modalCloseBtn {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  transition: all var(--transition-fast);
+}
+
+.modalCloseBtn:hover {
+  background: var(--color-text-primary);
+  color: #ffffff;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.modalMonogram {
+  width: 64px;
+  height: 64px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #0284c7 0%, #00629b 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 1.375rem;
+  font-weight: 800;
+  box-shadow: 0 4px 14px rgba(0, 98, 155, 0.25);
+  flex-shrink: 0;
+}
+
+/* Modal photo wrapper */
+.modalPhotoWrapper {
+  position: relative;
+  width: 72px;
+  height: 84px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 2px solid rgba(2, 132, 199, 0.3);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.14);
+  flex-shrink: 0;
+}
+
+.modalPortraitImage {
+  object-fit: cover;
+  object-position: center top;
+}
+
+.modalTeamTag {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  letter-spacing: 0.12em;
+}
+
+.modalName {
+  font-family: var(--font-sans);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+  margin-top: 0.15rem;
+}
+
+.modalPosition {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-top: 0.15rem;
+}
+
+.modalDetailsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding: 1.25rem;
+  background: var(--color-surface-muted);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.detailItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.detailLabel {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  letter-spacing: 0.06em;
+}
+
+.detailValue {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.verifiedColor {
+  color: #059669;
+}
+
+.pendingColor {
+  color: #d97706;
+}
+
+.modalActionRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.linkedinLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.linkedinLink:hover {
+  text-decoration: underline;
+}
+
+.modalDismissBtn {
+  padding: 0.5rem 1.25rem;
+  background: var(--color-text-primary);
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+}
+
+.modalDismissBtn:hover {
+  background: var(--color-primary);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes popModal {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .modalDetailsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .profileModal {
+    padding: 1.5rem;
+    border-radius: 20px;
+  }
+}
