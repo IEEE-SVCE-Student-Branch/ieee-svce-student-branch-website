@@ -1,35 +1,35 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
-import { useRouter } from "next/navigation";
-import { DISCOVERY_CATALOG, DiscoveryItem } from "@/lib/data/discovery";
+import React, { useRef, useEffect } from "react";
+import Link from "next/link";
 import { ParticleField } from "../ParticleField";
 import styles from "./SignalFieldHero.module.css";
 
-type FilterType = "ALL" | "PEOPLE" | "EVENTS" | "BUILD" | "HISTORY" | "ACHIEVEMENTS";
+const DISCOVERY_CHIPS = [
+  { id: "ALL", label: "ALL", route: "/" },
+  { id: "PEOPLE", label: "PEOPLE", route: "/team" },
+  { id: "EVENTS", label: "EVENTS", route: "/events" },
+  { id: "BUILD", label: "BUILD", route: "/innovation" },
+  { id: "HISTORY", label: "HISTORY", route: "/about" },
+  { id: "ACHIEVEMENTS", label: "ACHIEVEMENTS", route: "/achievements" },
+];
 
 export function SignalFieldHero() {
-  const router = useRouter();
-  const [activeFilter, setActiveFilter] = useState<FilterType>("ALL");
-  const [isRolling, setIsRolling] = useState(false);
-  const [discoveredItem, setDiscoveredItem] = useState<DiscoveryItem | null>(null);
-
-  const buttonRef = useRef<HTMLButtonElement>(null);
+  const buttonRef = useRef<HTMLAnchorElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const rafId = useRef<number | null>(null);
 
-  // Magnetic button displacement coordinates
   const currentPos = useRef({ x: 0, y: 0 });
   const targetPos = useRef({ x: 0, y: 0 });
 
-  // Spring animation loop for magnetic deflection (18px–24px deflection)
+  // Spring animation loop for magnetic deflection
   useEffect(() => {
     const isTouch = window.matchMedia("(pointer: coarse)").matches;
     const isReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (isTouch || isReducedMotion) return;
 
     const handleMouseMove = (e: MouseEvent) => {
-      if (!buttonRef.current || isRolling) return;
+      if (!buttonRef.current) return;
       const rect = buttonRef.current.getBoundingClientRect();
       const btnCenterX = rect.left + rect.width / 2;
       const btnCenterY = rect.top + rect.height / 2;
@@ -40,11 +40,9 @@ export function SignalFieldHero() {
       const attractionRadius = 140;
 
       if (distance < attractionRadius) {
-        // Calculate repulsive deflection of 18–24px
-        const maxDeflect = 22;
+        const maxDeflect = 20;
         const force = (1 - distance / attractionRadius) * maxDeflect;
         const angle = Math.atan2(distY, distX);
-        // Move slightly away from pointer
         targetPos.current = {
           x: -Math.cos(angle) * force,
           y: -Math.sin(angle) * force,
@@ -80,35 +78,7 @@ export function SignalFieldHero() {
       document.removeEventListener("mouseleave", handleMouseLeave);
       if (rafId.current) cancelAnimationFrame(rafId.current);
     };
-  }, [isRolling]);
-
-  const handleRollSignal = () => {
-    if (isRolling) return;
-    setIsRolling(true);
-
-    // Filter discovery pool based on selected category
-    let pool = DISCOVERY_CATALOG;
-    if (activeFilter === "PEOPLE") pool = DISCOVERY_CATALOG.filter((i) => i.category === "person");
-    else if (activeFilter === "EVENTS")
-      pool = DISCOVERY_CATALOG.filter((i) => i.category === "event");
-    else if (activeFilter === "BUILD")
-      pool = DISCOVERY_CATALOG.filter((i) => i.category === "project");
-    else if (activeFilter === "HISTORY")
-      pool = DISCOVERY_CATALOG.filter((i) => i.category === "media" || i.category === "article");
-    else if (activeFilter === "ACHIEVEMENTS")
-      pool = DISCOVERY_CATALOG.filter((i) => i.category === "achievement");
-
-    if (pool.length === 0) pool = DISCOVERY_CATALOG;
-
-    const randomIndex = Math.floor(Math.random() * pool.length);
-    const selected = pool[randomIndex];
-    setDiscoveredItem(selected);
-
-    // Converge signals, reveal, then navigate after 1.2s
-    setTimeout(() => {
-      router.push(selected.route);
-    }, 1250);
-  };
+  }, []);
 
   return (
     <section className={styles.heroSection} aria-label="IEEE SVCE Discovery Hero">
@@ -131,68 +101,40 @@ export function SignalFieldHero() {
           with the global IEEE network.
         </p>
 
-        {/* Discovery Category Filters */}
+        {/* Discovery Category Filters mapped to real routes */}
         <div className={styles.discoveryFilters}>
-          <div className={styles.chipsRow} role="radiogroup" aria-label="Discovery Category Filter">
-            {(["ALL", "PEOPLE", "EVENTS", "BUILD", "HISTORY", "ACHIEVEMENTS"] as FilterType[]).map(
-              (category) => (
-                <button
-                  key={category}
-                  type="button"
-                  role="radio"
-                  aria-checked={activeFilter === category}
-                  className={`${styles.chip} ${activeFilter === category ? styles.chipActive : ""}`}
-                  onClick={() => setActiveFilter(category)}
-                  data-cursor="FILTER"
-                >
-                  {category}
-                </button>
-              )
-            )}
+          <div className={styles.chipsRow} role="navigation" aria-label="Discovery Destinations">
+            {DISCOVERY_CHIPS.map((chip) => (
+              <Link
+                key={chip.id}
+                href={chip.route}
+                className={styles.chip}
+                data-cursor="GOTO"
+              >
+                {chip.label}
+              </Link>
+            ))}
           </div>
         </div>
 
-        {/* Central Magnetic DISCOVER Button */}
+        {/* Central DISCOVER IEEE SVCE CTA -> Navigates to /about */}
         <div ref={containerRef} className={styles.magneticContainer}>
-          <button
+          <Link
             ref={buttonRef}
-            type="button"
-            className={`${styles.rollButton} ${isRolling ? styles.rolling : ""}`}
-            onClick={handleRollSignal}
-            disabled={isRolling}
-            aria-label="Discover an IEEE SVCE institutional artifact"
+            href="/about"
+            className={styles.rollButton}
+            aria-label="Discover IEEE SVCE Student Branch — Learn About Us"
             data-cursor="DISCOVER"
           >
             <span className={styles.rollIcon} aria-hidden="true">
               ✦
             </span>
-            <span>{isRolling ? "DISCOVERING..." : "DISCOVER IEEE SVCE"}</span>
+            <span>DISCOVER IEEE SVCE</span>
             <span className={styles.rollArrow} aria-hidden="true">
               →
             </span>
-          </button>
+          </Link>
         </div>
-
-        {/* Discovery Reveal Modal Card */}
-        {discoveredItem && isRolling && (
-          <div
-            className={styles.revealCard}
-            role="alert"
-            aria-live="assertive"
-            aria-label={`Discovered ${discoveredItem.categoryLabel}: ${discoveredItem.title}`}
-          >
-            <div className={styles.revealStatus}>
-              <span aria-hidden="true">✓</span>
-              <span>DISCOVERED</span>
-            </div>
-            <div className={styles.revealCategory}>[ {discoveredItem.categoryLabel} ]</div>
-            <div className={styles.revealTitle}>{discoveredItem.title}</div>
-            <div className={styles.navNotice}>
-              <div className={styles.navSpinner} aria-hidden="true" />
-              <span>Opening institutional record...</span>
-            </div>
-          </div>
-        )}
       </div>
     </section>
   );

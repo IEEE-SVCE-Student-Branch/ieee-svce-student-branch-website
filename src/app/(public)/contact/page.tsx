@@ -16,7 +16,7 @@ export default function ContactPage() {
       categoryTag="// COMMUNICATION CHANNELS"
       description="Direct channels for collaboration proposals, corporate sponsorships, technical workshop inquiries, and student membership assistance."
       breadcrumbLabel="CONTACT"
-      provenanceCode="STB28051-COMM-DESK"
+      provenanceCode="IEEE-SVCE-COMM-DESK"
     >
       <div
         style={{
@@ -72,7 +72,7 @@ export default function ContactPage() {
                   marginTop: "0.35rem",
                 }}
               >
-                IEEE Student Branch (STB 28051)
+                IEEE Student Branch
                 <br />
                 Sri Venkateswara College of Engineering
                 <br />
@@ -107,7 +107,7 @@ export default function ContactPage() {
                 style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", marginTop: "0.5rem" }}
               >
                 <a
-                  href="https://www.linkedin.com/company/ieee-svce/"
+                  href="https://www.linkedin.com/company/ieee-student-chapter/home/"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
@@ -119,10 +119,19 @@ export default function ContactPage() {
                     border: "1px solid var(--color-border)",
                     borderRadius: "var(--radius-xs)",
                     color: "var(--color-text-primary)",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.4rem",
                   }}
+                  aria-label="IEEE SVCE Student Branch LinkedIn Profile"
                   data-cursor="LINKEDIN"
                 >
-                  LINKEDIN ↗
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                    <rect x="2" y="9" width="4" height="12" />
+                    <circle cx="4" cy="4" r="2" />
+                  </svg>
+                  <span>LINKEDIN</span>
                 </a>
                 <a
                   href="https://www.instagram.com/ieee__svce/"

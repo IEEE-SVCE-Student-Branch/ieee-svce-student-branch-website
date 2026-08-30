@@ -42,15 +42,28 @@ export function SiteFooter() {
         <div className={styles.mainGrid}>
           {/* Brand Identity & Official Logos */}
           <div className={styles.brandColumn}>
-            <div className={styles.brandLogos}>
+            <Link
+              href="/"
+              className={styles.brandLogos}
+              aria-label="Return to Homepage"
+              data-cursor="HOME"
+              style={{ display: "flex", alignItems: "center", gap: "1rem", textDecoration: "none" }}
+            >
               <Image
-                src="/brand/svce-emblem.png"
-                alt="SVCE Emblem"
-                width={36}
-                height={36}
+                src="/ieee.svg"
+                alt="IEEE Logo"
+                width={40}
+                height={40}
                 style={{ objectFit: "contain" }}
               />
-            </div>
+              <Image
+                src="/svce.svg"
+                alt="SVCE Logo"
+                width={80}
+                height={40}
+                style={{ objectFit: "contain" }}
+              />
+            </Link>
             <div className={styles.logoTitle}>IEEE SVCE</div>
             <div className={styles.branchMeta}>
               IEEE STUDENT BRANCH // EST. {BRANCH_STATS.establishedYear}

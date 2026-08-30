@@ -1,3 +1,5 @@
+import { TEAM_MEMBERS_DATA } from "./team";
+
 /**
  * IEEE SVCE — Institutional Data Repository (Locked Information Architecture)
  *
@@ -225,7 +227,7 @@ export const BRANCH_STATS = {
   annualEvents: "35+",
   coordinates: "12.9863° N, 79.9723° E",
   location: "Pennalur, Sriperumbudur, Tamil Nadu 602117",
-  officialEmail: "ieee.svce.branch@svce.ac.in",
+  officialEmail: "ieee@svce.ac.in",
   parentSection: "IEEE Madras Section (Region 10)",
 };
 
@@ -269,9 +271,9 @@ export const BRANCH_ANNOUNCEMENTS: AnnouncementItem[] = [
 /* --- 2. ABOUT DATA --- */
 export const ABOUT_BRANCH = {
   aboutIeee:
-    "The Institute of Electrical and Electronics Engineers (IEEE) is the world's largest technical professional organization dedicated to advancing technology for the benefit of humanity. IEEE brings together students, engineers, researchers, educators, and industry professionals from around the world to foster technological innovation, knowledge sharing, collaboration, and professional development. Through its global network of members, societies, conferences, publications, and educational initiatives, IEEE contributes to the advancement of technology and the development of the next generation of technical professionals.",
+    "IEEE (Institute of Electrical and Electronics Engineers) is the world's largest technical professional organization dedicated to advancing technology for the benefit of humanity. It serves as a global catalyst for technological innovation, fostering collaborative networks, publishing leading scientific literature, and establishing international industry standards.",
   aboutBranch:
-    "The IEEE Student Branch of Sri Venkateswara College of Engineering (SVCE) is a student-driven technical community that connects the SVCE campus with the global IEEE network. Our Student Branch provides students with opportunities to explore technology beyond the classroom through technical events, workshops, hackathons, competitions, project-based learning, professional development activities, and outreach initiatives. We aim to create an environment where students can learn, innovate, collaborate, and lead. By connecting students with technical communities, industry professionals, researchers, and fellow innovators, IEEE SVCE Student Branch encourages members to develop both their technical expertise and professional skills. Through our activities, we strive to inspire students to become capable engineers, innovative problem-solvers, and responsible future leaders who use technology to create a meaningful impact on society.",
+    "Established in 1994, the IEEE Student Branch of Sri Venkateswara College of Engineering (SVCE) connects students to the global IEEE network. The branch serves as an active hub for student leadership, hands-on engineering, and technical development through workshops, symposia, and applied laboratory research.",
   history:
     "The IEEE Student Branch of Sri Venkateswara College of Engineering was established to connect SVCE students with the global IEEE technical community. Over the years, the branch has grown to become an active institutional nucleus for student leadership, technical events, applied learning, and community outreach.",
   vision:
@@ -407,347 +409,45 @@ export const ABOUT_BRANCH = {
 
 /* --- 3. TEAM DATA --- */
 export const TEAM_MEMBERS: TeamMember[] = [
-  // Core Executive Committee — supplied roster
-  {
-    id: "tm-chair",
-    name: "TR Hemachander",
-    position: "Chair",
-    tier: "CORE_OFFICER",
-    team: "Core Executive Committee",
-    session: "2026–2027",
-    department: "Department of Electrical and Electronics Engineering",
-    year: "IV Year",
-    linkedinUrl: "https://www.linkedin.com/company/ieee-svce/",
-    status: "VERIFIED",
-  },
-  {
-    id: "tm-secretary-01",
-    name: "Sai Rakshesha S",
-    photo: "/team/SAI%20RAKSHEEDHA%20S.JPG",
-    position: "Secretary",
-    tier: "CORE_OFFICER",
-    team: "Core Executive Committee",
-    session: "2026–2027",
-    department: "Department of Electronics and Communication Engineering",
-    year: "IV Year",
-    linkedinUrl: "https://www.linkedin.com/company/ieee-svce/",
-    status: "VERIFIED",
-  },
-  {
-    id: "tm-secretary-02",
-    name: "Janelle Rebecca J",
-    photo: "/team/Janelle_Rebecca.jpg",
-    position: "Secretary",
-    tier: "CORE_OFFICER",
-    team: "Core Executive Committee",
-    session: "2026–2027",
-    department: "Department of Electrical and Electronics Engineering",
-    year: "IV Year",
-    linkedinUrl: "https://www.linkedin.com/company/ieee-svce/",
-    status: "VERIFIED",
-  },
-  {
-    id: "tm-vice-chair",
-    name: "A Aadhithya Narayanan",
-    position: "Vice Chair",
-    tier: "CORE_OFFICER",
-    team: "Core Executive Committee",
-    session: "2026–2027",
-    department: "Department of Electrical and Electronics Engineering",
-    year: "III Year",
-    linkedinUrl: "https://www.linkedin.com/company/ieee-svce/",
-    status: "VERIFIED",
-  },
-  {
-    id: "tm-joint-secretary-01",
-    name: "Vikhashini S",
-    photo: "/team/vikhashini.jpg",
-    position: "Joint Secretary",
-    tier: "CORE_OFFICER",
-    team: "Core Executive Committee",
-    session: "2026–2027",
-    department: "Department of Computer Science and Engineering",
-    year: "III Year",
-    linkedinUrl: "https://www.linkedin.com/company/ieee-svce/",
-    status: "VERIFIED",
-  },
-  {
-    id: "tm-joint-secretary-02",
-    name: "Dimple Kurugunda",
-    position: "Joint Secretary",
-    tier: "CORE_OFFICER",
-    team: "Core Executive Committee",
-    session: "2026–2027",
-    department: "Department of Electrical and Electronics Engineering",
-    year: "III Year",
-    linkedinUrl: "https://www.linkedin.com/company/ieee-svce/",
-    status: "VERIFIED",
-  },
-  // Treasury
-  {
-    id: "tm-treasurer",
-    name: "Harish BN",
-    position: "Treasurer",
-    tier: "CORE_OFFICER",
-    team: "Treasury",
-    session: "2026–2027",
-    department: "Department of Electrical and Electronics Engineering",
-    year: "IV Year",
-    linkedinUrl: "https://www.linkedin.com/company/ieee-svce/",
-    status: "VERIFIED",
-  },
-  {
-    id: "tm-joint-treasurer",
-    name: "Bharath Kalyan B",
-    position: "Joint Treasurer",
-    tier: "CORE_OFFICER",
-    team: "Treasury",
-    session: "2026–2027",
-    department: "Department of Electronics and Communication Engineering",
-    year: "III Year",
-    linkedinUrl: "https://www.linkedin.com/company/ieee-svce/",
-    status: "VERIFIED",
-  },
-  {
-    id: "tm-treasury-exec",
-    name: "Sai Tharun B",
-    photo: "/team/Sai%20Tharun.png",
-    position: "Treasury Executive",
-    tier: "FUNCTIONAL_LEAD",
-    team: "Treasury",
-    session: "2026–2027",
-    department: "Department of Electronics and Communication Engineering",
-    year: "II Year",
-    linkedinUrl: "https://www.linkedin.com/company/ieee-svce/",
-    status: "VERIFIED",
-  },
-  // Event Head
-  {
-    id: "tm-event-head",
-    name: "Lakshan Vidhyuth LB",
-    photo: "/team/Lakshan_Vidhyuth_LB.png",
-    position: "Event Head",
-    tier: "DOMAIN_HEAD",
-    team: "Core Executive Committee",
-    session: "2026–2027",
-    department: "Department of Electrical and Electronics Engineering",
-    year: "IV Year",
-    linkedinUrl: "https://www.linkedin.com/company/ieee-svce/",
-    status: "VERIFIED",
-  },
-  // Technical Team
-  {
-    id: "tm-tech-head",
-    name: "Akshitha K",
-    photo: "/team/Akshitha_.jpg",
-    position: "Technical Team Head",
-    tier: "DOMAIN_HEAD",
-    team: "Technical Team",
-    session: "2026–2027",
-    department: "Department of Computer Science and Engineering",
-    year: "III Year",
-    linkedinUrl: "https://www.linkedin.com/company/ieee-svce/",
-    status: "VERIFIED",
-  },
-  {
-    id: "tm-tech-exec-01",
-    name: "Yaathra P",
-    photo: "/team/YAATHRA%20TECHNICAL%20EXECUTIVE.png",
-    position: "Technical Executive",
-    tier: "FUNCTIONAL_LEAD",
-    team: "Technical Team",
-    session: "2026–2027",
-    department: "Department of Computer Science and Engineering",
-    year: "II Year",
-    linkedinUrl: "https://www.linkedin.com/company/ieee-svce/",
-    status: "VERIFIED",
-  },
-  {
-    id: "tm-tech-exec-02",
-    name: "Sethu Madhavan Srinivasan",
-    photo: "/team/sethu%20madhavan%20srinivasan.png",
-    position: "Technical Executive",
-    tier: "FUNCTIONAL_LEAD",
-    team: "Technical Team",
-    session: "2026–2027",
-    department: "Department of Electronics and Communication Engineering",
-    year: "II Year",
-    linkedinUrl: "https://www.linkedin.com/company/ieee-svce/",
-    status: "VERIFIED",
-  },
-  // Design Team
-  {
-    id: "tm-design-head",
-    name: "GVL Apoorva",
-    photo: "/team/GVL_Apoorva.JPG",
-    position: "Design Team Head",
-    tier: "DOMAIN_HEAD",
-    team: "Design Team",
-    session: "2026–2027",
-    department: "Department of Computer Science and Engineering",
-    year: "III Year",
-    linkedinUrl: "https://www.linkedin.com/company/ieee-svce/",
-    status: "VERIFIED",
-  },
-  {
-    id: "tm-design-exec-01",
-    name: "Keerthana Janakiraman",
-    photo: "/team/Keerthana%20Janakiraman.jpg",
-    position: "Design Executive",
-    tier: "FUNCTIONAL_LEAD",
-    team: "Design Team",
-    session: "2026–2027",
-    department: "Department of Artificial Intelligence and Data Science",
-    year: "II Year",
-    linkedinUrl: "https://www.linkedin.com/company/ieee-svce/",
-    status: "VERIFIED",
-  },
-  {
-    id: "tm-design-exec-02",
-    name: "Jwala Shiny E",
-    photo: "/team/Jwala%20Shiny%20E_.jpg",
-    position: "Design Executive",
-    tier: "FUNCTIONAL_LEAD",
-    team: "Design Team",
-    session: "2026–2027",
-    department: "Department of Electrical and Electronics Engineering",
-    year: "II Year",
-    linkedinUrl: "https://www.linkedin.com/company/ieee-svce/",
-    status: "VERIFIED",
-  },
-  // Content Team
-  {
-    id: "tm-content-head",
-    name: "S Niharika",
-    photo: "/team/Niharika%20S.jpg",
-    position: "Content Team Head",
-    tier: "DOMAIN_HEAD",
-    team: "Content Team",
-    session: "2026–2027",
-    department: "Department of Electrical and Electronics Engineering",
-    year: "II Year",
-    linkedinUrl: "https://www.linkedin.com/company/ieee-svce/",
-    status: "VERIFIED",
-  },
-  {
-    id: "tm-content-exec-01",
-    name: "M.Titiksha",
-    photo: "/team/Titiksha.jpg",
-    position: "Content Executive",
-    tier: "FUNCTIONAL_LEAD",
-    team: "Content Team",
-    session: "2026–2027",
-    department: "Department of Electrical and Electronics Engineering",
-    year: "II Year",
-    linkedinUrl: "https://www.linkedin.com/company/ieee-svce/",
-    status: "VERIFIED",
-  },
-  {
-    id: "tm-content-exec-02",
-    name: "Krishna B",
-    photo: "/team/Krishna%20B.jpg",
-    position: "Content Executive",
-    tier: "FUNCTIONAL_LEAD",
-    team: "Content Team",
-    session: "2026–2027",
-    department: "Department of Electrical and Electronics Engineering",
-    year: "II Year",
-    linkedinUrl: "https://www.linkedin.com/company/ieee-svce/",
-    status: "VERIFIED",
-  },
-  // Social Media
-  {
-    id: "tm-social-media",
-    name: "Harine S",
-    photo: "/team/Harine%20S.jpg",
-    position: "Social Media Executive",
-    tier: "FUNCTIONAL_LEAD",
-    team: "Social Media",
-    session: "2026–2027",
-    department: "Department of Electrical and Electronics Engineering",
-    year: "II Year",
-    linkedinUrl: "https://www.linkedin.com/company/ieee-svce/",
-    status: "VERIFIED",
-  },
-  // Outreach
-  {
-    id: "tm-outreach-exec-01",
-    name: "Harshitha R",
-    position: "Outreach Executive",
-    tier: "FUNCTIONAL_LEAD",
-    team: "Outreach",
-    session: "2026–2027",
-    department: "Department of Electronics and Communication Engineering",
-    year: "II Year",
-    linkedinUrl: "https://www.linkedin.com/company/ieee-svce/",
-    status: "VERIFIED",
-  },
-  {
-    id: "tm-outreach-exec-02",
-    name: "Sathya Shree TR",
-    position: "Outreach Executive",
-    tier: "FUNCTIONAL_LEAD",
-    team: "Outreach",
-    session: "2026–2027",
-    department: "Department of Electronics and Communication Engineering",
-    year: "II Year",
-    linkedinUrl: "https://www.linkedin.com/company/ieee-svce/",
-    status: "VERIFIED",
-  },
-  // Photography
-  {
-    id: "tm-photo-lead",
-    name: "E Dhranavivel",
-    photo: "/team/E%20Dharanivel.jpg",
-    position: "Photography Lead",
-    tier: "DOMAIN_HEAD",
-    team: "Photography",
-    session: "2026–2027",
-    department: "Department of Electronics and Communication Engineering",
-    year: "II Year",
-    linkedinUrl: "https://www.linkedin.com/company/ieee-svce/",
-    status: "VERIFIED",
-  },
-  {
-    id: "tm-photo-exec",
-    name: "Prabhanjan V A",
-    photo: "/team/Prabhanjan.JPG",
-    position: "Photography Executive",
-    tier: "FUNCTIONAL_LEAD",
-    team: "Photography",
-    session: "2026–2027",
-    department: "Department of Electronics and Communication Engineering",
-    year: "II Year",
-    linkedinUrl: "https://www.linkedin.com/company/ieee-svce/",
-    status: "VERIFIED",
-  },
-  // Executive Members
-  {
-    id: "tm-exec-member-01",
-    name: "Arulmozhi K",
-    photo: "/team/Arulmozhi%20K.jpg",
-    position: "Executive Member",
-    tier: "FUNCTIONAL_LEAD",
-    team: "Executive Members",
-    session: "2026–2027",
-    department: "Department of Computer Science and Engineering",
-    year: "III Year",
-    linkedinUrl: "https://www.linkedin.com/company/ieee-svce/",
-    status: "VERIFIED",
-  },
-  {
-    id: "tm-exec-member-02",
-    name: "Rogini D",
-    photo: "/team/Rogini%20D.jpg",
-    position: "Executive Member",
-    tier: "FUNCTIONAL_LEAD",
-    team: "Executive Members",
-    session: "2026–2027",
-    department: "Department of Electronics and Communication Engineering",
-    year: "II Year",
-    linkedinUrl: "https://www.linkedin.com/company/ieee-svce/",
-    status: "VERIFIED",
-  },
+  ...TEAM_MEMBERS_DATA.map((m) => {
+    let tier: TeamMember["tier"] = "FUNCTIONAL_LEAD";
+    if (m.division === "CORE") {
+      tier = m.designation.includes("Head") ? "DOMAIN_HEAD" : "CORE_OFFICER";
+    } else if (m.designation.includes("Head") || m.designation.includes("Lead")) {
+      tier = "DOMAIN_HEAD";
+    }
+
+    let teamName: string = m.division;
+    if (m.division === "CORE") {
+      teamName = "Core Executive Committee";
+    } else if (m.division === "TREASURY") {
+      teamName = "Treasury";
+    } else if (m.division === "TECHNICAL") {
+      teamName = "Technical Team";
+    } else if (m.division === "DESIGN") {
+      teamName = "Design Team";
+    } else if (m.division === "CONTENT") {
+      teamName = "Content Team";
+    } else if (m.division === "SOCIAL MEDIA & PHOTOGRAPHY") {
+      teamName = "Social Media & Photography";
+    } else if (m.division === "OUTREACH & EXECUTIVE") {
+      teamName = "Outreach & Executive";
+    }
+
+    return {
+      id: m.id,
+      name: m.name,
+      photo: m.image,
+      position: m.designation,
+      tier,
+      team: teamName,
+      session: "2026–2027",
+      department: m.department,
+      year: m.year,
+      linkedinUrl: m.linkedin || "https://www.linkedin.com/company/ieee-svce/",
+      status: "VERIFIED" as const,
+    };
+  }),
   // Faculty counselors — CONTENT PENDING VERIFICATION
   {
     id: "tm-counselor-01",

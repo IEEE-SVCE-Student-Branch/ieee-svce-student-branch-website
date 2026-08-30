@@ -35,19 +35,19 @@ export function SiteHeader() {
     <>
       <header className={`${styles.header} ${isScrolled ? styles.headerScrolled : ""}`}>
         <div className={`container ${styles.inner}`}>
-          {/* Left: Prominent & Transparent IEEE + SVCE Brand Identity Lockup */}
+          {/* Primary IEEE SVCE Coherent Home Brand Lockup */}
           <Link
             href="/"
             className={styles.brandLockup}
-            aria-label="IEEE SVCE Student Branch Homepage"
+            aria-label="IEEE SVCE Student Branch — Home"
             data-cursor="HOME"
           >
             <div className={styles.ieeeMarkWrapper}>
               <Image
                 src="/ieee.svg"
                 alt="IEEE Official Mark"
-                width={60}
-                height={60}
+                width={80}
+                height={80}
                 priority
                 className={styles.ieeeLogo}
               />
@@ -102,6 +102,7 @@ export function SiteHeader() {
               onClick={() => setIsExploreOpen(true)}
               aria-label="Open Explore Navigation Directory"
               aria-expanded={isExploreOpen}
+              aria-controls="explore-menu-dialog"
               data-cursor="EXPLORE"
             >
               <div className={styles.exploreMatrix} aria-hidden="true">
@@ -117,17 +118,6 @@ export function SiteHeader() {
               </div>
               <span className={styles.exploreText}>EXPLORE</span>
             </button>
-
-            {/* Emblem Institutional Token */}
-            <div className={styles.emblemBadge} title="SVCE Autonomous Institution Seal">
-              <Image
-                src="/brand/svce-emblem.png"
-                alt="SVCE Seal"
-                width={24}
-                height={24}
-                className={styles.emblemImg}
-              />
-            </div>
           </div>
         </div>
       </header>

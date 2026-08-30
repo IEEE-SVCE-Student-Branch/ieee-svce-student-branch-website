@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import styles from "./ExploreMenu.module.css";
 
@@ -744,7 +745,13 @@ export function ExploreMenu({ isOpen, onClose }: ExploreMenuProps) {
         {/* Top Control Bar */}
         <header className={styles.topControlBar}>
           {/* Dual-Logo Brand Lockup for Explore */}
-          <div className={styles.exploreBrandLockup}>
+          <Link
+            href="/"
+            className={styles.exploreBrandLockup}
+            onClick={onClose}
+            aria-label="Return to Homepage"
+            data-cursor="HOME"
+          >
             <Image
               src="/ieee.svg"
               alt="IEEE Official Mark"
@@ -764,7 +771,7 @@ export function ExploreMenu({ isOpen, onClose }: ExploreMenuProps) {
               <span className={styles.exploreBrandTitle}>IEEE SVCE</span>
               <span className={styles.exploreBrandLabel}>EXPLORE</span>
             </div>
-          </div>
+          </Link>
 
           <button
             type="button"

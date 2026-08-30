@@ -11,27 +11,70 @@ export function ContactForm() {
     message: "",
   });
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus("submitting");
+    setErrorMsg("");
+    setStatus("idle");
 
-    // Client-side simulation of inquiry dispatch
-    setTimeout(() => {
+    if (!formData.name.trim()) {
+      setErrorMsg("Full Name is required.");
+      setStatus("error");
+      return;
+    }
+    if (!formData.email.trim()) {
+      setErrorMsg("Email Address is required.");
+      setStatus("error");
+      return;
+    }
+    
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email.trim())) {
+      setErrorMsg("Please enter a valid email address.");
+      setStatus("error");
+      return;
+    }
+    if (!formData.message.trim()) {
+      setErrorMsg("Message/Dossier is required.");
+      setStatus("error");
+      return;
+    }
+
+    try {
+      setStatus("submitting");
+
+      const recipient = "ieee@svce.ac.in";
+      const subjectText = `IEEE SVCE Enquiry [${formData.subject.toUpperCase()}]: from ${formData.name}`;
+      const bodyText = `Sender Name: ${formData.name}\nSender Email: ${formData.email}\nCategory: ${formData.subject}\n\nMessage:\n${formData.message}`;
+
+      const mailtoUrl = `mailto:${recipient}?subject=${encodeURIComponent(subjectText)}&body=${encodeURIComponent(bodyText)}`;
+
+      window.location.href = mailtoUrl;
+
       setStatus("success");
       setFormData({ name: "", email: "", subject: "general", message: "" });
-    }, 800);
+    } catch {
+      setErrorMsg("Could not automatically open mail application. Please email ieee@svce.ac.in directly.");
+      setStatus("error");
+    }
   };
 
   return (
     <form className={styles.form} onSubmit={handleSubmit} noValidate>
       {status === "success" && (
         <div className={styles.successMessage} role="alert">
-          <div className={styles.successTitle}>✓ INQUIRY DISPATCHED</div>
+          <div className={styles.successTitle}>✓ MAIL CLIENT LAUNCHED</div>
           <p>
-            Your inquiry has been logged in the IEEE SVCE institutional communication dispatch. The
-            respective committee head will respond to your official email.
+            Your enquiry has been prepared. Please complete and send the draft in your mail application to submit your query to <strong>ieee@svce.ac.in</strong>.
           </p>
+        </div>
+      )}
+
+      {status === "error" && (
+        <div className={styles.errorMessage} role="alert">
+          <div className={styles.errorTitle}>✗ VALIDATION ERROR</div>
+          <p>{errorMsg}</p>
         </div>
       )}
 

@@ -99,3 +99,21 @@
   opacity: 0.7;
   cursor: wait;
 }
+
+.errorMessage {
+  padding: 1.25rem 1.5rem;
+  background-color: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: var(--radius-xs);
+  color: var(--color-text-primary);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.errorTitle {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  color: #ef4444;
+}

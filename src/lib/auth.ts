@@ -16,20 +16,13 @@ import { db } from "../../packages/content-model/db";
 import { users } from "../../packages/content-model/schema";
 import { loginSchema } from "../../packages/validation/schemas";
 import { createLogger } from "./logger";
-import type { UserRole } from "./roles";
+import { authConfig } from "./auth.config";
 
 const log = createLogger("auth");
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
+  ...authConfig,
   adapter: DrizzleAdapter(db),
-  session: {
-    strategy: "jwt",
-    // Short TTL per SEC-01: force re-authentication regularly
-    maxAge: 8 * 60 * 60, // 8 hours
-  },
-  pages: {
-    signIn: "/os/login",
-  },
   providers: [
     Credentials({
       name: "credentials",
@@ -74,22 +67,4 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
     }),
   ],
-  callbacks: {
-    async jwt({ token, user }) {
-      // On initial sign-in, embed role in token
-      if (user) {
-        token.role = (user as { role: UserRole }).role;
-        token.id = user.id;
-      }
-      return token;
-    },
-    async session({ session, token }) {
-      // Expose role and id in the session object
-      if (session.user) {
-        session.user.id = token.id as string;
-        session.user.role = token.role as UserRole;
-      }
-      return session;
-    },
-  },
 });

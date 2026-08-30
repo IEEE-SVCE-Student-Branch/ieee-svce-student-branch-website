@@ -1,0 +1,909 @@
+/* ==========================================================================
+   IEEE SVCE TEAM PAGE — PREMIUM ORGANIZATIONAL NETWORK STYLES
+   ========================================================================== */
+
+.teamPageContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+  width: 100%;
+  max-width: var(--max-width-container, 1380px);
+  margin: 0 auto;
+  padding: 2rem 1.5rem 5rem;
+}
+
+/* --------------------------------------------------------------------------
+   1. HERO SECTION & BRAND IDENTITY LOCKUP
+   -------------------------------------------------------------------------- */
+.heroSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.brandHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.brandLogoLockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.brandLogoIeee {
+  height: 64px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 10px rgba(0, 98, 155, 0.18));
+}
+
+.brandLogoSvce {
+  height: 56px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 10px rgba(0, 98, 155, 0.18));
+}
+
+.brandDivider {
+  width: 1px;
+  height: 48px;
+  background-color: var(--color-border);
+}
+
+.heroTag {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: var(--color-primary);
+  text-transform: uppercase;
+}
+
+.heroTitle {
+  font-size: clamp(2.5rem, 5.5vw, 4.25rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.heroTitleHighlight {
+  color: var(--color-primary);
+  position: relative;
+  display: inline-block;
+}
+
+.heroSubtitle {
+  font-size: clamp(1.125rem, 2vw, 1.375rem);
+  color: var(--color-text-secondary);
+  max-width: 720px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.heroStatsRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2.5rem;
+  margin-top: 1rem;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.statValue {
+  font-family: var(--font-mono);
+  font-size: 2.125rem;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 0.375rem;
+}
+
+/* --------------------------------------------------------------------------
+   2. SPATIAL NETWORK + INSPECTOR LAYOUT
+   -------------------------------------------------------------------------- */
+.mainNetworkLayout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.25rem;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .mainNetworkLayout {
+    grid-template-columns: 1.65fr 1fr;
+  }
+}
+
+@media (min-width: 1280px) {
+  .mainNetworkLayout {
+    grid-template-columns: 1.85fr 1fr;
+  }
+}
+
+.networkViewport {
+  position: relative;
+  width: 100%;
+  min-height: clamp(760px, 75vw, 960px);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem;
+}
+
+.networkSvgOverlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.connectionLine {
+  stroke: rgba(0, 98, 155, 0.14);
+  stroke-width: 1.5;
+  transition: stroke 300ms ease, stroke-width 300ms ease, stroke-dasharray 300ms ease;
+}
+
+.connectionLineActive {
+  stroke: rgba(0, 98, 155, 0.45);
+  stroke-width: 2;
+  stroke-dasharray: 4 2;
+}
+
+.connectionLineSelected {
+  stroke: var(--color-primary);
+  stroke-width: 3;
+  stroke-dasharray: 6 3;
+  animation: dashPulse 2s linear infinite;
+}
+
+.signalPulseLine {
+  stroke-width: 3.5;
+  stroke-dasharray: 8 6;
+  animation: signalPulseTravel 1.2s linear infinite;
+  filter: drop-shadow(0 0 6px rgba(2, 132, 199, 0.6));
+}
+
+@keyframes signalPulseTravel {
+  from {
+    stroke-dashoffset: 28;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes dashPulse {
+  to {
+    stroke-dashoffset: -18;
+  }
+}
+
+.networkCenterNode {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.98), rgba(235, 243, 255, 0.94));
+  border: 2.5px solid var(--color-primary-glow);
+  box-shadow: 0 0 50px rgba(0, 98, 155, 0.28), var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  z-index: 3;
+  padding: 1rem;
+  text-align: center;
+  transition: all 300ms ease;
+}
+
+.networkCenterNodeActive {
+  box-shadow: 0 0 70px rgba(2, 132, 199, 0.5), var(--shadow-card);
+  border-color: #0284c7;
+}
+
+.networkCenterLogo {
+  width: 88px;
+  height: auto;
+}
+
+.networkCenterLabel {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  letter-spacing: 0.12em;
+}
+
+/* Organic Asymmetric Spatial Member Node */
+.spatialNode {
+  position: absolute;
+  z-index: 4;
+  cursor: pointer;
+  background: var(--color-surface-solid);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 0.375rem 0.625rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: var(--shadow-subtle);
+  transform: translate(-50%, -50%)
+    translate3d(
+      calc(var(--p-dx, 0) * var(--p-weight, 0) * 8px),
+      calc(var(--p-dy, 0) * var(--p-weight, 0) * 8px),
+      0
+    )
+    scale(calc(1 + var(--p-weight, 0) * 0.06));
+  transition: border-color 200ms ease, box-shadow 200ms ease, transform 120ms ease-out;
+  user-select: none;
+  max-width: 145px;
+}
+
+.spatialNode:hover,
+.spatialNodeSelected {
+  border-color: var(--color-primary);
+  box-shadow: 0 8px 24px -4px rgba(0, 98, 155, 0.25), 0 0 16px rgba(0, 98, 155, 0.15);
+  z-index: 10;
+}
+
+.spatialNodeAvatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid var(--color-border);
+  background: var(--color-surface-muted);
+  flex-shrink: 0;
+}
+
+.spatialNodeAvatarFallback {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: white;
+  font-weight: 700;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.spatialNodeInfo {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  max-width: 92px;
+}
+
+.spatialNodeName {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.spatialNodeRole {
+  font-size: 0.625rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* --------------------------------------------------------------------------
+   3. PROFILE INSPECTOR PANEL
+   -------------------------------------------------------------------------- */
+.profilePanel {
+  background: var(--color-surface-solid);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 2.25rem;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  position: sticky;
+  top: 5.5rem;
+  transition: opacity 240ms ease, transform 240ms ease;
+}
+
+.profileCounterRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding-bottom: 1rem;
+}
+
+.profileCounter {
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  letter-spacing: 0.12em;
+}
+
+.profileDivisionBadge {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  background: var(--color-primary-subtle);
+  padding: 0.3125rem 0.75rem;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.profileImageContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  min-height: 260px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+  box-shadow: var(--shadow-card);
+  transform: perspective(800px)
+    rotateX(calc(var(--p-dy, 0) * var(--p-weight, 0) * -3deg))
+    rotateY(calc(var(--p-dx, 0) * var(--p-weight, 0) * 3deg));
+  transition: transform 120ms ease-out;
+}
+
+.profileImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.04)
+    translate3d(
+      calc(var(--p-dx, 0) * var(--p-weight, 0) * 6px),
+      calc(var(--p-dy, 0) * var(--p-weight, 0) * 6px),
+      0
+    );
+  transition: transform 120ms ease-out, opacity 200ms ease;
+}
+
+.profileImageFallback {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.75rem;
+  font-weight: 800;
+}
+
+.profileSpotlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at var(--p-light-x, 50%) var(--p-light-y, 50%),
+    rgba(255, 255, 255, 0.35) 0%,
+    transparent 60%
+  );
+  opacity: calc(0.3 + var(--p-weight, 0) * 0.7);
+  mix-blend-mode: overlay;
+}
+
+.profileMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.profileRoleTag {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.profileName {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.profileDeptYear {
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.metaDot {
+  color: var(--color-primary);
+  font-weight: 800;
+}
+
+.profileActionsRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--color-primary);
+  color: white;
+  font-weight: 700;
+  font-size: 0.875rem;
+  padding: 0.875rem 1.25rem;
+  border-radius: var(--radius-md);
+  transition: background-color 150ms ease, transform 150ms ease, box-shadow 150ms ease;
+  box-shadow: 0 4px 14px rgba(0, 98, 155, 0.25);
+  width: 100%;
+  text-decoration: none;
+}
+
+.btnPrimary:hover {
+  background: var(--color-primary-light);
+  transform: translateY(-1px);
+  color: white;
+  box-shadow: 0 6px 18px rgba(0, 98, 155, 0.35);
+  text-decoration: none;
+}
+
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--color-surface-muted);
+  color: var(--color-text-primary);
+  font-weight: 700;
+  font-size: 0.875rem;
+  padding: 0.8125rem 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  transition: background-color 150ms ease, border-color 150ms ease;
+  width: 100%;
+  text-decoration: none;
+}
+
+.btnSecondary:hover {
+  background: var(--color-surface-hover);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.unverifiedNotice {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  padding: 0.625rem 0.875rem;
+  border-radius: var(--radius-sm);
+  text-align: center;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   4. DIVISION NAVIGATION TABS (NO HORIZONTAL SCROLL)
+   -------------------------------------------------------------------------- */
+.tabsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.tabsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tabsTitle {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+}
+
+.tabsGrid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.75rem;
+  width: 100%;
+}
+
+@media (max-width: 1200px) {
+  .tabsGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .tabsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.tabButton {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.75rem 0.5rem;
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  text-align: center;
+  justify-content: center;
+  transition: all 180ms ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  cursor: pointer;
+  width: 100%;
+}
+
+.tabButton:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: var(--color-surface-hover);
+}
+
+.tabButtonActive {
+  background: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  color: white !important;
+  box-shadow: 0 4px 14px rgba(0, 98, 155, 0.3);
+}
+
+.tabBadge {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  opacity: 0.9;
+}
+
+/* --------------------------------------------------------------------------
+   5. MEMBER CARD GRID & ICON SOCIAL ACTIONS
+   -------------------------------------------------------------------------- */
+.memberRailSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.memberRailGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.75rem;
+  width: 100%;
+}
+
+.memberCard {
+  background: var(--color-surface-solid);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.125rem;
+  box-shadow: var(--shadow-subtle);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  min-height: 440px;
+  height: 100%;
+  transform: perspective(1000px)
+    rotateX(calc(var(--p-dy, 0) * var(--p-weight, 0) * -2.5deg))
+    rotateY(calc(var(--p-dx, 0) * var(--p-weight, 0) * 2.5deg))
+    translateZ(calc(var(--p-weight, 0) * 8px));
+  transition: transform 120ms ease-out, border-color 200ms ease, box-shadow 200ms ease;
+}
+
+/* Apple-level restrained spectral RGB edge system */
+.memberCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  padding: 1.5px;
+  background: conic-gradient(
+    from calc(var(--p-light-x, 50) * 3.6deg),
+    rgba(0, 98, 155, 0.7),
+    rgba(2, 132, 199, 0.85),
+    rgba(139, 92, 246, 0.8),
+    rgba(236, 72, 153, 0.75),
+    rgba(0, 98, 155, 0.7)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: calc(0.1 + var(--p-weight, 0) * 0.55);
+  transition: opacity 250ms ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.memberCard:hover::before,
+.memberCardSelected::before {
+  opacity: 0.95;
+  background: conic-gradient(
+    from calc(var(--p-light-x, 50) * 3.6deg),
+    #00629b,
+    #0284c7,
+    #8b5cf6,
+    #ec4899,
+    #00629b
+  );
+}
+
+.memberCard:hover,
+.memberCardSelected {
+  border-color: transparent;
+  box-shadow: var(--shadow-card), 0 0 24px rgba(2, 132, 199, 0.22);
+}
+
+.memberCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.memberCardIndex {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.memberCardDivisionTag {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  background: var(--color-surface-muted);
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+}
+
+.memberCardImageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-surface-muted);
+  flex-shrink: 0;
+}
+
+.memberCardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02)
+    translate3d(
+      calc(var(--p-dx, 0) * var(--p-weight, 0) * 4px),
+      calc(var(--p-dy, 0) * var(--p-weight, 0) * 4px),
+      0
+    );
+  transition: transform 120ms ease-out;
+}
+
+.memberCardImageFallback {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1e293b, var(--color-primary-dark));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+.memberCardSpotlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at var(--p-light-x, 50%) var(--p-light-y, 50%),
+    rgba(255, 255, 255, 0.3) 0%,
+    transparent 65%
+  );
+  opacity: calc(0.2 + var(--p-weight, 0) * 0.8);
+}
+
+.memberCardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-height: 84px;
+}
+
+.memberCardName {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.memberCardRole {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.memberCardDept {
+  font-size: 0.78125rem;
+  color: var(--color-text-secondary);
+  line-height: 1.35;
+}
+
+.memberCardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 0.875rem;
+  border-top: 1px solid var(--color-border-subtle);
+  min-height: 48px;
+}
+
+.cardSocialsGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.iconSocialBtn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-primary);
+  transition: all 180ms ease;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.iconSocialBtn::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: conic-gradient(from 0deg, #00629b, #06b6d4, #6366f1, #00629b);
+  opacity: 0;
+  transition: opacity 200ms ease;
+  z-index: 0;
+}
+
+.iconSocialBtn:hover::before,
+.iconSocialBtn:focus-visible::before {
+  opacity: 1;
+  animation: rotateChromatic 3s linear infinite;
+}
+
+.iconSocialBtn svg {
+  position: relative;
+  z-index: 1;
+  transition: transform 150ms ease;
+}
+
+.iconSocialBtn:hover svg {
+  transform: scale(1.1);
+  color: var(--color-primary);
+}
+
+.iconSocialDisabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@keyframes rotateChromatic {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. RESPONSIVE BREAKPOINTS
+   -------------------------------------------------------------------------- */
+@media (max-width: 1023px) {
+  .teamPageContainer {
+    gap: 2.75rem;
+  }
+
+  .networkViewport {
+    min-height: 480px;
+  }
+
+  .profilePanel {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .heroTitle {
+    font-size: 2.125rem;
+  }
+
+  .brandHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .networkViewport {
+    min-height: 420px;
+  }
+
+  .spatialNode {
+    padding: 0.375rem 0.5rem;
+  }
+
+  .spatialNodeInfo {
+    max-width: 100px;
+  }
+
+  .spatialNodeName {
+    font-size: 0.75rem;
+  }
+
+  .memberRailGrid {
+    grid-template-columns: 1fr;
+  }
+}

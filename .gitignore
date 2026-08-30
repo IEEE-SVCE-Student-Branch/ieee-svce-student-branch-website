@@ -48,3 +48,5 @@ temp/
 uploads/
 storage/
 drizzle/meta/
+# Team Lead report archive - managed separately
+public/reports/2026/
